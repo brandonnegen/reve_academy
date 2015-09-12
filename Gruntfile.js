@@ -57,6 +57,12 @@ module.exports = function(grunt){
                 cwd: 'node_modules',
                 src: 'bootstrap/dist/css/bootstrap.min.css',
                 dest: 'server/public/vendors/styles/'
+            },
+            jquery: {
+                expand: true,
+                cwd: 'node_modules',
+                src: 'jquery/dist/jquery.min.js',
+                dest: 'server/public/vendors'
             }
         }
     });
