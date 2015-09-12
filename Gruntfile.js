@@ -8,6 +8,12 @@ module.exports = function(grunt){
             client: {
                 src: 'client/scripts/app.js',
                 dest: 'server/public/assets/scripts/app.min.js'
+
+            },
+            controller: {
+                src: 'client/scripts/controllers/controller.js',
+                dest: 'server/public/assets/scripts/controllers/controller.min.js'
+
             }
         },
         copy: {
@@ -15,9 +21,16 @@ module.exports = function(grunt){
                 expand: true,
                 cwd: "client",
                 src: [
+                    "views/admin.html",
+                    "views/admin-assignments.html",
+                    "views/admin-classes.html",
+                    "views/admin-students.html",
+                    "views/admin-teachers.html",
                     "views/index.html",
+                    "views/login.html",
                     "views/register.html",
-                    "views/users.html"
+                    "views/schools.html",
+                    "views/teachers.html"
                 ],
                 dest: "server/public/assets/"
             },
@@ -27,11 +40,23 @@ module.exports = function(grunt){
                 src: 'styles/style.css',
                 dest: 'server/public/assets/'
             },
-            jquery: {
+            angular: {
                 expand: true,
                 cwd: 'node_modules',
-                src: 'jquery/dist/jquery.min.js',
+                src: 'angular/angular.min.js',
                 dest: 'server/public/vendors'
+            },
+            angularRoutes: {
+                expand: true,
+                cwd: 'node_modules',
+                src: 'angular-route/angular-route.min.js',
+                dest: 'server/public/vendors'
+            },
+            bootstrap: {
+                expand: true,
+                cwd: 'node_modules',
+                src: 'bootstrap/dist/css/bootstrap.min.css',
+                dest: 'server/public/vendors/styles/'
             }
         }
     });
