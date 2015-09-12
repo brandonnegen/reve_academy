@@ -12,7 +12,7 @@ router.post("/", function (req, res, next){
     console.log("Made it to post! ", req.body);
     Users.create(req.body, function(err, post){
         if(err) next(err);
-        else res.redirect("/")
+        else res.redirect("../public/assets/views/index.html")
     });
 });
 
