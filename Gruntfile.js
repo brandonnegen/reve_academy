@@ -21,11 +21,15 @@ module.exports = function(grunt){
                 expand: true,
                 cwd: "client",
                 src: [
-                    "views/index.html",
-                    "views/register.html",
                     "views/admin.html",
+                    "views/admin-assignments.html",
+                    "views/admin-classes.html",
+                    "views/admin-students.html",
+                    "views/admin-teachers.html",
+                    "views/index.html",
                     "views/login.html",
                     "views/register.html",
+                    "views/schools.html",
                     "views/teachers.html"
                 ],
                 dest: "server/public/assets/"

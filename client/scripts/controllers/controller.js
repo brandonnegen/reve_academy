@@ -15,3 +15,23 @@ reveApp.controller("AdminController", ["$scope", "$http", function($scope, $http
 reveApp.controller("TeacherController", ["$scope", "$http", function($scope, $http){
     console.log("Teacher Controller is working!");
 }]);
+
+reveApp.controller("SchoolController", ["$scope", "$http", function($scope, $http){
+    console.log("School Controller is working!");
+}]);
+
+reveApp.controller("AdminTeachersController", ["$scope", "$http", function($scope, $http){
+    console.log("Admin-Teacher Controller is working!");
+}]);
+
+reveApp.controller("AdminClassesController", ["$scope", "$http", function($scope, $http){
+    console.log("Admin-Classes Controller is working!");
+}]);
+
+reveApp.controller("AdminAssignmentsController", ["$scope", "$http", function($scope, $http){
+    console.log("Admin-Assignments Controller is working!");
+}]);
+
+reveApp.controller("AdminStudentsController", ["$scope", "$http", function($scope, $http){
+    console.log("Admin-Students Controller is working!");
+}]);

@@ -8,7 +8,7 @@ reveApp.config(['$routeProvider', function($routeProvider, $scope) {
             controller: 'AdminController',
             templateUrl: 'assets/views/admin.html'
         }).
-        when('/teacher', {
+        when('/teachers', {
             controller: 'TeacherController',
             templateUrl: 'assets/views/teachers.html'
         }).
@@ -19,6 +19,26 @@ reveApp.config(['$routeProvider', function($routeProvider, $scope) {
         when('/register', {
             controller: 'RegisterController',
             templateUrl: 'assets/views/register.html'
+        }).
+        when('/schools', {
+            controller: 'SchoolController',
+            templateUrl: 'assets/views/schools.html'
+        }).
+        when('/admin-teachers', {
+            controller: 'AdminTeachersController',
+            templateUrl: 'assets/views/admin-teachers.html'
+        }).
+        when('/admin-classes', {
+            controller: 'AdminClassesController',
+            templateUrl: 'assets/views/admin-classes.html'
+        }).
+        when('/admin-assignments', {
+            controller: 'AdminAssignmentsController',
+            templateUrl: 'assets/views/admin-assignments.html'
+        }).
+        when('/admin-students', {
+            controller: 'AdminStudentsController',
+            templateUrl: 'assets/views/admin-students.html'
         }).
         otherwise({redirectTo: '/login'});
 }]);
