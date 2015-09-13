@@ -10,6 +10,7 @@ reveApp.controller("RegisterController", ["$scope", "$http", function($scope, $h
 
 reveApp.controller("AdminController", ["$scope", "$http", function($scope, $http){
     console.log("Admin Controller is working!");
+
 }]);
 
 reveApp.controller("TeacherController", ["$scope", "$http", function($scope, $http){
