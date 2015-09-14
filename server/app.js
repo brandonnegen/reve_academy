@@ -8,9 +8,11 @@ var localStrategy = require('passport-local');
 var mongoose = require('mongoose');
 
 var User = require('./models/user');
+var School = require('./models/school');
 var index = require('./routes/index');
 var register = require('./routes/register');
 var users = require('./routes/users');
+var schools = require('./routes/schools');
 
 app.use(session({
     secret: 'secret',
@@ -72,6 +74,7 @@ passport.use('local', new localStrategy({
 
 app.use('/register', register);
 app.use('/user', users);
+app.use('/schools', schools);
 app.use('/', index);
 
 app.set('port',(process.env.PORT || 5000));
