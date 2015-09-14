@@ -4,9 +4,10 @@ var mongoose = require('mongoose'),
 var ClassSchema = new Schema({
     name: {type: String, required: true},
     startdate: {type: Date, required: true},
-    enddate: {type: Date, required: true},
-    student: [],
-    assignment: []
+    enddate: {type: Date, required: true}
+    //removing until we can test functionality
+    //student: [],
+    //assignment: []
 });
 
 module.exports = mongoose.model('Class', ClassSchema);

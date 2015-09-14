@@ -1,1 +1,50 @@
-<p>This page is for Teachers.</p>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://reveacademy.org/">Reve Academy</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/teachers">Dashboard</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <input type="text" class="form-control" placeholder="Search...">
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    <div class="row row-offcanvas row-offcanvas-left">
+
+        <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
+
+            <ul class="nav nav-sidebar">
+                <li ng-class="{active: $route.current.activetab == 'teachers'}"><a href="#/teachers">Overview</a></li>
+                <li ng-class="{active: $route.current.activetab == 'teacher-classes'}"><a href="#/teacher-classes">Classes</a></li>
+                <li ng-class="{active: $route.current.activetab == 'teacher-students'}"><a href="#/teacher-students">Students</a></li>
+            </ul>
+
+
+        </div><!--/span-->
+
+        <div class="col-sm-9 col-md-10 main">
+            <h2 class="sub-header">Section title</h2>
+                <h3>Here is information pertinent to teachers.</h3>
+        </div><!--/row-->
+    </div>
+</div><!--/.container-->
+
+<footer>
+    <p class="pull-right">©2015 Reve Academy</p>
+</footer>

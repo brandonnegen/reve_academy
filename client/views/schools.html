@@ -30,12 +30,12 @@
         <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
 
             <ul class="nav nav-sidebar">
-                <li><a href="#/admin">Overview</a></li>
-                <li><a href="#/schools">Schools</a></li>
-                <li><a href="#/admin-teachers">Teachers</a></li>
-                <li><a href="#/admin-classes">Classes</a></li>
-                <li><a href="#/admin-assignments">Assignments</a></li>
-                <li><a href="#/admin-students">Students</a></li>
+                <li ng-class="{active: $route.current.activetab == 'admin'}"><a href="#/admin">Overview</a></li>
+                <li ng-class="{active: $route.current.activetab == 'schools'}"><a href="#/schools">Schools</a></li>
+                <li ng-class="{active: $route.current.activetab == 'admin-teachers'}"><a href="#/admin-teachers">Teachers</a></li>
+                <li ng-class="{active: $route.current.activetab == 'admin-classes'}"><a href="#/admin-classes">Classes</a></li>
+                <li ng-class="{active: $route.current.activetab == 'admin-assignments'}"><a href="#/admin-assignments">Assignments</a></li>
+                <li ng-class="{active: $route.current.activetab == 'admin-students'}"><a href="#/admin-students">Students</a></li>
             </ul>
 
 
@@ -50,7 +50,6 @@
 
             <h1 class="page-header">
                 Dashboard
-                <p class="lead">(<a href="http://www.bootply.com/128936">with off-canvas sidebar</a>)</p>
             </h1>
 
             <div class="row placeholders">

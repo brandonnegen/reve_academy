@@ -9,13 +9,13 @@ var StudentSchema = new Schema({
     ethnicity: {type: String, required: true },
     gradelevel: {type: Number, required: true },
     age: {type: Number, required: true },
-    class: [],
-    assignment: [],
     softskillspre: {type: Number, required: true },
     softskillspost: {type: Number, required: true },
-    school: [],
-    classcompletion: {type: Boolean, required: false }
-
+    classcompletion: {type: Boolean, required: false },
+    school: []
+    //class: [],
+    //assignment: [],
+    //school: []
 });
 
 module.exports = mongoose.model('Student', StudentSchema);
