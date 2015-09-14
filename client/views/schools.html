@@ -83,7 +83,7 @@
                 <form name="form" action="/schools/schools" method="post">
                     <div class="form-group">
                         <label for="name">School Name</label>
-                        <input type="text" name="name" id="name" class="form-control" placeholder="School Name" required />
+                        <input ng-model="school.name" type="text" name="name" id="name" class="form-control" placeholder="School Name" required />
                     </div>
                     <div class="form-group">
                         <label for="address">Address</label>
@@ -112,9 +112,15 @@
                     </form>
             </div>
         </div><!--/row-->
+        <div id="someContainer" class="task-list col-xs-12">
+            <div class="col-md-3 school" ng-repeat="school in schoolData">
+                <p class="school-name">{{school.name}}School Name</p>
+            </div>
     </div>
 </div><!--/.container-->
 
+
+</div>
 <footer>
     <p class="pull-right">©2015 Reve Academy</p>
 </footer>

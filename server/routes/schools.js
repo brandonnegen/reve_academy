@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var mongoose = require('mongoose');
 var passport = require('passport');
 var path = require('path');
 var Schools = require('../models/school');
@@ -12,6 +13,13 @@ router.post("/schools", function (req, res, next){
     console.log("Made it to school post! ", req.body);
     Schools.create(req.body, function(err, post){
         res.send("Yes.");
+    });
+});
+
+router.get("/getschools", function(req,res,next){
+    return School.find({}).exec(function(err, info){
+        if(err) throw new Error(err);
+        res.send(JSON.stringify(info));
     });
 });
 
