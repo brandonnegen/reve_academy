@@ -10,7 +10,7 @@ router.post("/", passport.authenticate('local', {
 }));
 
 //router.get('/create', function(req, res, next){
-//    console.log("Made it here");
+//    console.log("Made it here"nod);
 //    res.sendFile(path.join(__dirname, "../public/assets/views/another.html"));
 //});
 
