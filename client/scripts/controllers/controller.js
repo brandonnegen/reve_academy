@@ -23,11 +23,6 @@ reveApp.controller("TeacherController", ["$scope", "$http", "$route", function($
 reveApp.controller("SchoolController", ["$scope", "$http", "$route", function($scope, $http, $route){
     console.log("School Controller is working!");
     $scope.$route = $route;
-}]);
-
-reveApp.controller("AdminTeachersController", ["$scope", "$http", "$route", function($scope, $http, $route){
-    console.log("Admin-Teacher Controller is working!");
-    $scope.$route = $route;
     $scope.school = {};
     $scope.getSchools = function(){
         console.log("Get request made");
@@ -37,6 +32,13 @@ reveApp.controller("AdminTeachersController", ["$scope", "$http", "$route", func
             $scope.schoolData = response.data;
         });
     };
+    $scope.getSchools();
+}]);
+
+reveApp.controller("AdminTeachersController", ["$scope", "$http", "$route", function($scope, $http, $route){
+    console.log("Admin-Teacher Controller is working!");
+    $scope.$route = $route;
+
 }]);
 
 reveApp.controller("AdminClassesController", ["$scope", "$http", "$route", function($scope, $http, $route){

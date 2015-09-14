@@ -91,3 +91,9 @@ a {
 .main .page-header {
     margin-top: 0;
 }
+
+.school  {
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: center;
+}

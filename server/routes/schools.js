@@ -17,7 +17,7 @@ router.post("/schools", function (req, res, next){
 });
 
 router.get("/getschools", function(req,res,next){
-    return School.find({}).exec(function(err, info){
+    return Schools.find({}).exec(function(err, info){
         if(err) throw new Error(err);
         res.send(JSON.stringify(info));
     });
