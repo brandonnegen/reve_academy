@@ -6,39 +6,58 @@ reveApp.config(['$routeProvider', function($routeProvider, $scope) {
     $routeProvider.
         when('/admin', {
             controller: 'AdminController',
-            templateUrl: 'assets/views/admin.html'
+            templateUrl: 'assets/views/admin.html',
+            activetab: 'admin'
         }).
         when('/teachers', {
             controller: 'TeacherController',
-            templateUrl: 'assets/views/teachers.html'
+            templateUrl: 'assets/views/teachers.html',
+            activetab: 'teachers'
         }).
         when('/login', {
             controller: 'LoginController',
-            templateUrl: 'assets/views/login.html'
+            templateUrl: 'assets/views/login.html',
+            activetab: 'login'
         }).
         when('/register', {
             controller: 'RegisterController',
-            templateUrl: 'assets/views/register.html'
+            templateUrl: 'assets/views/register.html',
+            activetab: 'register'
         }).
         when('/schools', {
             controller: 'SchoolController',
-            templateUrl: 'assets/views/schools.html'
+            templateUrl: 'assets/views/schools.html',
+            activetab: 'schools'
         }).
         when('/admin-teachers', {
             controller: 'AdminTeachersController',
-            templateUrl: 'assets/views/admin-teachers.html'
+            templateUrl: 'assets/views/admin-teachers.html',
+            activetab: 'admin-teachers'
         }).
         when('/admin-classes', {
             controller: 'AdminClassesController',
-            templateUrl: 'assets/views/admin-classes.html'
+            templateUrl: 'assets/views/admin-classes.html',
+            activetab: 'admin-classes'
         }).
         when('/admin-assignments', {
             controller: 'AdminAssignmentsController',
-            templateUrl: 'assets/views/admin-assignments.html'
+            templateUrl: 'assets/views/admin-assignments.html',
+            activetab: 'admin-assignments'
         }).
         when('/admin-students', {
             controller: 'AdminStudentsController',
-            templateUrl: 'assets/views/admin-students.html'
+            templateUrl: 'assets/views/admin-students.html',
+            activetab: 'admin-students'
+        }).
+        when('/teacher-classes', {
+            controller: 'TeacherClassesController',
+            templateUrl: 'assets/views/teacher-classes.html',
+            activetab: 'teacher-classes'
+        }).
+        when('/teacher-students', {
+            controller: 'TeacherStudentsController',
+            templateUrl: 'assets/views/teacher-students.html',
+            activetab: 'teacher-students'
         }).
         otherwise({redirectTo: '/login'});
 }]);
