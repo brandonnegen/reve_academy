@@ -7,7 +7,7 @@ var SchoolSchema = new Schema({
     district: {type: String, required: true},
     phone: {type: Number, required: true},
     email: {type: String, required: true},
-    contactperson: {type: String, required: true},
+    contactperson: {type: String, required: true}
     //student: [],
     //class: [],
     //teacher: []
