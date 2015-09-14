@@ -13,6 +13,7 @@ var index = require('./routes/index');
 var register = require('./routes/register');
 var users = require('./routes/users');
 var schools = require('./routes/schools');
+var adminClasses = require('./routes/admin-classes');
 
 app.use(session({
     secret: 'secret',
@@ -75,6 +76,8 @@ passport.use('local', new localStrategy({
 app.use('/register', register);
 app.use('/user', users);
 app.use('/schools', schools);
+app.use('/admin-classes', adminClasses);
+
 app.use('/', index);
 
 app.set('port',(process.env.PORT || 5000));
