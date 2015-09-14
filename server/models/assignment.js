@@ -3,11 +3,16 @@ var mongoose = require('mongoose'),
 
 var AssignmentSchema = new Schema({
     name: {type: String, required: true},
-    grade: {type: Number, required: true},
-    completion: {type: Boolean, required: true}
+    grade: {type: Number},
+    completion: {type: Boolean}
     //removing until we can test functionality
     //student: [],
     //class: []
 });
+
+AssignmentSchema.pre('create', function(next){
+    console.log("PreSave");
+    next();
+})
 
 module.exports = mongoose.model('Assignment', AssignmentSchema);

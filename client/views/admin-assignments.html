@@ -80,6 +80,16 @@
             <h2 class="sub-header">Section title</h2>
             <div class="assignment-info">
                 <h1>Assignment Information</h1>
+                <form name="form" action="/admin-assignments/admin-assignments" method="post">
+                    <div class="form-group">
+                        <label for="name">Assignment Name</label>
+                        <input type="text" name="name" id="name" class="form-control" placeholder="Assignment Name" required />
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" href="#/admin-assignments">Submit</button>
+                        <!--<a href="#/login" class="btn btn-link">Cancel</a>-->
+                    </div>
+                </form>
             </div>
         </div><!--/row-->
     </div>
