@@ -9,6 +9,11 @@ var UserSchema = new Schema({
     firstname: {type: String, required:true },
     lastname: {type: String, required: true },
     school: {type:String, required: true},
+    phone: {type: Number, required: true},
+    email: {type: String, required: true},
+    //student: [],
+    //class: [],
+    //school: [],
     lastlogin: {type: Date, default: Date.now()}
 
 });
