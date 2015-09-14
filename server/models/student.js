@@ -12,7 +12,7 @@ var StudentSchema = new Schema({
     softskillspre: {type: Number, required: true },
     softskillspost: {type: Number, required: true },
     classcompletion: {type: Boolean, required: false },
-    school: [],
+    school: []
     //class: [],
     //assignment: [],
     //school: []
