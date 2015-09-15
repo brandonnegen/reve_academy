@@ -31,8 +31,16 @@ reveApp.controller("TeacherController", ["$scope", "$http", "$route", function($
     $scope.$route = $route;
 }]);
 
-reveApp.controller("SchoolController", ["$scope", "$http", "$route", function($scope, $http, $route){
+reveApp.controller("SchoolController", ["$rootScope", "$scope", "$http", "$route", function($rootScope, $scope, $http, $route){
     console.log("School Controller is working!");
+
+    $rootScope.$on('hideMessages', function(){
+        $scope.$apply(function(){
+            $scope.showSuccessMessage = false;
+        });
+
+    });
+
     $scope.$route = $route;
     $scope.school = {};
     $scope.getSchools = function(){
@@ -44,6 +52,23 @@ reveApp.controller("SchoolController", ["$scope", "$http", "$route", function($s
 
         });
     };
+
+    $scope.sendSchool = function(){
+            return $http.post('/schools', {name: $scope.school.name, address: $scope.school.address, district: $scope.school.district, phone: $scope.school.phone, email: $scope.school.email, contactperson: $scope.school.contactperson})
+                .success(function(response) {
+                    $scope.school.name = "";
+                    $scope.school.address = "";
+                    $scope.school.district = "";
+                    $scope.school.phone = "";
+                    $scope.school.email = "";
+                    $scope.school.contactperson = "";
+                    $scope.successMessage = "You saved it!";
+                    $scope.showSuccessMessage = true;
+                    $scope.getSchools();
+                });
+
+        };
+
     $scope.getSchools();
 }]);
 
