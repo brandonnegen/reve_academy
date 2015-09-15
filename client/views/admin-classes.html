@@ -98,6 +98,18 @@
                     </div>
                 </form>
             </div>
+
+            <hr>
+
+            <div id="someContainer" class="col-xs-12">
+                <div class="col-md-12 admin-classes well" ng-repeat="adminClasses in adminClassesData">
+                    <p class="admin-classes-list classes-name">Class Name: {{adminClasses.name}}</p>
+                    <p class="admin-classes-list classes-startdate">Class Start Date: {{adminClasses.startdate}}</p>
+                    <p class="admin-classes-list classes-enddate">Class End Date: {{adminClasses.enddate}}</p>
+                </div>
+            </div>
+
+
         </div><!--/row-->
     </div>
 </div><!--/.container-->

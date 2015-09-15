@@ -81,6 +81,31 @@ reveApp.controller("AdminTeachersController", ["$scope", "$http", "$route", func
 reveApp.controller("AdminClassesController", ["$scope", "$http", "$route", function($scope, $http, $route){
     console.log("Admin-Classes Controller is working!");
     $scope.$route = $route;
+    $scope.adminClasses = {};
+    $scope.getClasses = function(){
+        console.log("Get request made");
+        //GET
+        $http.get('/admin-classes/getclasses').then(function(response){
+            console.log(response.data);
+            $scope.adminClassesData = response.data;
+            for(var i = 0; i < response.data.length; i++){
+                $scope.raw = JSON.stringify(response.data[i].startdate);
+                $scope.string = JSON.parse($scope.raw);
+                $scope.dateFormatted = new Date($scope.string);
+                $scope.classStart = $scope.dateFormatted;
+                console.log($scope.classStart);
+            }
+            for(var i = 0; i < response.data.length; i++){
+                $scope.raw = JSON.stringify(response.data[i].enddate);
+                $scope.string = JSON.parse($scope.raw);
+                $scope.dateFormatted = new Date($scope.string);
+                $scope.classEnd = $scope.dateFormatted;
+                console.log($scope.classEnd);
+            }
+
+        });
+    };
+    $scope.getClasses();
 }]);
 
 reveApp.controller("AdminAssignmentsController", ["$scope", "$http", "$route", function($scope, $http, $route){
