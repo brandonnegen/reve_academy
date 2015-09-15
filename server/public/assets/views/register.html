@@ -17,11 +17,11 @@
             <label for="password">Password</label>
             <input type="password" name="password" id="password" class="form-control" placeholder="Password" required />
         </div>
-        <div>
-            <select id="school" name="school">
-                <option value="school1">school1</option>
-                <option value="school2">school2</option>
-                <option value="school3">school3</option>
+
+        <div class="form-group">
+            <label for="registerschool">School</label><br />
+            <select id="registerschool" name="school">
+                <option value="school1" ng-repeat="school in schoolData">{{school.name}}</option>
             </select>
         </div>
         <div class="form-actions">

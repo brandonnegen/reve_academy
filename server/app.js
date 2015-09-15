@@ -15,6 +15,7 @@ var users = require('./routes/users');
 var schools = require('./routes/schools');
 var adminAssignments = require('./routes/admin-assignments');
 var adminClasses = require('./routes/admin-classes');
+var adminStudents = require('./routes/admin-students');
 
 app.use(session({
     secret: 'secret',
@@ -79,6 +80,7 @@ app.use('/user', users);
 app.use('/schools', schools);
 app.use('/admin-assignments', adminAssignments);
 app.use('/admin-classes', adminClasses);
+app.use('/admin-students', adminStudents);
 app.use('/', index);
 
 app.set('port',(process.env.PORT || 5000));
