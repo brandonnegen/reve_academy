@@ -17,4 +17,11 @@ router.post("/admin-assignments", function (req, res, next){
     });
 });
 
+router.get("/getassignments", function(req,res,next){
+    return Assignments.find({}).exec(function(err, info){
+        if(err) throw new Error(err);
+        res.send(JSON.stringify(info));
+    });
+});
+
 module.exports = router;

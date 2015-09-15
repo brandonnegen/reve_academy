@@ -91,6 +91,16 @@
                     </div>
                 </form>
             </div>
+
+            <hr>
+
+            <div id="someContainer" class="col-xs-12">
+                <div class="col-md-12 admin-assignments well" ng-repeat="adminAssignments in adminAssignmentsData">
+                    <p class="admin-assignments-list assignments-name">Class Name: {{adminAssignments.name}}</p>
+                </div>
+            </div>
+
+
         </div><!--/row-->
     </div>
 </div><!--/.container-->
