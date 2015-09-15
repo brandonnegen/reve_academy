@@ -115,13 +115,16 @@
             <hr>
 
             <div id="someContainer" class="col-xs-12">
-                <div class="col-md-12 school well" ng-repeat="school in schoolData">
+                <div class="col-md-12 school well" ng-repeat="school in schoolData" ng-click="show=!show">
                     <p class="school-list school-name">School Name: {{school.name}}</p>
                     <p class="school-list school-address">School Address: {{school.address}}</p>
-                    <p class="school-list school-address">School District: {{school.district}}</p>
-                    <p class="school-list school-address">School Phone: {{school.phone}}</p>
-                    <p class="school-list school-address">School Email: {{school.email}}</p>
-                    <p class="school-list school-address">School Contact Person: {{school.contactperson}}</p>
+                    <div class="show-more hidden-info" >
+                        <p class="school-list school-address" ng-show="show">School District: {{school.district}}</p>
+                        <p class="school-list school-address" ng-show="show">School Phone: {{school.phone}}</p>
+                        <p class="school-list school-address" ng-show="show">School Email: {{school.email}}</p>
+                        <p class="school-list school-address" ng-show="show">School Contact Person: {{school.contactperson}}</p>
+                    </div>
+                    <button class="trigger" >More Info</button>
                 </div>
             </div>
 
