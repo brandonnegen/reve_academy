@@ -5,8 +5,15 @@ body {
 footer {
     padding-left: 15px;
     padding-right: 15px;
-    background-color: #d14414;
-    height: 25px;
+    background-color: #000;
+    height: 50px;
+    color: #707372;
+    text-align: center;
+}
+
+.pull-right{
+    margin-top: 15px;
+
 }
 .navbar-header {
     background-color: #d14414;
@@ -130,6 +137,11 @@ a:link {
     background-color: #d14414;
 }
 
+.nav-sidebar .active a:hover {
+    color: #fff;
+    background-color: #d14414;
+}
+
 .school {
     display: block;
 }
@@ -137,9 +149,12 @@ a:link {
 .school-list {
     text-align: left;
 }
+<<<<<<< HEAD
 
 .nav-sidebar > .active > a:hover {
     color: #fff;
     background-color: #d14414;
 }
 
+=======
+>>>>>>> d29f5a7b4d77dfda992f58f10e80f65aa88df602
