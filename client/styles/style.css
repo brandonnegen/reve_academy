@@ -5,8 +5,10 @@ body {
 footer {
     padding-left: 15px;
     padding-right: 15px;
-    background-color: #d14414;
-    height: 25px;
+    background-color: #000;
+    height: 50px;
+    color: white;
+    text-align: center;
 }
 .navbar-header {
     background-color: #d14414;
@@ -130,3 +132,14 @@ a:link {
     background-color: #d14414;
 }
 
+/*a:focus, a:hover {*/
+    /*color: #d14414;*/
+    /*text-decoration: underline;*/
+/*}*/
+
+
+
+.nav-sidebar .active a:hover {
+    color: #fff;
+    background-color: #d14414;
+}
