@@ -111,18 +111,23 @@
                     </div>
                 </form>
             </div>
+
+            <hr>
+
+            <div id="someContainer" class="col-xs-12">
+                <div class="col-md-12 school well" ng-repeat="school in schoolData">
+                    <p class="school-list school-name">School Name: {{school.name}}</p>
+                    <p class="school-list school-address">School Address: {{school.address}}</p>
+                    <p class="school-list school-address">School District: {{school.district}}</p>
+                    <p class="school-list school-address">School Phone: {{school.phone}}</p>
+                    <p class="school-list school-address">School Email: {{school.email}}</p>
+                    <p class="school-list school-address">School Contact Person: {{school.contactperson}}</p>
+                </div>
+            </div>
+
         </div><!--/row-->
     </div>
-    <div id="someContainer" class="task-list col-xs-12">
-        <div class="col-md-3 school" ng-repeat="school in schoolData">
-            <p class="school-name">School Name: {{school.name}}</p>
-            <p class="school-address">School Address: {{school.address}}</p>
-            <p class="school-address">School District: {{school.district}}</p>
-            <p class="school-address">School Phone: {{school.phone}}</p>
-            <p class="school-address">School Email: {{school.email}}</p>
-            <p class="school-address">School Contact Person: {{school.contactperson}}</p>
 
-        </div>
 </div><!--/.container-->
 
 
