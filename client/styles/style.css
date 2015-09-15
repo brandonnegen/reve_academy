@@ -7,8 +7,13 @@ footer {
     padding-right: 15px;
     background-color: #000;
     height: 50px;
-    color: white;
+    color: #707372;
     text-align: center;
+}
+
+.pull-right{
+    margin-top: 15px;
+
 }
 .navbar-header {
     background-color: #d14414;
