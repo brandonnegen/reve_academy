@@ -14,4 +14,11 @@ router.post("/admin-students", function (req, res, next){
     });
 });
 
+router.get("/getstudents", function(req,res,next){
+    return Students.find({}).exec(function(err, info){
+        if(err) throw new Error(err);
+        res.send(JSON.stringify(info));
+    });
+});
+
 module.exports = router;

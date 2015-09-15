@@ -14,4 +14,11 @@ router.post("/classes", function (req, res, next){
     });
 });
 
+router.get("/getclasses", function(req,res,next){
+    return Classes.find({}).exec(function(err, info){
+        if(err) throw new Error(err);
+        res.send(JSON.stringify(info));
+    });
+});
+
 module.exports = router;
