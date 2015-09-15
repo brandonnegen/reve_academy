@@ -138,3 +138,8 @@ a:link {
     text-align: left;
 }
 
+.nav-sidebar > .active > a:hover {
+    color: #fff;
+    background-color: #d14414;
+}
+
