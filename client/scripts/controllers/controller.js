@@ -1,5 +1,6 @@
 var reveApp = angular.module('reveApp');
 
+
 reveApp.controller("LoginController", ["$scope", "$http", function($scope, $http){
     console.log("Login Controller is working!");
 }]);
@@ -7,6 +8,16 @@ reveApp.controller("LoginController", ["$scope", "$http", function($scope, $http
 reveApp.controller("RegisterController", ["$scope", "$http", "$route", function($scope, $http, $route){
     console.log("Register Controller is working!");
     $scope.$route = $route;
+    $scope.getSchools = function(){
+        console.log("Get request made");
+        //GET
+        $http.get('/schools/getschools').then(function(response){
+            console.log(response.data);
+            $scope.schoolData = response.data;
+
+        });
+    };
+    $scope.getSchools();
 }]);
 
 reveApp.controller("AdminController", ["$scope", "$http", "$route", function($scope, $http, $route){
@@ -30,6 +41,7 @@ reveApp.controller("SchoolController", ["$scope", "$http", "$route", function($s
         $http.get('/schools/getschools').then(function(response){
             console.log(response.data);
             $scope.schoolData = response.data;
+
         });
     };
     $scope.getSchools();
