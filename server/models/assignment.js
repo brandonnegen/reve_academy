@@ -13,6 +13,6 @@ var AssignmentSchema = new Schema({
 AssignmentSchema.pre('create', function(next){
     console.log("PreSave");
     next();
-})
+});
 
 module.exports = mongoose.model('Assignment', AssignmentSchema);
