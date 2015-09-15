@@ -54,7 +54,14 @@ reveApp.controller("SchoolController", ["$rootScope", "$scope", "$http", "$route
     };
 
     $scope.sendSchool = function(){
-            return $http.post('/schools', {name: $scope.school.name, address: $scope.school.address, district: $scope.school.district, phone: $scope.school.phone, email: $scope.school.email, contactperson: $scope.school.contactperson})
+            return $http.post('/schools', {
+                name: $scope.school.name,
+                address: $scope.school.address,
+                district: $scope.school.district,
+                phone: $scope.school.phone,
+                email: $scope.school.email,
+                contactperson: $scope.school.contactperson
+            })
                 .success(function(response) {
                     $scope.school.name = "";
                     $scope.school.address = "";
