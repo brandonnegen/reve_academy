@@ -150,13 +150,18 @@ a:link {
     text-align: left;
 }
 
-/* The starting CSS styles for the enter animation */
-.fade.ng-enter {
-    transition:0.2s linear all;
-    opacity:0;
+.showInfo {
+    margin:10px 0 20px 0;
+    padding:10px;
+    border:1px solid rgba(0,0,0,0.2);
+    color:#fff;
+    border-radius:4px;
+
+    -webkit-transition:all linear 0.5s;
+    transition:all linear 0.5s;
 }
 
-/* The finishing CSS styles for the enter animation */
-.fade.ng-enter.ng-enter-active {
-    opacity:1;
+.showInfo.ng-hide {
+    opacity:0;
+    /* transform: scale(0.8); */
 }
