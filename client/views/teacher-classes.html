@@ -45,7 +45,7 @@
                 <div class="form-group">
                     <label for="name">School</label><br />
                     <select id="name" name="name">
-                        <option value="school1" ng-repeat="adminClasses in adminClassesData">{{adminClasses.name}}</option>
+                        <option value="{{adminClasses.name}}" ng-repeat="adminClasses in adminClassesData">{{adminClasses.name}}</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -60,6 +60,15 @@
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
+
+            <hr>
+
+            <div class="form-group">
+                <label for="name">School</label><br />
+                <select id="name" name="name">
+                    <option value="{{adminClasses.name}}" ng-repeat="adminClasses in adminClassesData">{{adminClasses.name}}</option>
+                </select>
+            </div>
 
             <hr>
 

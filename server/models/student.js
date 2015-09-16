@@ -12,7 +12,8 @@ var StudentSchema = new Schema({
     softskillspre: {type: Number},
     softskillspost: {type: Number},
     classcompletion: {type: Boolean},
-    school: []
+    classes: {type: String}
+    //school: []
     //class: [],
     //assignment: [],
 });

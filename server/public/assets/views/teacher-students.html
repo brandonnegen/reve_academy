@@ -71,6 +71,12 @@
                         <label for="ethnicity">Ethnicity</label>
                         <input ng-model="student.ethnicity" type="text" name="ethnicity" id="ethnicity" class="form-control" placeholder="Ethnicity" required />
                     </div>
+                    <div class="form-group">
+                        <label for="classes">School</label><br />
+                        <select id="classes" name="classes">
+                            <option value="{{adminClasses.name}}" ng-repeat="adminClasses in adminClassesData">{{adminClasses.name}}</option>
+                        </select>
+                    </div>
                     <div class="form-actions">
                         <button type="submit" class="btn btn-primary" href="#/schools">Submit</button>
                         <!--<a href="#/login" class="btn btn-link">Cancel</a>-->
@@ -80,14 +86,22 @@
 
             <hr>
 
+            <div class="form-group">
+                <label for="name">School</label><br />
+                <select id="name" name="name" ng-model="sortExpression">
+                    <option value="{{adminClasses.name}}" ng-repeat="adminClasses in adminClassesData">{{adminClasses.name}}</option>
+                </select>
+            </div>
+
             <div id="someContainer" class="col-xs-12">
-                <div class="col-md-12 admin-student well" ng-repeat="adminStudents in adminStudentsData">
+                <div class="col-md-12 admin-student well" ng-repeat="adminStudents in adminStudentsData | orderBy:sortExpression">
                     <p class="admin-student-list student-name">Student Name: {{adminStudents.firstname}} {{adminStudents.lastname}}</p>
                     <p class="admin-student-list student-gradelevel">Student Grade Level: {{adminStudents.gradelevel}}</p>
                     <p class="admin-student-list student-age">Student Age: {{adminStudents.age}}</p>
                     <p class="admin-student-list student-gender">Student Gender: {{adminStudents.gender}}</p>
                     <p class="admin-student-list student-race">Student Race: {{adminStudents.race}}</p>
                     <p class="admin-student-list student-ethnicity">Student Ethnicity: {{adminStudents.ethnicity}}</p>
+                    <p class="admin-student-list student-classes">Class Enrolled In: {{adminStudents.classes}}</p>
                 </div>
             </div>
         </div><!--/row-->

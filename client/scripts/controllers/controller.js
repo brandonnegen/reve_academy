@@ -209,7 +209,6 @@ reveApp.controller("TeacherClassesController", ["$scope", "$http", "$route", fun
                 $scope.classEnd = $scope.dateFormatted;
                 console.log($scope.classEnd);
             }
-
         });
     };
     $scope.getClasses();
@@ -219,6 +218,7 @@ reveApp.controller("TeacherStudentsController", ["$scope", "$http", "$route", fu
     console.log("Teacher-Students Controller is working!");
     $scope.$route = $route;
     $scope.adminStudents = {};
+    $scope.adminClasses = {};
     $scope.getStudents = function(){
         console.log("Get request made");
         //GET
@@ -228,5 +228,20 @@ reveApp.controller("TeacherStudentsController", ["$scope", "$http", "$route", fu
 
         });
     };
+    $scope.getClasses = function(){
+        console.log("Get request made");
+        //GET
+        $http.get('/admin-classes/getclasses').then(function(response){
+            console.log(response.data);
+            $scope.adminClassesData = response.data;
+            //$scope.mySortFunction = function(response) {
+            //    if(isNaN(response[$scope.sortExpression]))
+            //        return response[$scope.sortExpression];
+            //    return parseInt(response[$scope.sortExpression]);
+            //}
+        });
+    };
+
+    $scope.getClasses();
     $scope.getStudents();
 }]);
