@@ -8,14 +8,15 @@ var Assignments = require('../models/assignment');
 //    res.sendFile(path.resolve(__dirname, '../public/assets/views/school.html'));
 //});
 
-router.post("/admin-assignments", function (req, res, next){
-    console.log("Made it to admin-assignment post! ", req.body);
-    Assignments.create(req.body, function(err, post){
-        if(err) console.log("HERE IS THE ERR FOO: ", err);
-        console.log(post);
-        res.send("Yes.");
+router.post("/postassignments", function (req, res, next){
+    console.log("Made it to assignment post! ", req.body);
+    var assignment = new Assignments({name: req.body.name, grade: req.body.grade, completion: req.body.completion});
+    assignment.save(function(err){
+        if(err) console.log('error: ', err);
+        res.send(assignment.toJSON());
     });
 });
+
 
 router.get("/getassignments", function(req,res,next){
     return Assignments.find({}).exec(function(err, info){
