@@ -158,14 +158,13 @@ a:link {
 .my-animation {
     overflow-y: hidden;
     max-height: 500px; /* approximate max height */
-    background-color: red;
     transition-property: all;
     transition-duration: 0.5s;
     transition-timing-function: cubic-bezier(1, 1, 0.5, 1);
 }
 
 .my-animation.ng-hide {
-    max-height: 0px;
+    max-height: 0;
 }
 
 .my-animation.ng-hide-add,

@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
 var AssignmentSchema = new Schema({
     name: {type: String, required: true},
     grade: {type: Number},
-    completion: {type: Boolean}
+    completion: {type: String}
     //removing until we can test functionality
     //student: [],
     //class: []

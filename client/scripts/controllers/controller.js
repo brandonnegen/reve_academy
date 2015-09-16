@@ -153,7 +153,15 @@ reveApp.controller("AdminTeachersController", ["$scope", "$http", "$route", func
     $scope.getClasses();
 }]);
 
-reveApp.controller("AdminAssignmentsController", ["$scope", "$http", "$route", function($scope, $http, $route){
+reveApp.controller("AdminAssignmentsController", ["$rootScope", "$scope", "$http", "$route", function($rootScope, $scope, $http, $route){
+
+    $rootScope.$on('hideMessages', function(){
+        $scope.$apply(function(){
+            $scope.showSuccessMessage = false;
+        });
+
+    });
+
     console.log("Admin-Assignments Controller is working!");
     $scope.$route = $route;
     $scope.adminAssignments = {};
@@ -166,6 +174,22 @@ reveApp.controller("AdminAssignmentsController", ["$scope", "$http", "$route", f
 
         });
     };
+
+    $scope.sendAssignment = function(){
+        return $http.post('/admin-assignments/postassignments', {
+            name: $scope.adminAssignments.name,
+            grade: $scope.adminAssignments.grade,
+            completion: $scope.adminAssignments.completion
+        })
+            .success(function(response) {
+                $scope.adminAssignments.name = "";
+                $scope.successMessage = "You saved it!";
+                $scope.showSuccessMessage = true;
+                $scope.getAssignments();
+            });
+
+    };
+
     $scope.getAssignments();
 }]);
 
