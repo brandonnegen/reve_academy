@@ -160,7 +160,7 @@ a:link {
     max-height: 500px; /* approximate max height */
     transition-property: all;
     transition-duration: 0.5s;
-    transition-timing-function: cubic-bezier(1, 1, 0.5, 1);
+    /*transition-timing-function: cubic-bezier(1, 1, 0.5, 1);*/
 }
 
 .my-animation.ng-hide {
@@ -171,4 +171,8 @@ a:link {
 .my-animation.ng-hide-remove {
     -webkit-transition:1s;
     transition: 1s;
+}
+
+.trigger {
+    float: left;
 }
