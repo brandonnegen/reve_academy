@@ -1,4 +1,4 @@
-var reveApp = angular.module('reveApp',['ngRoute', 'appControllers']);
+var reveApp = angular.module('reveApp',['ngRoute', 'appControllers', 'ngAnimate']);
 
 var appControllers = angular.module('appControllers', []);
 
@@ -60,4 +60,7 @@ reveApp.config(['$routeProvider', function($routeProvider, $scope) {
             activetab: 'teacher-students'
         }).
         otherwise({redirectTo: '/login'});
+
+
+
 }]);

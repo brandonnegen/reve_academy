@@ -116,24 +116,22 @@
             <hr>
 
             <div id="someContainer" class="col-xs-12">
-                <div class="col-md-12 school well" ng-repeat="school in schoolData">
+                <div class="slide col-md-12 school well" ng-repeat="school in schoolData">
                     <p class="school-list school-name">School Name: {{school.name}}</p>
                     <p class="school-list school-address">School Address: {{school.address}}</p>
-                    <p class="school-list school-address">School District: {{school.district}}</p>
-                    <p class="school-list school-address">School Phone: {{school.phone}}</p>
-                    <p class="school-list school-address">School Email: {{school.email}}</p>
-                    <p class="school-list school-address">School Contact Person: {{school.contactperson}}</p>
+                    <div  class="showInfo" ng-animate="'animate'" >
+                        <p class="school-list school-address"  ng-show="show">School District: {{school.district}}</p>
+                        <p class="school-list school-address"  ng-show="show">School Phone: {{school.phone}}</p>
+                        <p class="school-list school-address"  ng-show="show">School Email: {{school.email}}</p>
+                        <p class="school-list school-address"  ng-show="show">School Contact Person: {{school.contactperson}}</p>
+                    </div>
+                    <button class="trigger"  ng-click="show=!show">More Info</button>
                 </div>
             </div>
-
         </div><!--/row-->
     </div>
 
 </div><!--/.container-->
-
-
-
-</div>
 <footer>
     <p class="pull-right">©2015 Reve Academy</p>
 </footer>
