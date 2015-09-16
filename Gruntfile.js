@@ -54,6 +54,12 @@ module.exports = function(grunt){
                 src: 'angular-route/angular-route.min.js',
                 dest: 'server/public/vendors'
             },
+            angularAnimate: {
+                expand:true,
+                cwd: 'node_modules',
+                src: 'angular-animate/angular-animate.min.js',
+                dest: 'server/public/vendors'
+            },
             bootstrap: {
                 expand: true,
                 cwd: 'node_modules',
