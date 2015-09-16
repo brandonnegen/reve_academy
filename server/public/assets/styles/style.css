@@ -152,15 +152,20 @@ a:link {
 
 
 .my-animation {
-    opacity: 1;
+    overflow-y: hidden;
+    max-height: 500px; /* approximate max height */
+    background-color: red;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier(1, 1, 0.5, 1);
 }
 
 .my-animation.ng-hide {
-    opacity: 0;
+    max-height: 0px;
 }
 
 .my-animation.ng-hide-add,
 .my-animation.ng-hide-remove {
-    -webkit-transition: 0.5s linear all;
-    transition: 0.5s linear all;
+    -webkit-transition:1s;
+    transition: 1s;
 }
