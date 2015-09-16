@@ -40,7 +40,56 @@
 
         <div class="col-sm-9 col-md-10 main">
             <h2 class="sub-header">Section title</h2>
-            <h3>Here is student information for teachers.</h3>
+            <div class="students-info">
+                <h1>Student Information</h1>
+                <form name="form" action="/admin-students/admin-students" method="post">
+                    <div class="form-group">
+                        <label for="firstname">First Name</label>
+                        <input ng-model="student.firstname" type="text" name="firstname" id="firstname" class="form-control" placeholder="First Name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname">Last Name</label>
+                        <input ng-model="student.lastname" type="text" name="lastname" id="lastname" class="form-control" placeholder="Last Name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="gradelevel">Grade Level</label>
+                        <input ng-model="student.gradelevel" type="text" name="gradelevel" id="gradelevel" class="form-control" placeholder="Grade Level" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input ng-model="student.age" type="text" name="age" id="age" class="form-control" placeholder="Age" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <input ng-model="student.gender" type="text" name="gender" id="gender" class="form-control" placeholder="Gender" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="race">Race</label>
+                        <input ng-model="student.race" type="text" name="race" id="race" class="form-control" placeholder="Race" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="ethnicity">Ethnicity</label>
+                        <input ng-model="student.ethnicity" type="text" name="ethnicity" id="ethnicity" class="form-control" placeholder="Ethnicity" required />
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" href="#/schools">Submit</button>
+                        <!--<a href="#/login" class="btn btn-link">Cancel</a>-->
+                    </div>
+                </form>
+            </div>
+
+            <hr>
+
+            <div id="someContainer" class="col-xs-12">
+                <div class="col-md-12 admin-student well" ng-repeat="adminStudents in adminStudentsData">
+                    <p class="admin-student-list student-name">Student Name: {{adminStudents.firstname}} {{adminStudents.lastname}}</p>
+                    <p class="admin-student-list student-gradelevel">Student Grade Level: {{adminStudents.gradelevel}}</p>
+                    <p class="admin-student-list student-age">Student Age: {{adminStudents.age}}</p>
+                    <p class="admin-student-list student-gender">Student Gender: {{adminStudents.gender}}</p>
+                    <p class="admin-student-list student-race">Student Race: {{adminStudents.race}}</p>
+                    <p class="admin-student-list student-ethnicity">Student Ethnicity: {{adminStudents.ethnicity}}</p>
+                </div>
+            </div>
         </div><!--/row-->
     </div>
 </div><!--/.container-->
