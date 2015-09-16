@@ -15,7 +15,8 @@ var StudentSchema = new Schema({
     classcompletion: {type: String}
     //school: [],
     //class: [],
-    //assignment: []
+    //assignment: [],
+    //user: []
 });
 
 module.exports = mongoose.model('Student', StudentSchema);

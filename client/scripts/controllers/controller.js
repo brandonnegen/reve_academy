@@ -80,7 +80,14 @@ reveApp.controller("SchoolController", ["$rootScope", "$scope", "$http", "$route
         $scope.getSchools();
     }]);
 
-reveApp.controller("AdminTeachersController", ["$scope", "$http", "$route", function($scope, $http, $route){
+reveApp.controller("AdminTeachersController", ["$rootScope", "$scope", "$http", "$route", function($rootScope, $scope, $http, $route){
+    $rootScope.$on('hideMessages', function(){
+        $scope.$apply(function(){
+            $scope.showSuccessMessage = false;
+        });
+
+    });
+
     console.log("Admin-Teacher Controller is working!");
     $scope.$route = $route;
     $scope.adminTeachers = {};
@@ -93,6 +100,44 @@ reveApp.controller("AdminTeachersController", ["$scope", "$http", "$route", func
 
         });
     };
+    $scope.getSchools = function(){
+        console.log("Get request made");
+        //GET
+        $http.get('/schools/getschools').then(function(response){
+            console.log(response.data);
+            $scope.schoolData = response.data;
+
+        });
+    };
+
+    $scope.getSchools();
+
+    $scope.sendTeacher = function(){
+        return $http.post('/register/postteachers', {
+            username: $scope.adminTeachers.username,
+            password: $scope.adminTeachers.password,
+            firstname: $scope.adminTeachers.firstname,
+            lastname: $scope.adminTeachers.lastname,
+            phone: $scope.adminTeachers.phone,
+            email: $scope.adminTeachers.email,
+            school: $scope.adminTeachers.school
+
+        })
+            .success(function(response) {
+                $scope.adminTeachers.username = "";
+                $scope.adminTeachers.password = "";
+                $scope.adminTeachers.firstname = "";
+                $scope.adminTeachers.lastname = "";
+                $scope.adminTeachers.phone = "";
+                $scope.adminTeachers.email = "";
+                $scope.adminTeachers.school = "";
+                $scope.successMessage = "You saved it!";
+                $scope.showSuccessMessage = true;
+                $scope.getTeachers();
+            });
+
+    };
+
     $scope.getTeachers();
 
 
