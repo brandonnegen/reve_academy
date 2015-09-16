@@ -122,6 +122,10 @@ a:link {
     margin-top: 50px;
 }
 
+.teachers-content, .teacher-classes-content, .teacher-students-content{
+    margin-top: 50px;
+}
+
 .logo img{
     padding: 10px;
     width: 630px;

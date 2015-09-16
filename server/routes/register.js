@@ -4,6 +4,13 @@ var passport = require('passport');
 var path = require('path');
 var Users = require('../models/user');
 
+router.get("/getteachers", function(req,res,next){
+    return Users.find({}).exec(function(err, info){
+        if(err) throw new Error(err);
+        res.send(JSON.stringify(info));
+    });
+});
+
 router.get("/", function (req, res, next){
     res.sendFile(path.resolve(__dirname, '../public/assets/views/register.html'));
 });

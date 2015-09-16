@@ -118,6 +118,19 @@
                     </div>
                 </form>
             </div>
+
+            <hr>
+
+            <div id="someContainer" class="col-xs-12">
+                <div class="col-md-12 admin-teachers well" ng-repeat="adminTeachers in adminTeachersData">
+                    <p class="admin-teachers-list teachers-name">Teacher's Name: {{adminTeachers.firstname}} {{adminTeaachers.lastname}}</p>
+                    <p class="admin-teachers-list teachers-school">Teacher's School: {{adminTeachers.school}}</p>
+                    <p class="admin-teachers-list teachers-phone">Teacher's Phone Number: {{adminTeachers.phone}}</p>
+                    <p class="admin-teachers-list teachers-email">Teacher's Email: {{adminTeachers.email}}</p>
+                </div>
+            </div>
+
+
         </div><!--/row-->
     </div>
 </div><!--/.container-->
