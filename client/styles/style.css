@@ -149,3 +149,18 @@ a:link {
 .school-list {
     text-align: left;
 }
+
+
+.my-animation {
+    opacity: 1;
+}
+
+.my-animation.ng-hide {
+    opacity: 0;
+}
+
+.my-animation.ng-hide-add,
+.my-animation.ng-hide-remove {
+    -webkit-transition: 0.5s linear all;
+    transition: 0.5s linear all;
+}

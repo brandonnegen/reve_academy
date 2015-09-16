@@ -119,12 +119,12 @@
                 <div class="slide col-md-12 school well" ng-repeat="school in schoolData">
                     <p class="school-list school-name">School Name: {{school.name}}</p>
                     <p class="school-list school-address">School Address: {{school.address}}</p>
-                    <div  class="showInfo" ng-animate="'animate'" >
-                        <p class="school-list school-address"  ng-show="show">School District: {{school.district}}</p>
-                        <p class="school-list school-address"  ng-show="show">School Phone: {{school.phone}}</p>
-                        <p class="school-list school-address"  ng-show="show">School Email: {{school.email}}</p>
-                        <p class="school-list school-address"  ng-show="show">School Contact Person: {{school.contactperson}}</p>
-                    </div>
+                    <div  class="showInfo my-animation">
+                        <p class="school-list school-address my-animation"  ng-show="show">School District: {{school.district}}</p>
+                        <p class="school-list school-address my-animation"  ng-show="show">School Phone: {{school.phone}}</p>
+                        <p class="school-list school-address my-animation"  ng-show="show">School Email: {{school.email}}</p>
+                        <p class="school-list school-address my-animation"  ng-show="show">School Contact Person: {{school.contactperson}}</p>
+                    </div>my-
                     <button class="trigger"  ng-click="show=!show">More Info</button>
                 </div>
             </div>
