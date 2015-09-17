@@ -80,24 +80,39 @@
             <h2 class="sub-header">Section title</h2>
             <div class="assignment-info">
                 <h1>Class Information</h1>
-                <form name="form" action="/admin-classes/classes" method="post">
+                <form name="form" ng-submit="sendClass()" method="post">
+                    <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
                     <div class="form-group">
                         <label for="name">Class Name</label>
-                        <input type="text" name="name" id="name" class="form-control" placeholder="Class Name" required />
+                        <input type="text" ng-model="adminClasses.name" name="name" id="name" class="form-control" placeholder="Class Name" required />
                     </div>
                     <div class="form-group">
                         <label for="startDate">Start Date</label>
-                        <input type="date" name="startdate" id="startdate" class="form-control" required />
+                        <input type="date" ng-model="adminClasses.startdate" name="startdate" id="startdate" class="form-control" required />
                     </div>
                     <div class="form-group">
                         <label for="enddate">End Date</label>
-                        <input type="date" name="enddate" id="enddate" class="form-control" required />
+                        <input type="date" ng-model="adminClasses.enddate" name="enddate" id="enddate" class="form-control" required />
                     </div>
                     <div class="form-actions">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>
             </div>
+
+            <hr>
+
+            <div id="someContainer" class="col-xs-12">
+                <div class="slide col-md-12 admin-classes well" ng-repeat="adminClasses in adminClassesData">
+                    <p class="admin-classes-list classes-name">Class Name: {{adminClasses.name}}</p>
+                    <div class="my-animation" ng-show="show">
+                    <p class="admin-classes-list classes-startdate">Class Start Date: {{adminClasses.startdate | date:"MM/dd/yyyy"}}</p>
+                    <p class="admin-classes-list classes-enddate">Class End Date: {{adminClasses.enddate | date:"MM/dd/yyyy"}}</p>
+                        </div>
+                    <button class="trigger"  ng-click="show=!show">More Info</button>                </div>
+            </div>
+
+
         </div><!--/row-->
     </div>
 </div><!--/.container-->
@@ -105,3 +120,4 @@
 <footer>
     <p class="pull-right">©2015 Reve Academy</p>
 </footer>
+

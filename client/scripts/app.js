@@ -15,7 +15,6 @@ reveApp.directive('sameAs', function () {
         }
     };
 });
-
 var appControllers = angular.module('appControllers', []);
 
 
@@ -77,4 +76,7 @@ reveApp.config(['$routeProvider', function($routeProvider, $scope) {
             activetab: 'teacher-students'
         }).
         otherwise({redirectTo: '/login'});
+
+
+
 }]);

@@ -79,45 +79,55 @@
 
             <h2 class="sub-header">Section title</h2>
             <div class="assignment-info">
-                <h1>Teacher Information</h1>
-                <form name="form" action="/register" method="post">
+                <h1>Add a Teacher</h1>
+                <form name="form" ng-submit="sendTeacher()" method="post">
                     <div class="form-group">
-                        <label for="firstname">First Name</label>
-                        <input type="text" name="firstname" id="firstname" class="form-control" placeholder="First Name" required />
+                        <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
+                        <input type="text" ng-model="adminTeachers.firstname" name="firstname" id="firstname" class="form-control" placeholder="First Name" required />
                     </div>
                     <div class="form-group">
-                        <label for="lastname">Last Name</label>
-                        <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Last Name" required />
+                        <input type="text" ng-model="adminTeachers.lastname" name="lastname" id="lastname" class="form-control" placeholder="Last Name" required />
                     </div>
                     <div class="form-group">
-                        <label for="phone">Phone #</label>
-                        <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone #" required />
+                        <input type="text" ng-model="adminTeachers.phone" name="phone" id="phone" class="form-control" placeholder="Phone #" required />
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="text" name="email" id="email" class="form-control" placeholder="Email" required />
+                        <input type="text" ng-model="adminTeachers.email" name="email" id="email" class="form-control" placeholder="Email" required />
                     </div>
                     <div class="form-group">
-                        <label for="school">School</label><br />
-                        <select id="school" name="school">
-                            <option value="school1">school1</option>
-                            <option value="school2">school2</option>
-                            <option value="school3">school3</option>
+                        <label for="registerschool">School</label><br />
+                        <select ng-model="adminTeachers.school" id="registerschool" name="school">
+                            <option ng-repeat="school in schoolData">{{school.name}}</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" name="username" id="username" class="form-control" placeholder="Username" required />
+                        <input style="display:none" type="text" ng-model="adminTeachers.username" name="username" id="username" class="form-control" placeholder="Username" required />
+                        <input type="text" ng-model="adminTeachers.username" name="username" id="username" class="form-control" placeholder="Username" required />
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" id="password" class="form-control" placeholder="Password" required />
+                        <input style="display:none" type="password" ng-model="adminTeachers.password" name="password" id="password" class="form-control" placeholder="Password" required />
+                        <input type="password" ng-model="adminTeachers.password" name="password" id="password" class="form-control" placeholder="Password" required />
                     </div>
                     <div class="form-actions">
                         <button type="submit" class="btn btn-primary">Save</button>
                     </div>
                 </form>
             </div>
+
+            <hr>
+
+            <div id="someContainer" class="col-xs-12">
+
+                <div class="col-md-12 admin-teachers well" ng-repeat="adminTeachers in adminTeachersData">
+                    <p class="admin-teachers-list teachers-name">Full Name: {{adminTeachers.firstname}} {{adminTeaachers.lastname}}</p>
+                    <p class="admin-teachers-list teachers-school">School: {{adminTeachers.school}}</p>
+                    <p class="admin-teachers-list teachers-phone">Phone Number: {{adminTeachers.phone}}</p>
+                    <p class="admin-teachers-list teachers-email">Email: {{adminTeachers.email}}</p>
+
+                </div>
+            </div>
+
+
         </div><!--/row-->
     </div>
 </div><!--/.container-->
@@ -125,3 +135,23 @@
 <footer>
     <p class="pull-right">©2015 Reve Academy</p>
 </footer>
+
+<!--<div id="someContainer" class="col-xs-12">-->
+    <!--<div class="slide col-md-12 school well" ng-repeat="school in schoolData">-->
+        <!--<p class="school-list school-name">School Name: {{school.name}}</p>-->
+        <!--<p class="school-list school-address">School Address: {{school.address}}</p>-->
+        <!--<div  class="my-animation" ng-show="show">-->
+            <!--<p class="school-list school-address">School District: {{school.district}}</p>-->
+            <!--<p class="school-list school-address">School Phone: {{school.phone}}</p>-->
+            <!--<p class="school-list school-address">School Email: {{school.email}}</p>-->
+            <!--<p class="school-list school-address">School Contact Person: {{school.contactperson}}</p>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; <div  class="my-animation">&ndash;&gt;-->
+        <!--&lt;!&ndash;<p class="school-list school-address"  ng-show="show">School District: {{school.district}}</p>&ndash;&gt;-->
+        <!--&lt;!&ndash;<p class="school-list school-address"  ng-show="show">School Phone: {{school.phone}}</p>&ndash;&gt;-->
+        <!--&lt;!&ndash;<p class="school-list school-address"  ng-show="show">School Email: {{school.email}}</p>&ndash;&gt;-->
+        <!--&lt;!&ndash;<p class="school-list school-address"  ng-show="show">School Contact Person: {{school.contactperson}}</p>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--<button class="trigger"  ng-click="show=!show">More Info</button>-->
+    <!--</div>-->
+<!--</div>-->

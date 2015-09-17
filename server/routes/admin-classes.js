@@ -7,11 +7,22 @@ var Classes = require('../models/class');
 //    res.sendFile(path.resolve(__dirname, '../public/assets/views/admin-classes.html'));
 //});
 
-router.post("/classes", function (req, res, next){
-    console.log("Made it to class post! ", req.body);
-    Classes.create(req.body, function(err, post){
-        res.send("Yes.");
+
+router.get("/getclasses", function(req,res,next){
+    return Classes.find({}).exec(function(err, info){
+        if(err) throw new Error(err);
+        res.send(JSON.stringify(info));
     });
 });
+
+router.post("/", function (req, res, next){
+    console.log("Made it to class post! ", req.body);
+    var classes = new Classes({name: req.body.name, startdate: req.body.startdate, enddate: req.body.enddate});
+    classes.save(function(err){
+        if(err) console.log('error: ', err);
+        res.send(classes.toJSON());
+    });
+});
+
 
 module.exports = router;

@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
 var AssignmentSchema = new Schema({
     name: {type: String, required: true},
     grade: {type: Number},
-    completion: {type: Boolean}
+    completion: {type: String}
     //removing until we can test functionality
     //student: [],
     //class: []
@@ -13,6 +13,6 @@ var AssignmentSchema = new Schema({
 AssignmentSchema.pre('create', function(next){
     console.log("PreSave");
     next();
-})
+});
 
 module.exports = mongoose.model('Assignment', AssignmentSchema);
