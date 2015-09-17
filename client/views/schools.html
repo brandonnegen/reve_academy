@@ -77,34 +77,34 @@
 
             <hr>
 
-            <h2 class="sub-header">Section title</h2>
+            <!--<h2 class="sub-header">Section title</h2>-->
             <div class="assignment-info">
                 <h1>School Information</h1>
                 <form name="form" ng-submit="sendSchool()"  method="post">
                     <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
                     <div class="form-group">
-                        <label for="name">School Name</label>
+                        <!--<label for="name">School Name</label>-->
                         <input ng-model="school.name" type="text" name="name" id="name" class="form-control" placeholder="School Name" required />
                     </div>
                     <div class="form-group">
-                        <label for="address">Address</label>
+                        <!--<label for="address">Address</label>-->
                         <input ng-model="school.address" type="text" name="address" id="address" class="form-control" placeholder="Address" required />
                     </div>
                     <div class="form-group">
-                        <label for="district">District</label>
+                        <!--<label for="district">District</label>-->
                         <input ng-model="school.district" type="text" name="district" id="district" class="form-control" placeholder="District" required />
                     </div>
                     <div class="form-group">
-                        <label for="phone">Phone #</label>
+                        <!--<label for="phone">Phone #</label>-->
                         <input ng-model="school.phone" type="text" name="phone" id="phone" class="form-control" placeholder="Phone #" required />
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input ng-model="school.email" type="text" name="email" id="email" class="form-control" placeholder="Email" required />
+                        <!--<label for="email">Email</label>-->
+                        <input ng-model="school.email" type="text" name="email" id="email" class="form-control" placeholder="School Email" required />
                     </div>
                     <div class="form-group">
-                        <label for="contactperson">Contact Person</label>
-                        <input ng-model="school.contactperson" type="text" name="contactperson" id="contactperson" class="form-control" placeholder="Email" required />
+                        <!--<label for="contactperson">Contact Person</label>-->
+                        <input ng-model="school.contactperson" type="text" name="contactperson" id="contactperson" class="form-control" placeholder="Contact Email" required />
                     </div>
                     <div class="form-actions">
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -116,22 +116,18 @@
             <hr>
 
             <div id="someContainer" class="col-xs-12">
-                <div class="slide col-md-12 school well" ng-repeat="school in schoolData">
+                <div class="slide col-md-12 school well addInfo" ng-repeat="school in schoolData">
                     <p class="school-list school-name">School Name: {{school.name}}</p>
-                    <p class="school-list school-address">School Address: {{school.address}}</p>
+
                     <div  class="my-animation" ng-show="show">
+                        <p class="school-list school-address">School Address: {{school.address}}</p>
                         <p class="school-list school-address">School District: {{school.district}}</p>
                         <p class="school-list school-address">School Phone: {{school.phone}}</p>
                         <p class="school-list school-address">School Email: {{school.email}}</p>
                         <p class="school-list school-address">School Contact Person: {{school.contactperson}}</p>
                     </div>
-                   <!-- <div  class="my-animation">-->
-                        <!--<p class="school-list school-address"  ng-show="show">School District: {{school.district}}</p>-->
-                        <!--<p class="school-list school-address"  ng-show="show">School Phone: {{school.phone}}</p>-->
-                        <!--<p class="school-list school-address"  ng-show="show">School Email: {{school.email}}</p>-->
-                        <!--<p class="school-list school-address"  ng-show="show">School Contact Person: {{school.contactperson}}</p>-->
-                    <!--</div>-->
-                    <button class="trigger"  ng-click="show=!show">More Info</button>
+                    <button class="btn btn-primary" ng-click="show=!show">More Info</button>
+                    <!--<button type="submit" class="btn btn-primary" ng-click="show=!show">Submit</button>-->
                 </div>
             </div>
         </div><!--/row-->

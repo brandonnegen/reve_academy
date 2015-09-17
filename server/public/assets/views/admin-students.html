@@ -170,6 +170,18 @@
             <hr>
 
             <div id="someContainer" class="col-xs-12">
+<<<<<<< HEAD
+                <div class="slide col-md-12 admin-student well" ng-repeat="adminStudents in adminStudentsData">
+                    <p class="admin-student-list student-name">Student Name: {{adminStudents.firstname}} {{adminStudents.lastname}}</p>
+                    <div class="my-animation" ng-show="show">
+                    <p class="admin-student-list student-gradelevel">Student Grade Level: {{adminStudents.gradelevel}}</p>
+                    <p class="admin-student-list student-age">Student Age: {{adminStudents.age}}</p>
+                    <p class="admin-student-list student-gender">Student Gender: {{adminStudents.gender}}</p>
+                    <p class="admin-student-list student-race">Student Race: {{adminStudents.race}}</p>
+                    <p class="admin-student-list student-ethnicity">Student Ethnicity: {{adminStudents.ethnicity}}</p>
+                        </div>
+                    <button class="trigger"  ng-click="show=!show">More Info</button>
+=======
                 <div class="col-md-12 admin-student well" ng-repeat="adminStudents in adminStudentsData">
                     <p class="admin-student-list student-name">Student ID #: {{adminStudents.id}}</p>
                     <p class="admin-student-list student-name">Full Name: {{adminStudents.firstname}} {{adminStudents.lastname}}</p>
@@ -181,7 +193,10 @@
                     <p class="admin-student-list student-ethnicity">Soft Skills Pre: {{adminStudents.softskillspre}}</p>
                     <p class="admin-student-list student-ethnicity">Soft Skills Post: {{adminStudents.softskillspost}}</p>
                     <p class="admin-student-list student-ethnicity">Class Completion: {{adminStudents.classcompletion}}</p>
+>>>>>>> 366fd6534773d197c47ad8d0f619957df6c1d529
                 </div>
+
+            </div>
             </div>
 
 

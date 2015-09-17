@@ -117,11 +117,22 @@
             <hr>
 
             <div id="someContainer" class="col-xs-12">
+<<<<<<< HEAD
+                <div class="slide col-md-12 admin-teachers well" ng-repeat="adminTeachers in adminTeachersData">
+                    <p class="admin-teachers-list teachers-name">Teacher's Name: {{adminTeachers.firstname}} {{adminTeaachers.lastname}}</p>
+                    <div  class="my-animation" ng-show="show">
+                    <p class="admin-teachers-list teachers-school">Teacher's School: {{adminTeachers.school}}</p>
+                    <p class="admin-teachers-list teachers-phone">Teacher's Phone Number: {{adminTeachers.phone}}</p>
+                    <p class="admin-teachers-list teachers-email">Teacher's Email: {{adminTeachers.email}}</p>
+                        </div>
+                    <button class = "trigger" ng-click="show=!show">More Info</button>
+=======
                 <div class="col-md-12 admin-teachers well" ng-repeat="adminTeachers in adminTeachersData">
                     <p class="admin-teachers-list teachers-name">Full Name: {{adminTeachers.firstname}} {{adminTeaachers.lastname}}</p>
                     <p class="admin-teachers-list teachers-school">School: {{adminTeachers.school}}</p>
                     <p class="admin-teachers-list teachers-phone">Phone Number: {{adminTeachers.phone}}</p>
                     <p class="admin-teachers-list teachers-email">Email: {{adminTeachers.email}}</p>
+>>>>>>> 366fd6534773d197c47ad8d0f619957df6c1d529
                 </div>
             </div>
 
@@ -133,3 +144,23 @@
 <footer>
     <p class="pull-right">©2015 Reve Academy</p>
 </footer>
+
+<!--<div id="someContainer" class="col-xs-12">-->
+    <!--<div class="slide col-md-12 school well" ng-repeat="school in schoolData">-->
+        <!--<p class="school-list school-name">School Name: {{school.name}}</p>-->
+        <!--<p class="school-list school-address">School Address: {{school.address}}</p>-->
+        <!--<div  class="my-animation" ng-show="show">-->
+            <!--<p class="school-list school-address">School District: {{school.district}}</p>-->
+            <!--<p class="school-list school-address">School Phone: {{school.phone}}</p>-->
+            <!--<p class="school-list school-address">School Email: {{school.email}}</p>-->
+            <!--<p class="school-list school-address">School Contact Person: {{school.contactperson}}</p>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; <div  class="my-animation">&ndash;&gt;-->
+        <!--&lt;!&ndash;<p class="school-list school-address"  ng-show="show">School District: {{school.district}}</p>&ndash;&gt;-->
+        <!--&lt;!&ndash;<p class="school-list school-address"  ng-show="show">School Phone: {{school.phone}}</p>&ndash;&gt;-->
+        <!--&lt;!&ndash;<p class="school-list school-address"  ng-show="show">School Email: {{school.email}}</p>&ndash;&gt;-->
+        <!--&lt;!&ndash;<p class="school-list school-address"  ng-show="show">School Contact Person: {{school.contactperson}}</p>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--<button class="trigger"  ng-click="show=!show">More Info</button>-->
+    <!--</div>-->
+<!--</div>-->

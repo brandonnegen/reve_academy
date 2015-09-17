@@ -43,6 +43,10 @@ a {
 a:link {
     color: inherit;
 }
+
+a:focus, a:hover{
+    color: #707372;
+}
 /*
  * Off Canvas
  * --------------------------------------------------
@@ -109,9 +113,9 @@ a:link {
 }
 
 .school  {
-    border: 2px solid black;
-    border-radius: 5px;
-    text-align: center;
+    border: 1px solid #818181;
+    border-radius: 0px;
+    text-align: left;
 }
 
 .login-page, .register-page{
@@ -160,7 +164,7 @@ a:link {
     max-height: 500px; /* approximate max height */
     transition-property: all;
     transition-duration: 0.5s;
-    transition-timing-function: cubic-bezier(1, 1, 0.5, 1);
+    /*transition-timing-function: cubic-bezier(1, 1, 0.5, 1);*/
 }
 
 .my-animation.ng-hide {
@@ -172,3 +176,68 @@ a:link {
     -webkit-transition:1s;
     transition: 1s;
 }
+
+.assignment-info h1 {
+    font-family: 'Montserrat', sans-serif;
+    color: #707372;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+
+.assignment-info input {
+    border:1px solid #eeeeee;
+    border-radius:0px;
+    box-shadow: none;
+    padding:5px;
+    font-family: 'Raleway' sans-serif;
+    color: #818181;
+    font-weight: 400;
+}
+
+.assignment-info input:focus {
+    outline:none;
+    border-color:#818181;
+    box-shadow: none;
+    /*box-shadow: 0 0 5px #818181;*/
+}
+
+.btn-primary {
+    background-color: #d14414;
+    border: none;
+}
+
+.well .button-primary {
+    background-color: red;
+    border: none;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    background-color: #000;
+    outline: none;
+}
+
+/*.btn-primary:active {*/
+     /*background-color: #000;*/
+     /*outline: none;*/
+
+ /*}*/
+
+/*.well .btn-primary:active {*/
+    /*background-color: red;*/
+    /*outline: none;*/
+
+/*}*/
+
+.btn-primary:active:focus {
+    background-color: #000;
+    outline: none;
+
+}
+
+
+.well .btn-primary:active:focus {
+    background-color: #000;
+    outline: none;
+
+}
+
