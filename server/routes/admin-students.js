@@ -3,10 +3,6 @@ var router = express.Router();
 var path = require('path');
 var Students = require('../models/student');
 
-//router.get("/", function (req, res, next){
-//    res.sendFile(path.resolve(__dirname, '../public/assets/views/admin-classes.html'));
-//});
-
 
 router.get("/getstudents", function(req,res,next){
     return Students.find({}).exec(function(err, info){
