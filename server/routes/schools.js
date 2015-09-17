@@ -12,8 +12,10 @@ var Schools = require('../models/school');
 router.post("/schools", function (req, res, next){
     console.log("Made it to school post! ", req.body);
     Schools.create(req.body, function(err, post){
-        res.send("Yes.");
+        if(err) next(err);
+        else res.sendFile(path.resolve(__dirname, '../../public/assets/views/index.html'));
     });
+    console.log(res)
 });
 
 router.get("/getschools", function(req,res,next){

@@ -1,6 +1,23 @@
-var reveApp = angular.module('reveApp',['ngRoute', 'appControllers']);
+var reveApp = angular.module('reveApp',['ngRoute', 'appControllers'])
+reveApp.directive('sameAs', function () {
+    return {
+        require: 'ngModel',
+        link: function(scope, element, attrs, ctrl) {
+            var modelToMatch = attrs.sameAs;
+
+            scope.$watch(attrs.sameAs, function() {
+                ctrl.$validate();
+            })
+
+            ctrl.$validators.match = function(modelValue, viewValue) {
+                return viewValue === scope.$eval(modelToMatch);
+            };
+        }
+    };
+});
 
 var appControllers = angular.module('appControllers', []);
+
 
 reveApp.config(['$routeProvider', function($routeProvider, $scope) {
     $routeProvider.
