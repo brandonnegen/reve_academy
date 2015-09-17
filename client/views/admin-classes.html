@@ -104,10 +104,10 @@
 
             <div id="someContainer" class="col-xs-12">
                 <div class="slide col-md-12 admin-classes well" ng-repeat="adminClasses in adminClassesData">
-                    <p class="admin-classes-list classes-name">Class Name: {{adminClasses.name}}</p>
+                    <p class="admin-classes-list classes-name">{{adminClasses.name}}</p>
                     <div class="my-animation" ng-show="show">
-                    <p class="admin-classes-list classes-startdate">Class Start Date: {{adminClasses.startdate | date:"MM/dd/yyyy"}}</p>
-                    <p class="admin-classes-list classes-enddate">Class End Date: {{adminClasses.enddate | date:"MM/dd/yyyy"}}</p>
+                    <p class="admin-classes-list classes-startdate">Start Date: {{adminClasses.startdate | date:"MM/dd/yyyy"}}</p>
+                    <p class="admin-classes-list classes-enddate">End Date: {{adminClasses.enddate | date:"MM/dd/yyyy"}}</p>
                         </div>
                     <button class="trigger"  ng-click="show=!show">More Info</button>                </div>
             </div>

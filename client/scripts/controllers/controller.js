@@ -297,7 +297,15 @@ reveApp.controller("AdminStudentsController", ["$rootScope", "$scope", "$http", 
     $scope.getStudents();
 }]);
 
-reveApp.controller("TeacherClassesController", ["$scope", "$http", "$route", function($scope, $http, $route){
+reveApp.controller("TeacherClassesController", ["$rootScope", "$scope", "$http", "$route", function($rootScope, $scope, $http, $route){
+
+    $rootScope.$on('hideMessages', function(){
+        $scope.$apply(function(){
+            $scope.showSuccessMessage = false;
+        });
+
+    });
+
     console.log("Teacher-Classes Controller is working!");
     $scope.$route = $route;
     $scope.adminClasses = {};
@@ -324,6 +332,23 @@ reveApp.controller("TeacherClassesController", ["$scope", "$http", "$route", fun
 
         });
     };
+    $scope.sendClass = function(){
+        return $http.post('/admin-classes', {
+            name: $scope.adminClasses.name,
+            startdate: $scope.adminClasses.startdate,
+            enddate: $scope.adminClasses.enddate
+        })
+            .success(function(response) {
+                $scope.adminClasses.name = "";
+                $scope.adminClasses.startdate = "";
+                $scope.adminClasses.enddate= "";
+                $scope.successMessage = "You saved it!";
+                $scope.showSuccessMessage = true;
+                $scope.getClasses();
+            });
+
+    };
+
     $scope.getClasses();
 }]);
 
