@@ -7,7 +7,8 @@ var ClassSchema = new Schema({
     enddate: {type: Date, required: true}
     //removing until we can test functionality
     //student: [],
-    //assignment: []
+    //assignment: [],
+    //user: []
 });
 
 module.exports = mongoose.model('Class', ClassSchema);
