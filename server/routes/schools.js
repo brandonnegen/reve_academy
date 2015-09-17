@@ -16,6 +16,7 @@ router.post("/", function (req, res, next){
         if(err) console.log('error: ', err);
         res.send(school.toJSON());
     });
+    console.log(res)
 });
 
 router.get("/getschools", function(req,res,next){

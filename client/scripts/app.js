@@ -1,6 +1,22 @@
-var reveApp = angular.module('reveApp',['ngRoute', 'appControllers', 'ngAnimate']);
+var reveApp = angular.module('reveApp',['ngRoute', 'appControllers'])
+reveApp.directive('sameAs', function () {
+    return {
+        require: 'ngModel',
+        link: function(scope, element, attrs, ctrl) {
+            var modelToMatch = attrs.sameAs;
 
+            scope.$watch(attrs.sameAs, function() {
+                ctrl.$validate();
+            })
+
+            ctrl.$validators.match = function(modelValue, viewValue) {
+                return viewValue === scope.$eval(modelToMatch);
+            };
+        }
+    };
+});
 var appControllers = angular.module('appControllers', []);
+
 
 reveApp.config(['$routeProvider', function($routeProvider, $scope) {
     $routeProvider.
@@ -58,6 +74,9 @@ reveApp.config(['$routeProvider', function($routeProvider, $scope) {
             controller: 'TeacherStudentsController',
             templateUrl: 'assets/views/teacher-students.html',
             activetab: 'teacher-students'
+        }).
+        when('/unauthorized', {
+            templateUrl: 'assets/views/unauthorized.html'
         }).
         otherwise({redirectTo: '/login'});
 

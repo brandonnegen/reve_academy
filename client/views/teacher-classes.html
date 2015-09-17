@@ -41,20 +41,22 @@
         <div class="col-sm-9 col-md-10 main">
             <h2 class="teacher-classes-info">Section title</h2>
             <h1>Class Information</h1>
-            <form name="form" action="/admin-classes/classes" method="post">
+            <form name="form" ng-submit="sendClass()" method="post">
+                <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
+
                 <div class="form-group">
-                    <label for="name">School</label><br />
-                    <select id="name" name="name">
-                        <option value="{{adminClasses.name}}" ng-repeat="adminClasses in adminClassesData">{{adminClasses.name}}</option>
+                    <label for="name">Class</label><br />
+                    <select ng-model="adminClasses.name" id="name" name="name">
+                        <option ng-repeat="adminClasses in adminClassesData">{{adminClasses.name}}</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="startdate">Start Date</label>
-                    <input type="date" name="startdate" id="startdate" class="form-control" required />
+                    <label for="startDate">Start Date</label>
+                    <input type="date" ng-model="adminClasses.startdate" name="startdate" id="startdate" class="form-control" required />
                 </div>
                 <div class="form-group">
                     <label for="enddate">End Date</label>
-                    <input type="date" name="enddate" id="enddate" class="form-control" required />
+                    <input type="date" ng-model="adminClasses.enddate" name="enddate" id="enddate" class="form-control" required />
                 </div>
                 <div class="form-actions">
                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -73,10 +75,13 @@
             <hr>
 
             <div id="someContainer" class="col-xs-12">
-                <div class="col-md-12 admin-classes well" ng-repeat="adminClasses in adminClassesData">
-                    <p class="teacher-classes-list classes-name">Class Name: {{adminClasses.name}}</p>
-                    <p class="teacher-classes-list classes-startdate">Class Start Date: {{adminClasses.startdate}}</p>
-                    <p class="teacher-classes-list classes-enddate">Class End Date: {{adminClasses.enddate}}</p>
+                <div class="slide col-md-12 admin-classes well" ng-repeat="adminClasses in adminClassesData">
+                    <p class="admin-classes-list classes-name">{{adminClasses.name}}</p>
+                    <div class="my-animation" ng-show="show">
+                        <p class="admin-classes-list classes-startdate">Start Date: {{adminClasses.startdate | date:"MM/dd/yyyy"}}</p>
+                        <p class="admin-classes-list classes-enddate">End Date: {{adminClasses.enddate | date:"MM/dd/yyyy"}}</p>
+                    </div>
+                    <button class="trigger"  ng-click="show=!show">More Info</button>
                 </div>
             </div>
 
