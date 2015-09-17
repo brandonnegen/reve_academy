@@ -1,22 +1,22 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid header-top">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+            <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">-->
+                <!--<span class="sr-only">Toggle navigation</span>-->
+                <!--<span class="icon-bar"></span>-->
+                <!--<span class="icon-bar"></span>-->
+                <!--<span class="icon-bar"></span>-->
+            <!--</button>-->
             <a class="navbar-brand" href="http://reveacademy.org/"><img src="../assets/images/academylogo_white.png"/></a>
         </div>
-        <div class="navbar-collapse collapse top-nav">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#/admin">Dashboard</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Help</a></li>
-            </ul>
-            <form class="navbar-form navbar-right">
+        <div id="topNav" class="navbar-collapse collapse top-nav">
+            <!--<ul class="nav navbar-nav navbar-right">-->
+                <!--<li><a href="#/admin">Dashboard</a></li>-->
+                <!--<li><a href="#">Settings</a></li>-->
+                <!--<li><a href="#">Profile</a></li>-->
+                <!--<li><a href="#">Help</a></li>-->
+            <!--</ul>-->
+            <form class=" search-bar navbar-form navbar-right">
                 <input type="text" class="form-control" placeholder="Search...">
             </form>
         </div>
@@ -117,14 +117,14 @@
 
             <div id="someContainer" class="col-xs-12">
                 <div class="slide col-md-12 school well addInfo" ng-repeat="school in schoolData">
-                    <p class="school-list school-name">School Name: {{school.name}}</p>
+                    <p class="school-list school-name"><span class = " info-title">School Name:</span> {{school.name}}</p>
 
                     <div  class="my-animation" ng-show="show">
-                        <p class="school-list school-address">School Address: {{school.address}}</p>
-                        <p class="school-list school-address">School District: {{school.district}}</p>
-                        <p class="school-list school-address">School Phone: {{school.phone}}</p>
-                        <p class="school-list school-address">School Email: {{school.email}}</p>
-                        <p class="school-list school-address">School Contact Person: {{school.contactperson}}</p>
+                        <p class="school-list school-address"><span class = " info-title">School Address:</span> {{school.address}}</p>
+                        <p class="school-list school-address"><span class = " info-title">School District: </span>{{school.district}}</p>
+                        <p class="school-list school-address"><span class = " info-title">School Phone:</span> {{school.phone}}</p>
+                        <p class="school-list school-address"><span class = " info-title">School Email:</span> {{school.email}}</p>
+                        <p class="school-list school-address"><span class = " info-title">School Contact Person: </span>{{school.contactperson}}</p>
                     </div>
                     <button class="btn btn-primary" ng-click="show=!show">More Info</button>
                     <!--<button type="submit" class="btn btn-primary" ng-click="show=!show">Submit</button>-->

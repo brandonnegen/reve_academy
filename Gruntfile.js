@@ -32,7 +32,8 @@ module.exports = function(grunt){
                     "views/schools.html",
                     "views/teachers.html",
                     "views/teacher-classes.html",
-                    "views/teacher-students.html"
+                    "views/teacher-students.html",
+                    "views/unauthorized.html"
                 ],
                 dest: "server/public/assets/"
             },

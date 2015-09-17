@@ -75,6 +75,9 @@ reveApp.config(['$routeProvider', function($routeProvider, $scope) {
             templateUrl: 'assets/views/teacher-students.html',
             activetab: 'teacher-students'
         }).
+        when('/unauthorized', {
+            templateUrl: 'assets/views/unauthorized.html'
+        }).
         otherwise({redirectTo: '/login'});
 
 
