@@ -10,7 +10,7 @@ var SchoolSchema = new Schema({
     contactperson: {type: String, required: true}
     //student: [],
     //class: [],
-    //teacher: []
+    //user: []
 });
 
 module.exports = mongoose.model('School', SchoolSchema);

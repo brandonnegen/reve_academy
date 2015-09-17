@@ -94,7 +94,7 @@
             </div>
 
             <div id="someContainer" class="col-xs-12">
-                <div class="col-md-12 admin-student well" ng-repeat="adminStudents in adminStudentsData | orderBy:sortExpression">
+                <div class="col-md-12 admin-student well" ng-repeat="adminStudents in adminStudentsData | filter:sortExpression">
                     <p class="admin-student-list student-name">Student Name: {{adminStudents.firstname}} {{adminStudents.lastname}}</p>
                     <p class="admin-student-list student-gradelevel">Student Grade Level: {{adminStudents.gradelevel}}</p>
                     <p class="admin-student-list student-age">Student Age: {{adminStudents.age}}</p>

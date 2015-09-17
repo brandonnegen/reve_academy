@@ -80,7 +80,14 @@ reveApp.controller("SchoolController", ["$rootScope", "$scope", "$http", "$route
         $scope.getSchools();
     }]);
 
-reveApp.controller("AdminTeachersController", ["$scope", "$http", "$route", function($scope, $http, $route){
+reveApp.controller("AdminTeachersController", ["$rootScope", "$scope", "$http", "$route", function($rootScope, $scope, $http, $route){
+    $rootScope.$on('hideMessages', function(){
+        $scope.$apply(function(){
+            $scope.showSuccessMessage = false;
+        });
+
+    });
+
     console.log("Admin-Teacher Controller is working!");
     $scope.$route = $route;
     $scope.adminTeachers = {};
@@ -93,6 +100,46 @@ reveApp.controller("AdminTeachersController", ["$scope", "$http", "$route", func
 
         });
     };
+    $scope.getSchools = function(){
+        console.log("Get request made");
+        //GET
+        $http.get('/schools/getschools').then(function(response){
+            console.log(response.data);
+            $scope.schoolData = response.data;
+
+        });
+    };
+
+    $scope.getSchools();
+
+    $scope.sendTeacher = function(){
+        return $http.post('/register/postteachers', {
+            username: $scope.adminTeachers.username,
+            password: $scope.adminTeachers.password,
+            firstname: $scope.adminTeachers.firstname,
+            lastname: $scope.adminTeachers.lastname,
+            phone: $scope.adminTeachers.phone,
+            email: $scope.adminTeachers.email,
+            school: $scope.adminTeachers.school
+
+        })
+            .success(function(response) {
+                $scope.adminTeachers.username = "";
+                $scope.adminTeachers.password = "";
+                $scope.adminTeachers.firstname = "";
+                $scope.adminTeachers.lastname = "";
+                $scope.adminTeachers.phone = "";
+                $scope.adminTeachers.email = "";
+                $scope.adminTeachers.school = "";
+                $scope.adminTeachers.username = "";
+                $scope.adminTeachers.password = "";
+                $scope.successMessage = "You saved it!";
+                $scope.showSuccessMessage = true;
+                $scope.getTeachers();
+            });
+
+    };
+
     $scope.getTeachers();
 
 
@@ -153,7 +200,15 @@ reveApp.controller("AdminTeachersController", ["$scope", "$http", "$route", func
     $scope.getClasses();
 }]);
 
-reveApp.controller("AdminAssignmentsController", ["$scope", "$http", "$route", function($scope, $http, $route){
+reveApp.controller("AdminAssignmentsController", ["$rootScope", "$scope", "$http", "$route", function($rootScope, $scope, $http, $route){
+
+    $rootScope.$on('hideMessages', function(){
+        $scope.$apply(function(){
+            $scope.showSuccessMessage = false;
+        });
+
+    });
+
     console.log("Admin-Assignments Controller is working!");
     $scope.$route = $route;
     $scope.adminAssignments = {};
@@ -166,13 +221,36 @@ reveApp.controller("AdminAssignmentsController", ["$scope", "$http", "$route", f
 
         });
     };
+
+    $scope.sendAssignment = function(){
+        return $http.post('/admin-assignments/postassignments', {
+            name: $scope.adminAssignments.name,
+            grade: $scope.adminAssignments.grade,
+            completion: $scope.adminAssignments.completion
+        })
+            .success(function(response) {
+                $scope.adminAssignments.name = "";
+                $scope.successMessage = "You saved it!";
+                $scope.showSuccessMessage = true;
+                $scope.getAssignments();
+            });
+
+    };
+
     $scope.getAssignments();
 }]);
 
-reveApp.controller("AdminStudentsController", ["$scope", "$http", "$route", function($scope, $http, $route){
+reveApp.controller("AdminStudentsController", ["$rootScope", "$scope", "$http", "$route", function($rootScope, $scope, $http, $route){
+    $rootScope.$on('hideMessages', function(){
+        $scope.$apply(function(){
+            $scope.showSuccessMessage = false;
+        });
+
+    });
     console.log("Admin-Students Controller is working!");
     $scope.$route = $route;
     $scope.adminStudents = {};
+
     $scope.getStudents = function(){
         console.log("Get request made");
         //GET
@@ -182,6 +260,40 @@ reveApp.controller("AdminStudentsController", ["$scope", "$http", "$route", func
 
         });
     };
+
+    $scope.sendStudent = function(){
+        return $http.post('/admin-students/poststudents', {
+            id: $scope.adminStudents.id,
+            firstname: $scope.adminStudents.firstname,
+            lastname: $scope.adminStudents.lastname,
+            gradelevel: $scope.adminStudents.gradelevel,
+            age: $scope.adminStudents.age,
+            gender: $scope.adminStudents.gender,
+            race: $scope.adminStudents.race,
+            ethnicity: $scope.adminStudents.ethnicity,
+            softskillspre: $scope.adminStudents.softskillspre,
+            softskillspost: $scope.adminStudents.softskillspost,
+            classcompletion: $scope.adminStudents.classcompletion
+        })
+            .success(function(response) {
+                $scope.adminStudents.id = "";
+                $scope.adminStudents.firstname = "";
+                $scope.adminStudents.lastname = "";
+                $scope.adminStudents.gradelevel = "";
+                $scope.adminStudents.age = "";
+                $scope.adminStudents.gender = "";
+                $scope.adminStudents.race = "";
+                $scope.adminStudents.ethnicity = "";
+                $scope.adminStudents.softskillspre = "";
+                $scope.adminStudents.softskillspost = "";
+                $scope.adminStudents.classcompletion = "";
+                $scope.successMessage = "You saved it!";
+                $scope.showSuccessMessage = true;
+                $scope.getStudents();
+            });
+
+    };
+
     $scope.getStudents();
 }]);
 
@@ -219,6 +331,7 @@ reveApp.controller("TeacherStudentsController", ["$scope", "$http", "$route", fu
     $scope.$route = $route;
     $scope.adminStudents = {};
     $scope.adminClasses = {};
+    $scope.classesList = [];
     $scope.getStudents = function(){
         console.log("Get request made");
         //GET
@@ -241,7 +354,26 @@ reveApp.controller("TeacherStudentsController", ["$scope", "$http", "$route", fu
             //}
         });
     };
-
+    //$scope.pushClasses = function(){
+    //    $http.get('/admin-classes/getclasses').then(function(response){
+    //        var i = $scope.classesList.indexOf(response);
+    //        if(i > -1) {
+    //            $scope.classesList.splice(i,1);
+    //        } else {
+    //            $scope.classesList.push(response)
+    //        }
+    //    });
+    //};
+    //$scope.classesFilter = function(){
+    //    $http.get('/admin-classes/getclasses').then(function(response){
+    //        if($scope.classesList.length > 0){
+    //            if($scope.classesList.indexOf(response.data.classes) > 0)
+    //                return;
+    //        } else {
+    //            return response;
+    //        }
+    //    });
+    //};
     $scope.getClasses();
     $scope.getStudents();
 }]);
