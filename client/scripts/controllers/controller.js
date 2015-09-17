@@ -337,7 +337,7 @@ reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http"
 
     console.log("Teacher-Students Controller is working!");
     $scope.$route = $route;
-    $scope.adminStudents = {};
+    $scope.adminStudents = [];
     $scope.adminClasses = {};
     $scope.getStudents = function(){
         console.log("Get request made");
@@ -345,7 +345,6 @@ reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http"
         $http.get('/admin-students/getstudents').then(function(response){
             console.log(response.data);
             $scope.adminStudentsData = response.data;
-
         });
     };
     $scope.getClasses = function(){
@@ -354,33 +353,8 @@ reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http"
         $http.get('/admin-classes/getclasses').then(function(response){
             console.log(response.data);
             $scope.adminClassesData = response.data;
-            //$scope.mySortFunction = function(response) {
-            //    if(isNaN(response[$scope.sortExpression]))
-            //        return response[$scope.sortExpression];
-            //    return parseInt(response[$scope.sortExpression]);
-            //}
         });
     };
-    //$scope.pushClasses = function(){
-    //    $http.get('/admin-classes/getclasses').then(function(response){
-    //        var i = $scope.classesList.indexOf(response);
-    //        if(i > -1) {
-    //            $scope.classesList.splice(i,1);
-    //        } else {
-    //            $scope.classesList.push(response)
-    //        }
-    //    });
-    //};
-    //$scope.classesFilter = function(){
-    //    $http.get('/admin-classes/getclasses').then(function(response){
-    //        if($scope.classesList.length > 0){
-    //            if($scope.classesList.indexOf(response.data.classes) > 0)
-    //                return;
-    //        } else {
-    //            return response;
-    //        }
-    //    });
-    //};
     $scope.getClasses();
 
     $scope.sendStudent = function(){

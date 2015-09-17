@@ -139,15 +139,17 @@
 
             <div class="form-group">
                 <label for="name">School</label><br />
-                <select id="name" name="name" ng-model="sortExpression">
+                <select id="name" name="name" ng-model="showadminStudents">
+                    <option value="" selected>All</option>
                     <option value="{{adminClasses.name}}" ng-repeat="adminClasses in adminClassesData">{{adminClasses.name}}</option>
                 </select>
             </div>
 
             <div id="someContainer" class="col-xs-12">
-                <div class="col-md-12 admin-student well" ng-repeat="adminStudents in adminStudentsData">
+                <div class="col-md-12 admin-student well" ng-repeat="adminStudents in adminStudentsData | filter:showadminStudents">
                     <p class="admin-student-list student-name">Student ID #: {{adminStudents.id}}</p>
                     <p class="admin-student-list student-name">Full Name: {{adminStudents.firstname}} {{adminStudents.lastname}}</p>
+                    <p class="admin-student-list student-classes">Classes: {{adminStudents.classes}}</p>
                     <p class="admin-student-list student-gradelevel">Grade Level: {{adminStudents.gradelevel}}</p>
                     <p class="admin-student-list student-age">Age: {{adminStudents.age}}</p>
                     <p class="admin-student-list student-gender">Gender: {{adminStudents.gender}}</p>
