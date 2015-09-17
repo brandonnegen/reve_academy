@@ -10,13 +10,13 @@
             <a class="navbar-brand" href="http://reveacademy.org/"><img src="../assets/images/academylogo_white.png"/></a>
         </div>
         <div class="navbar-collapse collapse top-nav">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#/admin">Dashboard</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Help</a></li>
-            </ul>
-            <form class="navbar-form navbar-right">
+            <!--<ul class="nav navbar-nav navbar-right">-->
+                <!--<li><a href="#/admin">Dashboard</a></li>-->
+                <!--<li><a href="#">Settings</a></li>-->
+                <!--<li><a href="#">Profile</a></li>-->
+                <!--<li><a href="#">Help</a></li>-->
+            <!--</ul>-->
+            <form class="search-bar navbar-form navbar-right">
                 <input type="text" class="form-control" placeholder="Search...">
             </form>
         </div>
@@ -122,6 +122,7 @@
             <hr>
 
             <div id="someContainer" class="col-xs-12">
+<<<<<<< Updated upstream
                 <div class="slide col-md-12 admin-teachers well" ng-repeat="adminTeachers in adminTeachersData">
                     <p class="admin-teachers-list teachers-name">Teacher's Name: {{adminTeachers.firstname}} {{adminTeaachers.lastname}}</p>
                     <div  class="my-animation" ng-show="show">
@@ -130,6 +131,18 @@
                     <p class="admin-teachers-list teachers-email">Teacher's Email: {{adminTeachers.email}}</p>
                         </div>
                     <button class = "trigger" ng-click="show=!show">More Info</button>
+=======
+
+                <div class="slide col-md-12 admin-teachers well" ng-repeat="adminTeachers in adminTeachersData">
+                    <p class="admin-teachers-list teachers-name"><span class = " info-title">Full Name:</span> {{adminTeachers.firstname}} {{adminTeaachers.lastname}}</p>
+                    <div class = "my-animation" ng-show="show">
+                    <p class="admin-teachers-list teachers-school"><span class = " info-title">School:</span> {{adminTeachers.school}}</p>
+                    <p class="admin-teachers-list teachers-phone"><span class = " info-title">Phone Number:</span> {{adminTeachers.phone}}</p>
+                    <p class="admin-teachers-list teachers-email"><span class = " info-title">Email: </span>{{adminTeachers.email}}</p>
+                    </div>
+                    <button class="btn btn-primary" ng-click="show=!show">More Info</button>
+
+>>>>>>> Stashed changes
                 </div>
             </div>
 
