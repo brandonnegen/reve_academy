@@ -326,12 +326,19 @@ reveApp.controller("TeacherClassesController", ["$scope", "$http", "$route", fun
     $scope.getClasses();
 }]);
 
-reveApp.controller("TeacherStudentsController", ["$scope", "$http", "$route", function($scope, $http, $route){
+reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http", "$route", function($rootScope, $scope, $http, $route){
+
+    $rootScope.$on('hideMessages', function(){
+        $scope.$apply(function(){
+            $scope.showSuccessMessage = false;
+        });
+
+    });
+
     console.log("Teacher-Students Controller is working!");
     $scope.$route = $route;
     $scope.adminStudents = {};
     $scope.adminClasses = {};
-    $scope.classesList = [];
     $scope.getStudents = function(){
         console.log("Get request made");
         //GET
@@ -375,5 +382,38 @@ reveApp.controller("TeacherStudentsController", ["$scope", "$http", "$route", fu
     //    });
     //};
     $scope.getClasses();
+
+    $scope.sendStudent = function(){
+        return $http.post('/admin-students/poststudents', {
+            id: $scope.adminStudents.id,
+            firstname: $scope.adminStudents.firstname,
+            lastname: $scope.adminStudents.lastname,
+            gradelevel: $scope.adminStudents.gradelevel,
+            age: $scope.adminStudents.age,
+            gender: $scope.adminStudents.gender,
+            race: $scope.adminStudents.race,
+            ethnicity: $scope.adminStudents.ethnicity,
+            softskillspre: $scope.adminStudents.softskillspre,
+            softskillspost: $scope.adminStudents.softskillspost,
+            classcompletion: $scope.adminStudents.classcompletion
+        })
+            .success(function(response) {
+                $scope.adminStudents.id = "";
+                $scope.adminStudents.firstname = "";
+                $scope.adminStudents.lastname = "";
+                $scope.adminStudents.gradelevel = "";
+                $scope.adminStudents.age = "";
+                $scope.adminStudents.gender = "";
+                $scope.adminStudents.race = "";
+                $scope.adminStudents.ethnicity = "";
+                $scope.adminStudents.softskillspre = "";
+                $scope.adminStudents.softskillspost = "";
+                $scope.adminStudents.classcompletion = "";
+                $scope.successMessage = "You saved it!";
+                $scope.showSuccessMessage = true;
+                $scope.getStudents();
+            });
+
+    };
     $scope.getStudents();
 }]);
