@@ -87,31 +87,34 @@
                                 <div class="my-animation" ng-show="show">
                                     <div class="slide col-md-12 admin-classes well" ng-repeat="adminStudents in adminStudentsData">
                                         <p class="admin-students-list">{{adminStudents.firstname}} {{adminStudents.lastname}}</p>
-                                        <form name="form" ng-submit="sendGrade()" method="post">
+                                        <form name="form" ng-submit="sendGrade()">
                                             <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
                                             <div class="form-group">
-                                                <label for="id">Pre-Assessment</label>
-                                                <input ng-model="adminStudents.preassessmentgrade" type="text" name="id" id="id" class="form-control" placeholder="Pre-Assessment Grade"/>
+                                                <label for="preassessmentgrade">Pre-Assessment</label>
+                                                <input ng-model="adminStudents.preassessmentgrade" type="text" name="preassessmentgrade" id="preassessmentgrade" class="form-control" placeholder="Pre-Assessment Grade"/>
                                             </div>
                                             <div class="form-group">
-                                                <label for="id">Soft Skills Pre-Assessment</label>
-                                                <input ng-model="adminStudents.softskillspregrade" type="text" name="id" id="id" class="form-control" placeholder="Soft Skills Pre-Assessment Grade"/>
+                                                <label for="softskillspregade">Soft Skills Pre-Assessment</label>
+                                                <input ng-model="adminStudents.softskillspregrade" type="text" name="softskillspregade" id="softskillspregade" class="form-control" placeholder="Soft Skills Pre-Assessment Grade"/>
                                             </div>
                                             <div class="form-group">
-                                                <label for="id">Story Board</label>
-                                                <input ng-model="adminStudents.storyboardgrade" type="text" name="id" id="id" class="form-control" placeholder="Story Board Grade"/>
+                                                <label for="storyboardgrade">Story Board</label>
+                                                <input ng-model="adminStudents.storyboardgrade" type="text" name="storyboardgrade" id="storyboardgrade" class="form-control" placeholder="Story Board Grade"/>
                                             </div>
                                             <div class="form-group">
-                                                <label for="id">Website</label>
-                                                <input ng-model="adminStudents.websitegrade" type="text" name="id" id="id" class="form-control" placeholder="Website Grade"/>
+                                                <label for="websitegrade">Website</label>
+                                                <input ng-model="adminStudents.websitegrade" type="text" name="websitegrade" id="websitegrade" class="form-control" placeholder="Website Grade"/>
                                             </div>
                                             <div class="form-group">
-                                                <label for="id">Soft Skills Post-Assessment</label>
-                                                <input ng-model="adminStudents.softskillspostgrade" type="text" name="id" id="id" class="form-control" placeholder="Soft Skills Post-Assessment Grade"/>
+                                                <label for="softskillspostgrade">Soft Skills Post-Assessment</label>
+                                                <input ng-model="adminStudents.softskillspostgrade" type="text" name="softskillspostgrade" id="softskillspostgrade" class="form-control" placeholder="Soft Skills Post-Assessment Grade"/>
                                             </div>
                                             <div class="form-group">
-                                                <label for="id">Post-Assessment</label>
-                                                <input ng-model="adminStudents.postassessmentgrade" type="text" name="id" id="id" class="form-control" placeholder="Post-Assessment Grade"/>
+                                                <label for="postassessmentgrade">Post-Assessment</label>
+                                                <input ng-model="adminStudents.postassessmentgrade" type="text" name="postassessmentgrade" id="postassessmentgrade" class="form-control" placeholder="Post-Assessment Grade"/>
+                                            </div>
+                                            <div class="form-actions">
+                                                <button type="submit" class="btn btn-primary">Submit</button>
                                             </div>
                                         </form>
                                     </div>
