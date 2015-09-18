@@ -79,7 +79,7 @@
 
             <!--<h2 class="sub-header">Section title</h2>-->
             <div class="assignment-info">
-                <h1>School Information</h1>
+                <h4>Add a New School</h4>
                 <form name="form" ng-submit="sendSchool()"  method="post">
                     <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
                     <div class="form-group">
@@ -116,15 +116,17 @@
             <hr>
 
             <div id="someContainer" class="col-xs-12">
+
                 <div class="slide col-md-12 school well addInfo" ng-repeat="school in schoolData">
-                    <p class="school-list school-name"><span class = " info-title">School Name:</span> {{school.name}}</p>
+                    <p class="school-list school-name"><span class = " info-title">Name:</span> {{school.name}}</p>
 
                     <div  class="my-animation" ng-show="show">
-                        <p class="school-list school-address"><span class = " info-title">School Address:</span> {{school.address}}</p>
-                        <p class="school-list school-address"><span class = " info-title">School District: </span>{{school.district}}</p>
-                        <p class="school-list school-address"><span class = " info-title">School Phone:</span> {{school.phone}}</p>
-                        <p class="school-list school-address"><span class = " info-title">School Email:</span> {{school.email}}</p>
-                        <p class="school-list school-address"><span class = " info-title">School Contact Person: </span>{{school.contactperson}}</p>
+                        <h4>School Information</h4>
+                        <p class="school-list school-address"><span class = " info-title">Address:</span> {{school.address}}</p>
+                        <p class="school-list school-address"><span class = " info-title">District: </span>{{school.district}}</p>
+                        <p class="school-list school-address"><span class = " info-title">Phone:</span> {{school.phone}}</p>
+                        <p class="school-list school-address"><span class = " info-title">Email:</span> {{school.email}}</p>
+                        <p class="school-list school-address"><span class = " info-title">Contact Person: </span>{{school.contactperson}}</p>
                     </div>
                     <button class="btn btn-primary" ng-click="show=!show">More Info</button><button class="btn btn-primary">Edit</button><button class="btn btn-primary">Delete</button>
                     <!--<button type="submit" class="btn btn-primary" ng-click="show=!show">Submit</button>-->
