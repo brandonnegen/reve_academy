@@ -77,9 +77,8 @@
 
             <hr>
 
-            <h2 class="sub-header">Section title</h2>
             <div class="assignment-info">
-                <h1>Class Information</h1>
+                <h4>Add a Class</h4>
                 <form name="form" ng-submit="sendClass()" method="post">
                     <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
                     <div class="form-group">
@@ -103,7 +102,8 @@
             <hr>
 
             <div id="someContainer" class="col-xs-12">
-                <div class="slide col-md-12 admin-classes well" ng-repeat="adminClasses in adminClassesData">
+                <h4>Class Information</h4>
+                <div class="slide col-md-12 admin-classes school well" ng-repeat="adminClasses in adminClassesData">
                     <p class="admin-classes-list classes-name"><span class = " info-title">Class Name:</span> {{adminClasses.name}}</p>
                     <div class="my-animation" ng-show="show">
                     <p class="admin-classes-list classes-startdate"><span class = " info-title">Class Start Date:</span> {{adminClasses.startdate | date:"MM/dd/yyyy"}}</p>

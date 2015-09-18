@@ -133,6 +133,8 @@ reveApp.controller("AdminTeachersController", ["$rootScope", "$scope", "$http", 
                 $scope.adminTeachers.school = "";
                 $scope.adminTeachers.username = "";
                 $scope.adminTeachers.password = "";
+                $scope.adminTeachers.password = "";
+                $scope.adminTeachers.passwordRepeated = "";
                 $scope.successMessage = "You saved it!";
                 $scope.showSuccessMessage = true;
                 $scope.getTeachers();
