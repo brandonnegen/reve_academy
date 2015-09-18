@@ -10,10 +10,13 @@ var StudentSchema = new Schema({
     ethnicity: {type: String, required: true },
     gradelevel: {type: Number, required: true },
     age: {type: Number, required: true },
-    softskillspre: {type: Number},
-    softskillspost: {type: Number},
+    softskillspregrade: {type: Number},
+    softskillspostgrade: {type: Number},
     classes: {type: String},
-    //school: []
+    preassessmentgrade: {type: Number},
+    storyboardgrade: {type: Number},
+    websitegrade: {type: Number},
+    postassessmentgrade: {type: Number},
     classcompletion: {type: String}
     //school: [],
     //class: [],
