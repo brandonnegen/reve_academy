@@ -181,7 +181,7 @@ a:focus, a:hover{
 
 .my-animation {
     overflow-y: hidden;
-    max-height: 500px; /* approximate max height */
+    max-height: 9999px; /* approximate max height */
     transition-property: all;
     transition-duration: 0.5s;
     /*transition-timing-function: cubic-bezier(1, 1, 0.5, 1);*/
@@ -197,10 +197,10 @@ a:focus, a:hover{
     transition: 1s;
 }
 
-.assignment-info h1 {
+h4  {
     font-family: 'Montserrat', sans-serif;
     color: #707372;
-    font-size: 16px;
+    font-size: 18px;
     text-transform: capitalize;
 }
 
@@ -224,6 +224,8 @@ a:focus, a:hover{
 .btn-primary {
     background-color: #d14414;
     border: none;
+    margin-right: 10px;
+    margin-top: 10px;
 }
 
 .well .button-primary {
@@ -264,12 +266,13 @@ a:focus, a:hover{
 
 .info-title {
     color: #2f3835;
-    font-size: 18px;
+    font-size: 14px;
     font-family: sans-serif;
-    font-weight: 400;
+    font-weight: bolder;
+
 }
 
-.my-animation p {
+p {
     color: #707372;
     font-size: 14px;
     font-family: sans-serif;
