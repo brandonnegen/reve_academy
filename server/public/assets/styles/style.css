@@ -13,6 +13,7 @@ footer {
     height: 50px;
     color: #707372;
     text-align: center;
+
 }
 
 .pull-right{
@@ -327,10 +328,21 @@ p {
     margin-top: 80px;
 }
 
+/*SIDEBAR*/
+.nav>li>a:focus, .nav>li>a:hover{
+    background-color: #aaa;
+    color: white;
+}
 /*Drop Down Menu*/
 .form-group select {
     border: #d14414 solid 1px;
     outline: none;
+}
+.dropColor:hover {
+    background-color: red;
+}
+.colorme {
+    box-shadow: 0 0 10px 100px #1882A8 inset;
 }
 
 .form-group p {
