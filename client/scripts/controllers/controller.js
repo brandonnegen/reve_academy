@@ -3,6 +3,7 @@ var reveApp = angular.module('reveApp');
 
 reveApp.controller("LoginController", ["$scope", "$http", function($scope, $http){
     console.log("Login Controller is working!");
+
 }]);
 
 reveApp.controller("RegisterController", ["$scope", "$http", "$route", function($scope, $http, $route){
