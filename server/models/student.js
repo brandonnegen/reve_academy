@@ -2,7 +2,7 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var StudentSchema = new Schema({
-    id: {type: Number, required: true, index: {unique: true}},
+    studentid: {type: Number, required: true, index: {unique: true}},
     firstname: {type: String, required: true},
     lastname: {type: String, required: true },
     gender: {type: String, required: true },
@@ -10,10 +10,13 @@ var StudentSchema = new Schema({
     ethnicity: {type: String, required: true },
     gradelevel: {type: Number, required: true },
     age: {type: Number, required: true },
-    softskillspre: {type: Number},
-    softskillspost: {type: Number},
+    softskillspregrade: {type: Number},
+    softskillspostgrade: {type: Number},
     classes: {type: String},
-    //school: []
+    preassessmentgrade: {type: Number},
+    storyboardgrade: {type: Number},
+    websitegrade: {type: Number},
+    postassessmentgrade: {type: Number},
     classcompletion: {type: String}
     //school: [],
     //class: [],
