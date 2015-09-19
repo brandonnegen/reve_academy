@@ -10,7 +10,7 @@
             <a class="navbar-brand" href="http://reveacademy.org/"><img src="../assets/images/academylogo_white.png"/></a>
         </div>
         <div class="navbar-collapse collapse top-nav">
-            <form class="navbar-form navbar-right">
+            <form class=" search-bar navbar-form navbar-right">
                 <input type="text" class="form-control" placeholder="Search...">
             </form>
         </div>
@@ -33,22 +33,21 @@
         </div>
 
         <div class="col-sm-9 col-md-10 main">
-            <h2 class="sub-header">Section title</h2>
             <div class="students-info">
-                <h1>Student Information</h1>
+                <h4>Add Student Information</h4>
                 <form name="form" ng-submit="sendStudent()" method="post">
                     <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
                     <div class="form-group">
-                        <label for="id">Student ID</label>
                         <input ng-model="adminStudents.id" type="text" name="id" id="id" class="form-control" placeholder="Student ID #" required />
                     </div>
                     <div class="form-group">
-                        <label for="firstname">First Name</label>
                         <input ng-model="adminStudents.firstname" type="text" name="firstname" id="firstname" class="form-control" placeholder="First Name" required />
                     </div>
                     <div class="form-group">
-                        <label for="lastname">Last Name</label>
                         <input ng-model="adminStudents.lastname" type="text" name="lastname" id="lastname" class="form-control" placeholder="Last Name" required />
+                    </div>
+                    <div class="form-group">
+                        <input ng-model="adminStudents.age" type="text" name="age" id="age" class="form-control" placeholder="Age" required />
                     </div>
                     <div class="form-group">
                         <label for="gradelevel">Grade Level</label>
@@ -62,10 +61,7 @@
                             <div class='radio form-control'><label><input class='radio-inline' name='gradelevel' type='radio' value=12 ng-model='adminStudents.gradelevel' ng-required='!adminStudents.gradelevel' /><b>12th Grade</b></label></div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="age">Age</label>
-                        <input ng-model="adminStudents.age" type="text" name="age" id="age" class="form-control" placeholder="Age" required />
-                    </div>
+
                     <div class="form-group">
                         <label for="gender">Gender</label>
                         <div id='gender'>
