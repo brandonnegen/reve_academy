@@ -127,13 +127,13 @@
                 <h4>Teacher Information</h4>
 
                 <div class="slide col-md-12 admin-teachers well school" ng-repeat="adminTeachers in adminTeachersData">
-                    <p class="admin-teachers-list teachers-name"><span class = " info-title">Full Name:</span> {{adminTeachers.firstname}} {{adminTeaachers.lastname}}</p>
+                    <p class="admin-teachers-list teachers-name"><span class = " info-title">Full Name:</span> {{adminTeachers.firstname}} {{adminTeachers.lastname}}</p>
                     <div class = "my-animation" ng-show="show">
                     <p class="admin-teachers-list teachers-school"><span class = " info-title">School:</span> {{adminTeachers.school}}</p>
                     <p class="admin-teachers-list teachers-phone"><span class = " info-title">Phone Number:</span> {{adminTeachers.phone}}</p>
                     <p class="admin-teachers-list teachers-email"><span class = " info-title">Email: </span>{{adminTeachers.email}}</p>
                     </div>
-                    <button class="btn btn-primary" ng-click="show=!show">More Info</button><button class="btn btn-primary">Edit</button><button class="btn btn-primary">Delete</button>
+                    <button class="btn btn-primary" ng-click="show=!show">More Info</button><button class="btn btn-primary">Edit</button><button ng-click="removeTeacher(adminTeachers._id)" class="btn btn-primary">Delete</button>
 
                 </div>
             </div>

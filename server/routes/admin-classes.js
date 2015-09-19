@@ -24,5 +24,15 @@ router.post("/", function (req, res, next){
     });
 });
 
+router.delete("/:id", function(req, res, next){
+    console.log("Server " + req.params.id + req.body);
+    Classes.findByIdAndRemove(req.params.id, req.body, function(err, Class){
+        return Classes.find({}).exec(function(err, Class){
+            if(err) throw new Error(err);
+            res.send(JSON.stringify(Class));
+        });
+    });
+});
+
 
 module.exports = router;
