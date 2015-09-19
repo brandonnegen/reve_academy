@@ -56,4 +56,14 @@ router.post("/poststudents", function (req, res, next){
     });
 });
 
+router.delete("/:id", function(req, res, next){
+    console.log("Server " + req.params.id + req.body);
+    Students.findByIdAndRemove(req.params.id, req.body, function(err, student){
+        return Students.find({}).exec(function(err, student){
+            if(err) throw new Error(err);
+            res.send(JSON.stringify(student));
+        });
+    });
+});
+
 module.exports = router;

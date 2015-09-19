@@ -5,9 +5,15 @@ var passport = require('passport');
 var path = require('path');
 var School = require('../models/school');
 
-//router.get("/", function (req, res, next){
-//    res.sendFile(path.resolve(__dirname, '../public/assets/views/school.html'));
-//});
+router.delete("/:id", function(req, res, next){
+    console.log("Server " + req.params.id + req.body);
+    School.findByIdAndRemove(req.params.id, req.body, function(err, school){
+        return School.find({}).exec(function(err, school){
+            if(err) throw new Error(err);
+            res.send(JSON.stringify(school));
+        });
+    });
+});
 
 router.post("/", function (req, res, next){
     console.log("Made it to school post! ", req.body);

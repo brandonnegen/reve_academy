@@ -20,7 +20,15 @@ router.post("/postteachers", function (req, res, next){
     });
 });
 
-
+router.delete("/:id", function(req, res, next){
+    console.log("Server " + req.params.id + req.body);
+    Users.findByIdAndRemove(req.params.id, req.body, function(err, user){
+        return Users.find({}).exec(function(err, user){
+            if(err) throw new Error(err);
+            res.send(JSON.stringify(user));
+        });
+    });
+});
 
 router.get("/", function (req, res, next){
     res.sendFile(path.resolve(__dirname, '../public/assets/views/register.html'));
