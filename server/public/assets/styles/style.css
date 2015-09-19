@@ -149,10 +149,7 @@ a:focus, a:hover{
     margin-top: 50px;
 }
 
-.logo img{
-    padding: 10px;
-    width: 630px;
-}
+
 
 .top-nav {
     margin-top: 25px;
@@ -204,7 +201,7 @@ h4  {
     text-transform: capitalize;
 }
 
-.assignment-info input, .search-bar input {
+.assignment-info input, .search-bar input, .form-group input {
     border:1px solid #eeeeee;
     border-radius:0px;
     box-shadow: none;
@@ -214,7 +211,7 @@ h4  {
     font-weight: 400;
 }
 
-.assignment-info input:focus, .search-bar input:focus {
+.assignment-info input:focus, .search-bar input:focus, .form-group input:focus {
     outline:none;
     border-color:#818181;
     box-shadow: none;
@@ -279,13 +276,13 @@ p {
     font-weight: 400;
 }
 
-#wrap{
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    /* Negative indent footer by it's height */
-    margin: 0 auto -50px;
-}
+/*#wrap{*/
+    /*min-height: 100%;*/
+    /*height: auto !important;*/
+    /*height: 100%;*/
+    /*/!* Negative indent footer by it's height *!/*/
+    /*margin: 0 auto -50px;*/
+/*}*/
 
 /*slide col-md-12 school well addInfo ng-scope*/
 
@@ -296,4 +293,21 @@ p {
 #someContainer {
     padding: 0;
     margin: 0;
+}
+
+.login-page {
+    border: #d14414 solid 2px;
+}
+
+/*LOGIN PAGE*/
+#logo{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.logo img{
+    padding: 10px;
+    width: 660px;
+    padding-left: 0;
+    margin-top: 80px;
 }
