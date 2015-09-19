@@ -16,6 +16,7 @@ reveApp.directive('sameAs', function () {
         }
     };
 });
+
 var appControllers = angular.module('appControllers', []);
 
 
