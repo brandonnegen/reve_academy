@@ -61,16 +61,6 @@ module.exports = function(grunt){
                 src: 'angular-animate/angular-animate.min.js',
                 dest: 'server/public/vendors'
             },
-            angularDialog: {
-                expand: true,
-                cwd: 'node_modules',
-                src: [
-                    "ng-dialog/js/ngDialog.min.js",
-                    "ng-dialog/css/ngDialog.min.css",
-                    "ng-dialog/css/ngDialog-theme-default.min.css"
-                ],
-                "dest": "server/public/vendors/"
-            },
             bootstrap: {
                 expand: true,
                 cwd: 'node_modules',
