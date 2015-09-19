@@ -33,8 +33,7 @@
         </div>  <!--sidebar-->
 
         <div class="col-sm-9 col-md-10 main">
-            <h2 class="teacher-classes-info">Section title</h2>
-            <h1>Class Information</h1>
+            <h4>Create a new Class</h4>
             <form name="form" ng-submit="sendClass()" method="post">
                 <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
 
@@ -84,7 +83,7 @@
                             <p class="admin-classes-list">Pre-Assessment</p>
 
                             <div class="my-animation" ng-show="showStudent">
-                                <div class="slide col-md-12 admin-classes well" ng-repeat="adminStudents in adminStudentsData">
+                                <div class="slide col-md-12 admin-classes school well" ng-repeat="adminStudents in adminStudentsData">
                                     <p class="admin-students-list">{{adminStudents.firstname}} {{adminStudents.lastname}}</p>
                                     <form name="form" ng-submit="sendGrade(adminStudents._id, adminStudents.preassessmentgrade)" method="post">
                                         <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
@@ -105,7 +104,7 @@
                         <div class="col-md-12 admin-classes school well">
                             <p class="admin-classes-list">Soft Skills Pre-Assessment</p>
                             <div class="my-animation" ng-show="showStudentSoft">
-                                <div class="slide col-md-12 admin-classes well" ng-repeat="adminStudents in adminStudentsData">
+                                <div class="slide col-md-12 admin-classes school well" ng-repeat="adminStudents in adminStudentsData">
                                     <p class="admin-students-list">{{adminStudents.firstname}} {{adminStudents.lastname}}</p>
                                     <form name="form" ng-submit="sendGrade(adminStudents._id, adminStudents.softskillspregrade)" method="post">
                                         <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
@@ -126,7 +125,7 @@
                         <div class="col-md-12 admin-classes school well">
                             <p class="admin-classes-list">Story Board</p>
                             <div class="my-animation" ng-show="showStoryBoard">
-                                <div class="slide col-md-12 admin-classes well" ng-repeat="adminStudents in adminStudentsData">
+                                <div class="slide col-md-12 admin-classes school well" ng-repeat="adminStudents in adminStudentsData">
                                     <p class="admin-students-list">{{adminStudents.firstname}} {{adminStudents.lastname}}</p>
                                     <form name="form" ng-submit="sendGrade(adminStudents._id, adminStudents.storyboardgrade)" method="post">
                                         <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
@@ -147,7 +146,7 @@
                         <div class="col-md-12 admin-classes school well">
                             <p class="admin-classes-list">Website</p>
                             <div class="my-animation" ng-show="showWebsite">
-                                <div class="slide col-md-12 admin-classes well" ng-repeat="adminStudents in adminStudentsData">
+                                <div class="slide col-md-12 admin-classes school well" ng-repeat="adminStudents in adminStudentsData">
                                     <p class="admin-students-list">{{adminStudents.firstname}} {{adminStudents.lastname}}</p>
                                     <form name="form" ng-submit="sendGrade(adminStudents._id, adminStudents.websitegrade)" method="post">
                                         <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
