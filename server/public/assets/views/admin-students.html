@@ -82,19 +82,16 @@
                 <form name="form" ng-submit="sendStudent()" method="post">
                     <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
                     <div class="form-group">
-                        <label for="id">Student ID</label>
                         <input ng-model="adminStudents.id" type="text" name="id" id="id" class="form-control" placeholder="Student ID #" required />
                     </div>
                     <div class="form-group">
-                        <label for="firstname">First Name</label>
                         <input ng-model="adminStudents.firstname" type="text" name="firstname" id="firstname" class="form-control" placeholder="First Name" required />
                     </div>
                     <div class="form-group">
-                        <label for="lastname">Last Name</label>
                         <input ng-model="adminStudents.lastname" type="text" name="lastname" id="lastname" class="form-control" placeholder="Last Name" required />
                     </div>
                     <div class="form-group">
-                        <label for="gradelevel">Grade Level</label>
+                        <label for="gradelevel" class="heading3">Grade Level</label>
                         <div id='gradelevel'>
                         <div class='radio form-control'><label><input class='radio-inline' name='gradelevel' type='radio' value=06 ng-model='adminStudents.gradelevel' ng-required='!adminStudents.gradelevel' /><b>6th Grade</b></label></div>
                         <div class='radio form-control'><label><input class='radio-inline' name='gradelevel' type='radio' value=07 ng-model='adminStudents.gradelevel' ng-required='!adminStudents.gradelevel' /><b>7th Grade</b></label></div>
@@ -106,18 +103,17 @@
                     </div>
                     </div>
                     <div class="form-group">
-                        <label for="age">Age</label>
                         <input ng-model="adminStudents.age" type="text" name="age" id="age" class="form-control" placeholder="Age" required />
                     </div>
                     <div class="form-group">
-                        <label for="gender">Gender</label>
+                        <label for="race" class="heading3">Gender</label>
                         <div id='gender'>
                         <div class='radio form-control'><label><input class='radio-inline' name='gender' type='radio' value="Male" ng-model='adminStudents.gender' ng-required='!adminStudents.gender' /><b>Male</b></label></div>
                         <div class='radio form-control'><label><input class='radio-inline' name='gender' type='radio' value="Female" ng-model='adminStudents.gender' ng-required='!adminStudents.gender' /><b>Female</b></label></div>
                     </div>
                     </div>
                     <div class="form-group">
-                        <label for="race">Race</label>
+                        <label for="race" class="heading3">Race</label>
                         <div id="race">
                         <div class='radio form-control'><label><input class='radio-inline' name='race' type='radio' value="American Indian or Alaska Native" ng-model='adminStudents.race' ng-required='!adminStudents.race' /><b>American Indian or Alaska Native</b></label></div>
                         <div class='radio form-control'><label><input class='radio-inline' name='race' type='radio' value="Asian" ng-model='adminStudents.race' ng-required='!adminStudents.race' /><b>Asian</b></label></div>
@@ -128,14 +124,14 @@
                     </div>
                     </div>
                     <div class="form-group">
-                        <label for="ethnicity">Ethnicity</label>
+                        <label for="ethnicity" class="heading3">Ethnicity</label>
                         <div id="ethnicity">
                         <div class='radio form-control'><label><input class='radio-inline' name='ethnicity' type='radio' value="Hispanic" ng-model='adminStudents.ethnicity' ng-required='!adminStudents.ethnicity' /><b>Hispanic</b></label></div>
                         <div class='radio form-control'><label><input class='radio-inline' name='ethnicity' type='radio' value="Not Hispanic or Latino" ng-model='adminStudents.ethnicity' ng-required='!adminStudents.ethnicity' /><b>Not Hispanic or Latino</b></label></div>
                     </div>
                     </div>
                     <div class="form-group">
-                        <label for="softskillspre">Soft Skills Pre</label>
+                        <label for="softskillspre" class="heading3">Soft Skills Pre</label>
                         <div id="softskillspre">
                         <div class='radio form-control'><label><input class='radio-inline' name='softskillspre' type='radio' value=1 ng-model='adminStudents.softskillspre' /><b>1</b></label></div>
                         <div class='radio form-control'><label><input class='radio-inline' name='softskillspre' type='radio' value=2 ng-model='adminStudents.softskillspre' /><b>2</b></label></div>
@@ -144,7 +140,7 @@
                     </div>
                     </div>
                     <div class="form-group">
-                        <label for="softskillspost">Soft Skills Post</label>
+                        <label for="softskillspost" class="heading3">Soft Skills Post</label>
                         <div id="softskillspost">
                         <div class='radio form-control'><label><input class='radio-inline' name='softskillspost' type='radio' value=1 ng-model='adminStudents.softskillspost' /><b>1</b></label></div>
                         <div class='radio form-control'><label><input class='radio-inline' name='softskillspost' type='radio' value=2 ng-model='adminStudents.softskillspost'  /><b>2</b></label></div>
@@ -153,7 +149,7 @@
                     </div>
                     </div>
                     <div class="form-group">
-                        <label for="classcompletion">Class Completion</label>
+                        <label for="classcompletion" class="heading3">Class Completion</label>
                         <div id='classcompletion'>
                         <div class='radio form-control'><label><input class='radio-inline' name='classcompletion' type='radio' value="Yes" ng-model='adminStudents.classcompletion' /><b>Yes</b></label></div>
                         <div class='radio form-control'><label><input class='radio-inline' name='classcompletion' type='radio' value="No" ng-model='adminStudents.classcompletion' /><b>No</b></label></div>

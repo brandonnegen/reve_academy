@@ -311,3 +311,22 @@ p {
     padding-left: 0;
     margin-top: 80px;
 }
+
+/*Drop Down Menu*/
+.form-group select {
+    border: #d14414 solid 1px;
+    outline: none;
+}
+
+.form-group p {
+    background-color: #d14414;
+}
+
+/*Classes Page*/
+.heading3{
+    font-family: 'Montserrat', sans-serif;
+    color: #707372;
+    font-size: 14px;
+    font-weight: 400;
+}
+
