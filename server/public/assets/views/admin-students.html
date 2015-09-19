@@ -27,7 +27,7 @@
 
     <div class="row row-offcanvas row-offcanvas-left">
 
-        <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
+        <div class=" col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
 
             <ul class="nav nav-sidebar">
                 <li ng-class="{active: $route.current.activetab == 'admin'}"><a href="#/admin">Overview</a></li>
@@ -183,7 +183,7 @@
                     <p class="admin-student-list student-ethnicity"><span class = " info-title">Soft Skills Post:</span> {{adminStudents.softskillspost}}</p>
                     <p class="admin-student-list student-ethnicity"><span class = " info-title">Class Completion:</span> {{adminStudents.classcompletion}}</p>
                     </div>
-                    <button class="btn btn-primary" ng-click="show=!show">More Info</button><button class="btn btn-primary">Edit</button><button class="btn btn-primary">Delete</button>
+                    <button class="btn btn-primary" ng-click="show=!show">More Info</button><button class="btn btn-primary">Edit</button><button ng-click="removeStudent(adminStudents._id)" class="btn btn-primary">Delete</button>
 
             </div>
             </div>

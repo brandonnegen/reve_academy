@@ -1,4 +1,5 @@
-var reveApp = angular.module('reveApp',['ngRoute', 'appControllers'])
+var reveApp = angular.module('reveApp',['ngRoute', 'appControllers']);
+
 reveApp.directive('sameAs', function () {
     return {
         require: 'ngModel',

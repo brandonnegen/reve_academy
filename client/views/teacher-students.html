@@ -10,12 +10,6 @@
             <a class="navbar-brand" href="http://reveacademy.org/"><img src="../assets/images/academylogo_white.png"/></a>
         </div>
         <div class="navbar-collapse collapse top-nav">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#/teachers">Dashboard</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Help</a></li>
-            </ul>
             <form class="navbar-form navbar-right">
                 <input type="text" class="form-control" placeholder="Search...">
             </form>
@@ -146,21 +140,26 @@
             </div>
 
             <div id="someContainer" class="col-xs-12">
-                <div class="col-md-12 admin-student well" ng-repeat="adminStudents in adminStudentsData | filter:showadminStudents">
-                    <p class="admin-student-list student-name">Student ID #: {{adminStudents.id}}</p>
-                    <p class="admin-student-list student-name">Full Name: {{adminStudents.firstname}} {{adminStudents.lastname}}</p>
-                    <p class="admin-student-list student-classes">Classes: {{adminStudents.classes}}</p>
-                    <p class="admin-student-list student-gradelevel">Grade Level: {{adminStudents.gradelevel}}</p>
-                    <p class="admin-student-list student-age">Age: {{adminStudents.age}}</p>
-                    <p class="admin-student-list student-gender">Gender: {{adminStudents.gender}}</p>
-                    <p class="admin-student-list student-race">Race: {{adminStudents.race}}</p>
-                    <p class="admin-student-list student-ethnicity">Ethnicity: {{adminStudents.ethnicity}}</p>
-                    <p class="admin-student-list student-ethnicity">Soft Skills Pre: {{adminStudents.softskillspre}}</p>
-                    <p class="admin-student-list student-ethnicity">Soft Skills Post: {{adminStudents.softskillspost}}</p>
-                    <p class="admin-student-list student-ethnicity">Class Completion: {{adminStudents.classcompletion}}</p>
-                </div>
+                <h4>Student Information</h4>
+                <div class="slide col-md-12 admin-student school well" ng-repeat="adminStudents in adminStudentsData">
+                    <p class="admin-student-list student-name"><span class = " info-title">Student ID #: </span>{{adminStudents.id}}</p>
+                    <p class="admin-student-list student-name"><span class = " info-title">Full Name:</span> {{adminStudents.firstname}} {{adminStudents.lastname}}</p>
+                    <div  class="my-animation" ng-show="show">
+                        <p class="admin-student-list student-gradelevel"><span class = " info-title">Grade Level:</span> {{adminStudents.gradelevel}}</p>
+                        <p class="admin-student-list student-age"><span class = " info-title">Age:</span> {{adminStudents.age}}</p>
+                        <p class="admin-student-list student-gender"><span class = " info-title">Gender: </span>{{adminStudents.gender}}</p>
+                        <p class="admin-student-list student-race"><span class = " info-title">Race:</span> {{adminStudents.race}}</p>
+                        <p class="admin-student-list student-ethnicity"><span class = " info-title">Ethnicity: </span>{{adminStudents.ethnicity}}</p>
+                        <p class="admin-student-list student-ethnicity"><span class = " info-title">Soft Skills Pre:</span> {{adminStudents.softskillspre}}</p>
+                        <p class="admin-student-list student-ethnicity"><span class = " info-title">Soft Skills Post:</span> {{adminStudents.softskillspost}}</p>
+                        <p class="admin-student-list student-ethnicity"><span class = " info-title">Class Completion:</span> {{adminStudents.classcompletion}}</p>
+                    </div>
+                    <button class="btn btn-primary" ng-click="show=!show">More Info</button><button class="btn btn-primary">Edit</button><button class="btn btn-primary">Delete</button>
 
+                </div>
             </div>
+
+
         </div><!--/row-->
     </div>
 </div><!--/.container-->

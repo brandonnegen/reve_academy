@@ -77,7 +77,24 @@ reveApp.controller("SchoolController", ["$rootScope", "$scope", "$http", "$route
 
             };
 
-        $scope.getSchools();
+    $scope.removeSchool = function(schoolID) {
+        if(confirm("Are you sure you want to delete this item?")) {
+            $http.delete('/schools/' + schoolID)
+                .success(function (data) {
+                    $scope.schoolData = data;
+                    console.log(data);
+                    $scope.successMessage = "You deleted it!";
+                    $scope.showSuccessMessage = true;
+                    $scope.getSchools();
+                })
+                .error(function (data) {
+                    console.log('Error: ' + data);
+                });
+        }
+    };
+
+
+    $scope.getSchools();
     }]);
 
 reveApp.controller("AdminTeachersController", ["$rootScope", "$scope", "$http", "$route", function($rootScope, $scope, $http, $route){
@@ -142,6 +159,22 @@ reveApp.controller("AdminTeachersController", ["$rootScope", "$scope", "$http", 
 
     };
 
+    $scope.removeTeacher = function(teacherID) {
+        if(confirm("Are you sure you want to delete this item?")) {
+            $http.delete('/register/' + teacherID)
+                .success(function (data) {
+                    $scope.adminTeachersData = data;
+                    console.log(data);
+                    $scope.successMessage = "You deleted it!";
+                    $scope.showSuccessMessage = true;
+                    $scope.getTeachers();
+                })
+                .error(function (data) {
+                    console.log('Error: ' + data);
+                });
+        }
+    };
+
     $scope.getTeachers();
 
 
@@ -184,6 +217,22 @@ reveApp.controller("AdminTeachersController", ["$rootScope", "$scope", "$http", 
 
         };
 
+        $scope.removeClass = function(classID) {
+            if(confirm("Are you sure you want to delete this item?")) {
+                $http.delete('/admin-classes/' + classID)
+                    .success(function (data) {
+                        $scope.adminClassesData = data;
+                        console.log(data);
+                        $scope.successMessage = "You deleted it!";
+                        $scope.showSuccessMessage = true;
+                        $scope.getClasses();
+                    })
+                    .error(function (data) {
+                        console.log('Error: ' + data);
+                    });
+            }
+        };
+
     $scope.getClasses();
 }]);
 
@@ -222,6 +271,22 @@ reveApp.controller("AdminAssignmentsController", ["$rootScope", "$scope", "$http
                 $scope.getAssignments();
             });
 
+    };
+
+    $scope.removeAssignment = function(assignmentID) {
+        if(confirm("Are you sure you want to delete this item?")) {
+            $http.delete('/admin-assignments/' + assignmentID)
+                .success(function (data) {
+                    $scope.adminAssignmentsData = data;
+                    console.log(data);
+                    $scope.successMessage = "You deleted it!";
+                    $scope.showSuccessMessage = true;
+                    $scope.getAssignments();
+                })
+                .error(function (data) {
+                    console.log('Error: ' + data);
+                });
+        }
     };
 
     $scope.getAssignments();
@@ -279,6 +344,22 @@ reveApp.controller("AdminStudentsController", ["$rootScope", "$scope", "$http", 
                 $scope.getStudents();
             });
 
+    };
+
+    $scope.removeStudent = function(studentID) {
+        if(confirm("Are you sure you want to delete this item?")) {
+            $http.delete('/admin-students/' + studentID)
+                .success(function (data) {
+                    $scope.adminStudentsData = data;
+                    console.log(data);
+                    $scope.successMessage = "You deleted it!";
+                    $scope.showSuccessMessage = true;
+                    $scope.getStudents();
+                })
+                .error(function (data) {
+                    console.log('Error: ' + data);
+                });
+        }
     };
 
     $scope.getStudents();
@@ -425,5 +506,13 @@ reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http"
             });
 
     };
+
+
+    $scope.removeStudent = function() {
+        if(confirm("Are you sure you want to delete this item?")) {
+            elt.html('');
+        }
+    };
+
     $scope.getStudents();
 }]);
