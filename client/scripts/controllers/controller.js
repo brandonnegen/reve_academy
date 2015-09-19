@@ -273,6 +273,7 @@ reveApp.controller("AdminAssignmentsController", ["$rootScope", "$scope", "$http
 
     };
 
+
     $scope.removeAssignment = function(assignmentID) {
         if(confirm("Are you sure you want to delete this item?")) {
             $http.delete('/admin-assignments/' + assignmentID)
