@@ -117,7 +117,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="classes">School</label><br />
+                        <label for="classes">Classes</label><br />
                         <select id="classes" name="classes">
                             <option value="{{adminClasses.name}}" ng-repeat="adminClasses in adminClassesData">{{adminClasses.name}}</option>
                         </select>
@@ -132,7 +132,7 @@
             <hr>
 
             <div class="form-group">
-                <label for="name">School</label><br />
+                <label for="name">Classes</label><br />
                 <select id="name" name="name" ng-model="showadminStudents">
                     <option value="" selected>All</option>
                     <option value="{{adminClasses.name}}" ng-repeat="adminClasses in adminClassesData">{{adminClasses.name}}</option>

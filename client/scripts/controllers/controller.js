@@ -198,21 +198,6 @@ reveApp.controller("AdminTeachersController", ["$rootScope", "$scope", "$http", 
             $http.get('/admin-classes/getclasses').then(function(response){
                 console.log(response.data);
                 $scope.adminClassesData = response.data;
-                for(var i = 0; i < response.data.length; i++){
-                    $scope.raw = JSON.stringify(response.data[i].startdate);
-                    $scope.string = JSON.parse($scope.raw);
-                    $scope.dateFormatted = new Date($scope.string);
-                    $scope.classStart = $scope.dateFormatted;
-                    console.log($scope.classStart);
-            }
-            for(var i = 0; i < response.data.length; i++){
-                $scope.raw = JSON.stringify(response.data[i].enddate);
-                $scope.string = JSON.parse($scope.raw);
-                $scope.dateFormatted = new Date($scope.string);
-                $scope.classEnd = $scope.dateFormatted;
-                console.log($scope.classEnd);
-            }
-
         });
     };
         $scope.sendClass = function(){
@@ -391,28 +376,50 @@ reveApp.controller("TeacherClassesController", ["$rootScope", "$scope", "$http",
 
     console.log("Teacher-Classes Controller is working!");
     $scope.$route = $route;
-    $scope.adminClasses = {};
+    $scope.adminClasses = [];
+    $scope.adminAssignments = [];
+    $scope.adminStudents = [];
     $scope.getClasses = function(){
         console.log("Get request made");
         //GET
         $http.get('/admin-classes/getclasses').then(function(response){
             console.log(response.data);
             $scope.adminClassesData = response.data;
-            for(var i = 0; i < response.data.length; i++){
-                $scope.raw = JSON.stringify(response.data[i].startdate);
-                $scope.string = JSON.parse($scope.raw);
-                $scope.dateFormatted = new Date($scope.string);
-                $scope.classStart = $scope.dateFormatted;
-                console.log($scope.classStart);
-            }
-            for(var i = 0; i < response.data.length; i++){
-                $scope.raw = JSON.stringify(response.data[i].enddate);
-                $scope.string = JSON.parse($scope.raw);
-                $scope.dateFormatted = new Date($scope.string);
-                $scope.classEnd = $scope.dateFormatted;
-                console.log($scope.classEnd);
-            }
         });
+    };
+    $scope.getAssignments = function(){
+        console.log("Get request made");
+        //GET
+        $http.get('/admin-assignments/getassignments').then(function(response){
+            console.log(response.data);
+            $scope.adminAssignmentsData = response.data;
+
+        });
+    };
+    $scope.getStudents = function(){
+        console.log("Get request made");
+        //GET
+        $http.get('/admin-students/getstudents').then(function(response){
+            $scope.adminStudentsData = response.data;
+        });
+    };
+    $scope.sendGrade = function(studentID, ssPreGrade, ssPostGrade, preAssessmentGrade, storyBoardGrade, websiteGrade, postAssessmentGrade){
+        console.log("pre grade: " + $scope.adminStudents.softskillspregrade);
+        console.log("ID", studentID);
+        return $http.put('admin-students/poststudents/' + studentID,
+            {
+                "id": studentID,
+                "softskillspregrade": ssPreGrade,
+                "softskillspostgrade": ssPostGrade,
+                "preassessmentgrade": preAssessmentGrade,
+                "storyboardgrade": storyBoardGrade,
+                "websitegrade": websiteGrade,
+                "postassessmentgrade": postAssessmentGrade
+            }
+        ).success(function(data) {
+                $scope.getStudents();
+            });
+
     };
     $scope.sendClass = function(){
         return $http.post('/admin-classes', {
@@ -432,6 +439,8 @@ reveApp.controller("TeacherClassesController", ["$rootScope", "$scope", "$http",
     };
 
     $scope.getClasses();
+    $scope.getAssignments();
+    $scope.getStudents();
 }]);
 
 reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http", "$route", function($rootScope, $scope, $http, $route){
@@ -451,7 +460,7 @@ reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http"
         console.log("Get request made");
         //GET
         $http.get('/admin-students/getstudents').then(function(response){
-            console.log(response.data);
+            console.log("Get students request", response.data);
             $scope.adminStudentsData = response.data;
         });
     };
@@ -459,7 +468,7 @@ reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http"
         console.log("Get request made");
         //GET
         $http.get('/admin-classes/getclasses').then(function(response){
-            console.log(response.data);
+            console.log("get classes request", response.data);
             $scope.adminClassesData = response.data;
         });
     };
