@@ -319,33 +319,23 @@ reveApp.controller("TeacherClassesController", ["$rootScope", "$scope", "$http",
         console.log("Get request made");
         //GET
         $http.get('/admin-students/getstudents').then(function(response){
-            console.log("student get request", response.data);
-            console.log("ID", response.data.id);
-            console.log("other id", response.data._id);
             $scope.adminStudentsData = response.data;
-            for(i = 0; i < response.data.length; i++){
-                console.log("for loop student", response.data[i]._id);
-            }
-
         });
     };
-    $scope.sendGrade = function(){
+    $scope.sendGrade = function(studentID, ssPreGrade, ssPostGrade, preAssessmentGrade, storyBoardGrade, websiteGrade, postAssessmentGrade){
         console.log("pre grade: " + $scope.adminStudents.softskillspregrade);
-        return $http.put('/admin-students/poststudents/_id', {
-            softskillspregrade: $scope.adminStudents.softskillspregrade,
-            softskillspostgrade: $scope.adminStudents.softskillspostgrade,
-            preassessmentgrade: $scope.adminStudents.preassessmentgrade,
-            storyboardgrade: $scope.adminStudents.storyboardgrade,
-            websitegrade: $scope.adminStudents.websitegrade,
-            postassessmentgrade: $scope.adminStudents.postassessmentgrade
-        })
-            .success(function(response) {
-                $scope.adminStudents.softskillspregrade = "";
-                $scope.adminStudents.softskillspostgrade = "";
-                $scope.adminStudents.preassessmentgrade = "";
-                $scope.adminStudents.storyboardgrade = "";
-                $scope.adminStudents.websitegrade = "";
-                $scope.adminStudents.postassessmentgrade = "";
+        console.log("ID", studentID);
+        return $http.put('admin-students/poststudents/' + studentID,
+            {
+                "id": studentID,
+                "softskillspregrade": ssPreGrade,
+                "softskillspostgrade": ssPostGrade,
+                "preassessmentgrade": preAssessmentGrade,
+                "storyboardgrade": storyBoardGrade,
+                "websitegrade": websiteGrade,
+                "postassessmentgrade": postAssessmentGrade
+            }
+        ).success(function(data) {
                 $scope.getStudents();
             });
 
