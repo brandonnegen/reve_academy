@@ -33,8 +33,7 @@
         </div>  <!--sidebar-->
 
         <div class="col-sm-9 col-md-10 main">
-            <h2 class="teacher-classes-info">Section title</h2>
-            <h1>Class Information</h1>
+            <h4>Create a new Class</h4>
             <form name="form" ng-submit="sendClass()" method="post">
                 <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
 
@@ -70,8 +69,9 @@
             <hr>
 
             <div id="someContainer" class="col-xs-12">
+                <h4>Class Information</h4>
                 <!--Shows the name of the classes first and then the more info will show the date and assignments inside-->
-                <div class="slide col-md-12 admin-classes well" ng-repeat="adminClasses in adminClassesData | filter:showadminClasses">
+                <div class="slide col-md-12 admin-classes school well" ng-repeat="adminClasses in adminClassesData | filter:showadminClasses">
                     <p class="admin-classes-list classes-name">{{adminClasses.name}}</p>
 
                     <div class="my-animation" ng-show="show">
@@ -118,9 +118,7 @@
                         <!--</div>-->
                         <form name="form" ng-submit="sendGrade(adminStudents._id, adminStudents.preassessmentgrade, adminStudents.softskillspregrade, adminStudents.storyboardgrade, adminStudents.websitegrade, adminStudents.softskillspostgrade, adminStudents.postassessmentgrade)" method="post">
                             <div class="col-md-12 admin-classes well">
-
                                 <p class="admin-classes-list">Pre-Assessment</p>
-
                                 <div class="my-animation" ng-show="showStudent">
                                     <div class="slide col-md-12 admin-classes well" ng-repeat="adminStudents in adminStudentsData | filter:showadminClasses">
                                         <p class="admin-students-list">{{adminStudents.firstname}} {{adminStudents.lastname}}</p>
@@ -138,8 +136,6 @@
                                 </div>
                                 <button class="btn btn-primary" ng-click="showStudent=!showStudent">See Students</button>
                             </div>
-
-
                             <div class="col-md-12 admin-classes well">
                                 <p class="admin-classes-list">Soft Skills Pre-Assessment</p>
                                 <div class="my-animation" ng-show="showStudentSoft">
@@ -157,10 +153,8 @@
                                         <!--</form>-->
                                     </div>
                                 </div>
-                                <button class="btn btn-primary" ng-click="showStudentSoft=!showStudentSoft">See Students</button>
+                                <button class="btn btn-primary" ng-click="showStudent=!showStudent">See Students</button>
                             </div>
-
-
                             <div class="col-md-12 admin-classes well">
                                 <p class="admin-classes-list">Story Board</p>
                                 <div class="my-animation" ng-show="showStoryBoard">
@@ -178,10 +172,8 @@
                                         <!--</form>-->
                                     </div>
                                 </div>
-                                <button class="btn btn-primary" ng-click="showStoryBoard=!showStoryBoard">See Students</button>
+                                <button class="btn btn-primary" ng-click="showStudentSoft=!showStudentSoft">See Students</button>
                             </div>
-
-
                             <div class="col-md-12 admin-classes well">
                                 <p class="admin-classes-list">Website</p>
                                 <div class="my-animation" ng-show="showWebsite">
@@ -199,10 +191,8 @@
                                         <!--</form>-->
                                     </div>
                                 </div>
-                                <button class="btn btn-primary" ng-click="showWebsite=!showWebsite">See Students</button>
+                                <button class="btn btn-primary" ng-click="showStoryBoard=!showStoryBoard">See Students</button>
                             </div>
-
-
                             <div class="col-md-12 admin-classes well">
                                 <p class="admin-classes-list">Soft Skills Post-Assessment</p>
                                 <div class="my-animation" ng-show="showSoftPost">
@@ -220,9 +210,8 @@
                                         <!--</form>-->
                                     </div>
                                 </div>
-                                <button class="btn btn-primary" ng-click="showSoftPost=!showSoftPost">See Students</button>
+                                <button class="btn btn-primary" ng-click="showWebsite=!showWebsite">See Students</button>
                             </div>
-
                             <div class="col-md-12 admin-classes well">
                                 <p class="admin-classes-list">Post-Assessment Grade</p>
 
@@ -241,10 +230,8 @@
                                         <!--</form>-->
                                     </div>
                                 </div>
-                                <button class="btn btn-primary" ng-click="showPostAss=!showPostAss">See Students</button>
+                                <button class="btn btn-primary" ng-click="showSoftPost=!showSoftPost">See Students</button>
                             </div>
-
-
                             <div class="col-md-12 admin-classes well">
                                 <p class="admin-classes-list">Overall</p>
 
