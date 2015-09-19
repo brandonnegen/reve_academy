@@ -70,15 +70,16 @@
             <hr>
 
             <div id="someContainer" class="col-xs-12">
+                <h4>Class Information</h4>
                 <!--Shows the name of the classes first and then the more info will show the date and assignments inside-->
-                <div class="slide col-md-12 admin-classes well" ng-repeat="adminClasses in adminClassesData | filter:showadminClasses">
+                <div class="slide col-md-12 admin-classes school well" ng-repeat="adminClasses in adminClassesData | filter:showadminClasses">
                     <p class="admin-classes-list classes-name">{{adminClasses.name}}</p>
 
                     <div class="my-animation" ng-show="show">
                         <p class="admin-classes-list classes-startdate">Start Date: {{adminClasses.startdate | date:"MM/dd/yyyy"}}</p>
                         <p class="admin-classes-list classes-enddate">End Date: {{adminClasses.enddate | date:"MM/dd/yyyy"}}</p>
 
-                        <div class="col-md-12 admin-classes well">
+                        <div class="col-md-12 admin-classes school well">
 
                             <p class="admin-classes-list">Pre-Assessment</p>
 
@@ -101,7 +102,7 @@
                         </div>
 
 
-                        <div class="col-md-12 admin-classes well">
+                        <div class="col-md-12 admin-classes school well">
                             <p class="admin-classes-list">Soft Skills Pre-Assessment</p>
                             <div class="my-animation" ng-show="showStudentSoft">
                                 <div class="slide col-md-12 admin-classes well" ng-repeat="adminStudents in adminStudentsData">
@@ -122,7 +123,7 @@
                         </div>
 
 
-                        <div class="col-md-12 admin-classes well">
+                        <div class="col-md-12 admin-classes school well">
                             <p class="admin-classes-list">Story Board</p>
                             <div class="my-animation" ng-show="showStoryBoard">
                                 <div class="slide col-md-12 admin-classes well" ng-repeat="adminStudents in adminStudentsData">
@@ -143,7 +144,7 @@
                         </div>
 
 
-                        <div class="col-md-12 admin-classes well">
+                        <div class="col-md-12 admin-classes school well">
                             <p class="admin-classes-list">Website</p>
                             <div class="my-animation" ng-show="showWebsite">
                                 <div class="slide col-md-12 admin-classes well" ng-repeat="adminStudents in adminStudentsData">
@@ -164,10 +165,10 @@
                         </div>
 
 
-                        <div class="col-md-12 admin-classes well">
+                        <div class="col-md-12 admin-classes school well">
                             <p class="admin-classes-list">Soft Skills Post-Assessment</p>
                             <div class="my-animation" ng-show="showSoftPost">
-                                <div class="slide col-md-12 admin-classes well" ng-repeat="adminStudents in adminStudentsData">
+                                <div class="slide col-md-12 admin-classes school well" ng-repeat="adminStudents in adminStudentsData">
                                     <p class="admin-students-list">{{adminStudents.firstname}} {{adminStudents.lastname}}</p>
                                     <form name="form" ng-submit="sendGrade(adminStudents._id, adminStudents.softskillspostgrade)" method="post">
                                         <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
@@ -184,11 +185,11 @@
                             <button class="btn btn-primary" ng-click="showSoftPost=!showSoftPost">See Students</button>
                         </div>
 
-                        <div class="col-md-12 admin-classes well">
+                        <div class="col-md-12 admin-classes school well">
                             <p class="admin-classes-list">Post-Assessment Grade</p>
 
                             <div class="my-animation" ng-show="showPostAss">
-                                <div class="slide col-md-12 admin-classes well" ng-repeat="adminStudents in adminStudentsData">
+                                <div class="slide col-md-12 admin-classes school well" ng-repeat="adminStudents in adminStudentsData">
                                     <p class="admin-students-list">{{adminStudents.firstname}} {{adminStudents.lastname}}</p>
                                     <form name="form" ng-submit="sendGrade(adminStudents._id, adminStudents.postassessmentgrade)" method="post">
                                         <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
@@ -206,11 +207,11 @@
                         </div>
 
 
-                        <div class="col-md-12 admin-classes well">
+                        <div class="col-md-12 admin-classes school well">
                             <p class="admin-classes-list">Overall</p>
 
                             <div class="my-animation" ng-show="showOverall">
-                                <div class="slide col-md-12 admin-classes well" ng-repeat="adminStudents in adminStudentsData">
+                                <div class="slide col-md-12 admin-classes school well" ng-repeat="adminStudents in adminStudentsData">
                                     <p class="admin-students-list">{{adminStudents.firstname}} {{adminStudents.lastname}}</p>
                                     <p class="admin-classes-list">Here is where a progess bar would be!</p>
                                 </div>
