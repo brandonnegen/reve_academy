@@ -4,9 +4,16 @@ var passport = require('passport');
 var path = require('path');
 var Assignments = require('../models/assignment');
 
-//router.get("/", function (req, res, next){
-//    res.sendFile(path.resolve(__dirname, '../public/assets/views/school.html'));
-//});
+router.delete("/:id", function(req, res, next){
+    console.log("Server " + req.params.id + req.body);
+    Assignments.findByIdAndRemove(req.params.id, req.body, function(err, assignment){
+        return Assignments.find({}).exec(function(err, assignment){
+            if(err) throw new Error(err);
+            res.send(JSON.stringify(assignment));
+        });
+    });
+});
+
 
 router.post("/postassignments", function (req, res, next){
     console.log("Made it to assignment post! ", req.body);
