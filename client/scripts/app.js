@@ -1,4 +1,4 @@
-var reveApp = angular.module('reveApp',['ngRoute', 'appControllers']);
+var reveApp = angular.module('reveApp',['ngRoute', 'appControllers', 'schemaForm']);
 
 reveApp.directive('sameAs', function () {
     return {
