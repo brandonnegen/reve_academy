@@ -406,9 +406,9 @@ reveApp.controller("TeacherClassesController", ["$rootScope", "$scope", "$http",
     $scope.sendGrade = function(studentID, ssPreGrade, ssPostGrade, preAssessmentGrade, storyBoardGrade, websiteGrade, postAssessmentGrade){
         console.log("pre grade: " + $scope.adminStudents.softskillspregrade);
         console.log("ID", studentID);
-        return $http.put('admin-students/poststudents/' + studentID,
+        return $http.put('admin-students/poststudents',
             {
-                "id": studentID,
+                //"id": studentID,
                 "softskillspregrade": ssPreGrade,
                 "softskillspostgrade": ssPostGrade,
                 "preassessmentgrade": preAssessmentGrade,
