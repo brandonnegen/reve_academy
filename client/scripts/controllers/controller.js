@@ -408,9 +408,9 @@ reveApp.controller("TeacherClassesController", ["$rootScope", "$scope", "$http",
     $scope.sendGrade = function(studentID, ssPreGrade, ssPostGrade, preAssessmentGrade, storyBoardGrade, websiteGrade, postAssessmentGrade){
         console.log("pre grade: " + $scope.adminStudents.softskillspregrade);
         console.log("ID", studentID);
-        return $http.put('admin-students/poststudents',
+        return $http.put('admin-students/poststudents/' + studentID,
             {
-                //"id": studentID,
+                "id": studentID,
                 "softskillspregrade": ssPreGrade,
                 "softskillspostgrade": ssPostGrade,
                 "preassessmentgrade": preAssessmentGrade,
@@ -517,4 +517,42 @@ reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http"
     };
 
     $scope.getStudents();
+}]);
+
+reveApp.controller("ChartsController", ["$rootScope", "$scope", "$http", "$route", function($rootScope, $scope, $http, $route){
+    $scope.$route = $route;
+    $scope.adminStudents = [];
+    $scope.preAssessmentGradeOne = 0;
+    $scope.preAssessmentGradeTwo = 0;
+    $scope.preAssessmentGradeThree = 0;
+    $scope.preAssessmentGradeFour = 0;
+    $http.get('/admin-students/getstudents').then(function(response){
+        $scope.adminStudentsData = response.data;
+        for(var i = 0; i < response.data.length; i++){
+            console.log("Pre-Assessment Grade", response.data[i].preassessmentgrade);
+            if(response.data[i].preassessmentgrade == 1){
+                $scope.preAssessmentGradeOne++;
+            } else if(response.data[i].preassessmentgrade == 2){
+                $scope.preAssessmentGradeTwo++;
+            } else if(response.data[i].preassessmentgrade ==3){
+                $scope.preAssessmentGradeThree++;
+            } else if(response.data[i].preassessmentgrade ==4){
+                $scope.preAssessmentGradeFour++;
+            }
+            $scope.preAssessmentGrades = [
+                $scope.preAssessmentGradeOne,
+                $scope.preAssessmentGradeTwo,
+                $scope.preAssessmentGradeThree,
+                $scope.preAssessmentGradeFour
+            ];
+            $scope.preAssessmentGradeLabels = [
+                "One",
+                "Two",
+                "Three",
+                "Four"
+            ];
+            console.log("Grades", $scope.preAssessmentGrades);
+            console.log("Labels", $scope.preAssessmentGradeLabels);
+        }
+    });
 }]);
