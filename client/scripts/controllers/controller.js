@@ -383,8 +383,9 @@ reveApp.controller("AdminStudentsController", ["$rootScope", "$scope", "$http", 
         });
     };
 
-    $scope.updateStudent = function(studentID, firstname, lastname, gradelevel, age, gender, race, ethnicity, softskillspre, softskillspost, classcompletion){
+    $scope.updateStudent = function(studentID, studentid, firstname, lastname, gradelevel, age, gender, race, ethnicity, softskillspre, softskillspost, classcompletion){
         return $http.put('/admin-students/updatestudents/' + studentID, {
+            studentid: studentid,
             firstname: firstname,
             lastname: lastname,
             gradelevel: gradelevel,
@@ -635,8 +636,9 @@ reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http"
 
     };
 
-    $scope.updateStudent = function(studentID, firstname, lastname, gradelevel, age, gender, race, ethnicity, softskillspre, softskillspost, classcompletion){
+    $scope.updateStudent = function(studentID, studentid, firstname, lastname, gradelevel, age, gender, race, ethnicity, softskillspre, softskillspost, classcompletion){
         return $http.put('/admin-students/updatestudents/' + studentID, {
+            studentid: studentid,
             firstname: firstname,
             lastname: lastname,
             gradelevel: gradelevel,

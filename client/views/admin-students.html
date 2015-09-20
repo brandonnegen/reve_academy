@@ -299,7 +299,7 @@
                     <button class="btn btn-primary" ng-click="show = !show"><span ng-show="show">Less Info</span><span ng-hide="show">More Info</span></button><button ng-click="showStudent=!showStudent" class="btn btn-primary">Edit</button><button ng-click="removeStudent(adminStudents._id)" class="btn btn-primary">Delete</button>
                     <br />
                     <div class="my-animation" ng-show="showStudent">
-                        <form name="form" ng-submit="updateStudent(adminStudents._id, adminStudents.firstname, adminStudents.lastname, adminStudents.gradelevel, adminStudents.age, adminStudents.gender, adminStudents.race, adminStudents.ethnicity, adminStudents.softskillspre, adminStudents.softskillspost, adminStudents.classcompletion)" method="put">
+                        <form name="form" ng-submit="updateStudent(adminStudents._id, adminStudents.studentid, adminStudents.firstname, adminStudents.lastname, adminStudents.gradelevel, adminStudents.age, adminStudents.gender, adminStudents.race, adminStudents.ethnicity, adminStudents.softskillspre, adminStudents.softskillspost, adminStudents.classcompletion)" method="put">
                             <div class="form-group">
                                 <input ng-model="adminStudents.studentid" type="text" name="studentid" id="studentid" class="form-control" placeholder="Student ID #" required />
                             </div>
