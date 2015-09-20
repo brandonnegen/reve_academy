@@ -1,4 +1,4 @@
-var reveApp = angular.module('reveApp',['ngRoute', 'appControllers']);
+var reveApp = angular.module('reveApp',['ngRoute', 'chart.js', 'appControllers']);
 
 reveApp.directive('sameAs', function () {
     return {
@@ -79,6 +79,11 @@ reveApp.config(['$routeProvider', function($routeProvider, $scope) {
         }).
         when('/unauthorized', {
             templateUrl: 'assets/views/unauthorized.html'
+        }).
+        when('/charts', {
+            controller: 'ChartsController',
+            templateUrl: 'assets/views/charts.html',
+            activetab: 'charts'
         }).
         otherwise({redirectTo: '/login'});
 
