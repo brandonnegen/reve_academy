@@ -328,6 +328,16 @@ p {
     margin-top: 80px;
 }
 
+/* REGISTER PAGE */
+.register-page {
+    border: #d14414 solid 2px;
+}
+
+.btn-primary.disabled, .btn-primary.disabled.active, .btn-primary.disabled.focus, .btn-primary.disabled:active, .btn-primary.disabled:focus, .btn-primary.disabled:hover, .btn-primary[disabled], .btn-primary[disabled].active, .btn-primary[disabled].focus, .btn-primary[disabled]:active, .btn-primary[disabled]:focus, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary.active, fieldset[disabled] .btn-primary.focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:hover{
+    background-color: #707372;
+    color: #333;
+}
+
 /*SIDEBAR*/
 .nav>li>a:focus, .nav>li>a:hover{
     background-color: #aaa;
