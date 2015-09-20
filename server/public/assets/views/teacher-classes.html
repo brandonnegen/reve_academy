@@ -153,6 +153,7 @@
 
                                 <button class="btn btn-primary" ng-click="showStudentSoft = !showStudentSoft"><span ng-show="showStudentSoft">Hide Students</span><span ng-hide="showStudentSoft">See Students</span></button>
 
+
                             </div>
                             <div class="col-md-12 admin-classes well">
                                 <p class="admin-classes-list">Story Board</p>
@@ -249,13 +250,14 @@
                                 </div>
                                 <button class="btn btn-primary" ng-click="showOverall = !showOverall"><span ng-show="showOverall">Hide Students</span><span ng-hide="showOverall">See Students</span></button>
                             </div>
-                            <div class="form-actions">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </div>
+                            <!--<div class="form-actions">-->
+                                <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+                            <!--</div>-->
                         </form>
                     </div>
                     <button class="btn btn-primary" ng-click="show = !show"><span ng-show="show">Less Info</span><span ng-hide="show">More Info</span></button><button ng-click="showClass=!showClass" class="btn btn-primary">Edit</button><button ng-click="removeClass(adminClasses._id)" class="btn btn-primary">Delete</button>
                     <br />
+
                     <div class="my-animation" ng-show="showClass">
                         <form name="form" ng-submit="updateClass(adminClasses._id, adminClasses.name, adminClasses.startdate, adminClasses.enddate )" method="put">
                             <div class="form-group">

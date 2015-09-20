@@ -194,13 +194,16 @@
                 <form name="form" ng-submit="sendStudent()" method="post">
                     <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
                     <div class="form-group">
-                        <input ng-model="adminStudents.id" type="text" name="id" id="id" class="form-control" placeholder="Student ID #" required />
+                        <input ng-model="adminStudents.studentid" type="text" name="studentid" id="studentid" class="form-control" placeholder="Student ID #" required />
                     </div>
                     <div class="form-group">
                         <input ng-model="adminStudents.firstname" type="text" name="firstname" id="firstname" class="form-control" placeholder="First Name" required />
                     </div>
                     <div class="form-group">
                         <input ng-model="adminStudents.lastname" type="text" name="lastname" id="lastname" class="form-control" placeholder="Last Name" required />
+                    </div>
+                    <div class="form-group">
+                        <input ng-model="adminStudents.age" type="text" name="age" id="age" class="form-control" placeholder="Age" required />
                     </div>
                     <div class="form-group">
                         <label for="gradelevel" class="heading3">Grade Level</label>
@@ -214,9 +217,7 @@
                         <div class='radio form-control'><label><input class='radio-inline' name='gradelevel' type='radio' value=12 ng-model='adminStudents.gradelevel' ng-required='!adminStudents.gradelevel' /><b>12th Grade</b></label></div>
                     </div>
                     </div>
-                    <div class="form-group">
-                        <input ng-model="adminStudents.age" type="text" name="age" id="age" class="form-control" placeholder="Age" required />
-                    </div>
+
                     <div class="form-group">
                         <label for="race" class="heading3">Gender</label>
                         <div id='gender'>
@@ -273,10 +274,8 @@
                     </div>
                 </form>
                     </div>
-<<<<<<< HEAD
                 <button class="btn btn-primary" ng-click="showAddStudent = !showAddStudent"><span ng-show="showAddStudent">Hide Create Student</span><span ng-hide="showAddStudent">Create New Student</span></button>                </div>
-=======
->>>>>>> 9b0cd3b9aeb5d1fe8885a9db72b6bd1da3628678
+
 
             <hr>
 
@@ -284,7 +283,7 @@
                 <div class="alert alert-info" ng-model="editDeleteMessage" ng-if="showEditDeleteMessage">{{editDeleteMessage}}</div>
                 <h4>Student Information</h4>
                 <div class="slide col-md-12 admin-student school well" ng-repeat="adminStudents in adminStudentsData">
-                    <p class="admin-student-list student-name"><span class = " info-title">Student ID #: </span>{{adminStudents.id}}</p>
+                    <p class="admin-student-list student-name"><span class = " info-title">Student ID #: </span>{{adminStudents.studentid}}</p>
                     <p class="admin-student-list student-name"><span class = " info-title">Full Name:</span> {{adminStudents.firstname}} {{adminStudents.lastname}}</p>
                     <div  class="my-animation" ng-show="show">
                     <p class="admin-student-list student-gradelevel"><span class = " info-title">Grade Level:</span> {{adminStudents.gradelevel}}</p>
@@ -302,7 +301,7 @@
                     <div class="my-animation" ng-show="showStudent">
                         <form name="form" ng-submit="updateStudent(adminStudents._id, adminStudents.firstname, adminStudents.lastname, adminStudents.gradelevel, adminStudents.age, adminStudents.gender, adminStudents.race, adminStudents.ethnicity, adminStudents.softskillspre, adminStudents.softskillspost, adminStudents.classcompletion)" method="put">
                             <div class="form-group">
-                                <input ng-model="adminStudents.id" type="text" name="id" id="id" class="form-control" placeholder="Student ID #" required />
+                                <input ng-model="adminStudents.studentid" type="text" name="studentid" id="studentid" class="form-control" placeholder="Student ID #" required />
                             </div>
                             <div class="form-group">
                                 <input ng-model="adminStudents.firstname" type="text" name="firstname" id="firstname" class="form-control" placeholder="First Name" required />

@@ -43,8 +43,9 @@ router.put("/updatestudents/:id", function(req, res, next){
 
 router.post("/poststudents", function (req, res, next){
     console.log("Made it to class post! ", req.body);
+    console.log("Where is the ID", req.body.studentid);
     var student = new Students({
-        id: req.body.id,
+        studentid: req.body.studentid,
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         gender: req.body.gender,
