@@ -135,7 +135,7 @@
                     <button class="btn btn-primary" ng-click="show=!show">More Info</button><button class="btn btn-primary" ng-click="showTeacher=!showTeacher">Edit</button><button ng-click="removeTeacher(adminTeachers._id)" class="btn btn-primary">Delete</button>
                     <br />
                     <div class = "my-animation" ng-show="showTeacher">
-                    <form name="adminform" ng-submit="updateTeacher(adminTeachers._id, adminTeachers.firstname, adminTeachers.lastname, adminTeachers.school, adminTeachers.phone, adminTeachers.email)" method="post">
+                    <form name="adminform" ng-submit="updateTeacher(adminTeachers._id, adminTeachers.firstname, adminTeachers.lastname, adminTeachers.phone, adminTeachers.email, adminTeachers.school)" method="post">
 
                         <div class="form-group">
                             <input type="text" ng-model="adminTeachers.firstname" name="firstname" id="firstname" class="form-control" placeholder="First Name" required />

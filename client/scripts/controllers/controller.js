@@ -116,7 +116,8 @@ reveApp.controller("SchoolController", ["$rootScope", "$scope", "$http", "$route
 
 
     $scope.getSchools();
-    }]);
+
+}]);
 
 reveApp.controller("AdminTeachersController", ["$rootScope", "$scope", "$http", "$route", function($rootScope, $scope, $http, $route){
     $rootScope.$on('hideMessages', function(){
@@ -180,15 +181,13 @@ reveApp.controller("AdminTeachersController", ["$rootScope", "$scope", "$http", 
     };
 
 
-    $scope.updateTeacher = function(teacherID, firstname, lastname, phone, email, school, username, password ){
+    $scope.updateTeacher = function(teacherID, firstname, lastname, phone, email, school ){
         return $http.put('/register/updateteachers/' + teacherID, {
             firstname: firstname,
             lastname: lastname,
             phone: phone,
             email: email,
-            school: school,
-            username: username,
-            password: password
+            school: school
 
 
         })
