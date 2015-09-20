@@ -244,7 +244,7 @@
                     <p class="admin-teachers-list teachers-phone"><span class = " info-title">Phone Number:</span> {{adminTeachers.phone}}</p>
                     <p class="admin-teachers-list teachers-email"><span class = " info-title">Email: </span>{{adminTeachers.email}}</p>
                     </div>
-                    <button class="btn btn-primary" ng-click="show=!show">More Info</button><button class="btn btn-primary" ng-click="showTeacher=!showTeacher">Edit</button><button ng-click="removeTeacher(adminTeachers._id)" class="btn btn-primary">Delete</button>
+                    <button class="btn btn-primary" ng-click="show = !show"><span ng-show="show">Less Info</span><span ng-hide="show">More Info</span></button><button class="btn btn-primary" ng-click="showTeacher=!showTeacher">Edit</button><button ng-click="removeTeacher(adminTeachers._id)" class="btn btn-primary">Delete</button>
                     <br />
                     <div class = "my-animation" ng-show="showTeacher">
                     <form name="adminform" ng-submit="updateTeacher(adminTeachers._id, adminTeachers.firstname, adminTeachers.lastname, adminTeachers.school, adminTeachers.phone, adminTeachers.email)" method="post">

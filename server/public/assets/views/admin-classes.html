@@ -221,7 +221,8 @@
                     <p class="admin-classes-list classes-startdate"><span class = " info-title">Class Start Date:</span> {{adminClasses.startdate | date:"MM/dd/yyyy"}}</p>
                     <p class="admin-classes-list classes-enddate"><span class = " info-title">Class End Date:</span> {{adminClasses.enddate | date:"MM/dd/yyyy"}}</p>
                     </div>
-                    <button class="btn btn-primary" ng-click="show=!show">More Info</button><button ng-click="showClass=!showClass" class="btn btn-primary">Edit</button><button ng-click="removeClass(adminClasses._id)" class="btn btn-primary">Delete</button>
+
+                <button class="btn btn-primary" ng-click="show = !show"><span ng-show="show">Less Info</span><span ng-hide="show">More Info</span></button><button ng-click="showClass=!showClass" class="btn btn-primary">Edit</button><button ng-click="removeClass(adminClasses._id)" class="btn btn-primary">Delete</button>
                     <br />
                     <div class="my-animation" ng-show="showClass">
                         <form name="form" ng-submit="updateClass(adminClasses._id, adminClasses.name, adminClasses.startdate, adminClasses.enddate )" method="put">

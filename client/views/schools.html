@@ -242,7 +242,7 @@
                         <p class="school-list school-address"><span class = " info-title">Contact Person: </span>{{school.contactperson}}</p>
                     </div>
 
-                    <button class="btn btn-primary" ng-click="show=!show">More Info</button><button ng-click="showSchool=!showSchool" class="btn btn-primary">Edit</button><button ng-click="removeSchool(school._id)" class="btn btn-primary">Delete</button>
+                    <button class="btn btn-primary" ng-click="show = !show"><span ng-show="show">Less Info</span><span ng-hide="show">More Info</span></button><button ng-click="showSchool=!showSchool" class="btn btn-primary">Edit</button><button ng-click="removeSchool(school._id)" class="btn btn-primary">Delete</button>
                     <br />
                     <div class="my-animation" ng-show="showSchool">
                         <form name="form" ng-submit="updateSchool(school._id, school.name, school.address, school.district, school.phone, school.email, school.contactperson)" method="put">
