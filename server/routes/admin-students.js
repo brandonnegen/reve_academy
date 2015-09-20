@@ -31,6 +31,16 @@ router.put("/poststudents/:id", function(req, res, next){
     );
 });
 
+router.put("/updatestudents/:id", function(req, res, next){
+    console.log("Made it to school put! ", req.params.id, req.body);
+    Students.findByIdAndUpdate(req.params.id, req.body, function(err, student){
+        return Students.find({}).exec(function(err, student){
+            if(err) throw new Error(err);
+            res.send(JSON.stringify(student));
+        });
+    });
+});
+
 router.post("/poststudents", function (req, res, next){
     console.log("Made it to class post! ", req.body);
     var student = new Students({

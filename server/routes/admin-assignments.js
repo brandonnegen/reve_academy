@@ -24,6 +24,16 @@ router.post("/postassignments", function (req, res, next){
     });
 });
 
+router.put("/updateassignments/:id", function(req, res, next){
+    console.log("Made it to assignment put! ", req.params.id, req.body);
+    Assignments.findByIdAndUpdate(req.params.id, req.body, function(err, assignment){
+        return Assignments.find({}).exec(function(err, assignment){
+            if(err) throw new Error(err);
+            res.send(JSON.stringify(assignment));
+        });
+    });
+});
+
 
 router.get("/getassignments", function(req,res,next){
     return Assignments.find({}).exec(function(err, info){

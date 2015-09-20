@@ -94,11 +94,25 @@
 
             <div id="someContainer" class="col-xs-12">
                 <h4>Assignment Information</h4>
+                <div class="alert alert-info" ng-model="editDeleteMessage" ng-if="showEditDeleteMessage">{{editDeleteMessage}}</div>
                 <div class="col-md-12 admin-assignments school well" ng-repeat="adminAssignments in adminAssignmentsData">
                     <p class="admin-assignments-list assignments-name">{{adminAssignments.name}}</p>
-                    <button class="btn btn-primary" ng-click="show = !show"><span ng-show="show">Less Info</span><span ng-hide="show">More Info</span></button>
-                    <button class="btn btn-primary">Edit</button><button ng-click="removeSchool(school._id)" class="btn btn-primary">Delete</button>
+
+                    <button class="btn btn-primary" ng-click="show = !show"><span ng-show="show">Less Info</span><span ng-hide="show">More Info</span></button><button class="btn btn-primary" ng-click="showAssignment=!showAssignment">Edit</button><button ng-click="removeAssignment(adminAssignments._id)" class="btn btn-primary">Delete</button>
+                    <br />
+                    <div class="my-animation" ng-show="showAssignment">
+                        <form name="form" ng-submit="updateAssignment(adminAssignments._id, adminAssignments.name)" method="put">
+                            <div class="form-group">
+                                <input type="text" ng-model="adminAssignments.name" name="name" id="name" class="form-control" placeholder="Assignment Name" required />
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" ng-click="showAssignment=hide" class="btn btn-primary">Save</button>
+                            </div>
+                        </form>
+                    </div>
+
                 </div>
+
 
             </div>
 

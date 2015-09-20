@@ -1,6 +1,4 @@
-
 var reveApp = angular.module('reveApp',['ngRoute', 'chart.js', 'appControllers', 'ngAnimate']);
-
 
 reveApp.directive('sameAs', function () {
     return {
