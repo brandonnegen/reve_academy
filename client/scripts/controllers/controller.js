@@ -497,24 +497,24 @@ reveApp.controller("TeacherClassesController", ["$rootScope", "$scope", "$http",
         });
     };
 
-    $scope.sendGrade = function(studentID, ssPreGrade, ssPostGrade, preAssessmentGrade, storyBoardGrade, websiteGrade, postAssessmentGrade){
-        console.log("pre grade: " + $scope.adminStudents.softskillspregrade);
-        console.log("ID", studentID);
-        return $http.put('admin-students/poststudents/' + studentID,
-            {
-                "id": studentID,
-                "softskillspregrade": ssPreGrade,
-                "softskillspostgrade": ssPostGrade,
-                "preassessmentgrade": preAssessmentGrade,
-                "storyboardgrade": storyBoardGrade,
-                "websitegrade": websiteGrade,
-                "postassessmentgrade": postAssessmentGrade
-            }
-        ).success(function() {
-                $scope.getStudents();
-            });
-
-    };
+    //$scope.sendGrade = function(studentID, ssPreGrade, ssPostGrade, preAssessmentGrade, storyBoardGrade, websiteGrade, postAssessmentGrade){
+    //    console.log("pre grade: " + $scope.adminStudents.softskillspregrade);
+    //    console.log("ID", studentID);
+    //    return $http.put('admin-students/poststudents/' + studentID,
+    //        {
+    //            "id": studentID,
+    //            "softskillspregrade": ssPreGrade,
+    //            "softskillspostgrade": ssPostGrade,
+    //            "preassessmentgrade": preAssessmentGrade,
+    //            "storyboardgrade": storyBoardGrade,
+    //            "websitegrade": websiteGrade,
+    //            "postassessmentgrade": postAssessmentGrade
+    //        }
+    //    ).success(function() {
+    //            $scope.getStudents();
+    //        });
+    //
+    //};
 
     $scope.sendClass = function(){
         return $http.post('/admin-classes', {
