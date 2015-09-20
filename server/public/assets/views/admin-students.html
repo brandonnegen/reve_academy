@@ -52,32 +52,145 @@
                 Dashboard
             </h1>
 
-            <div class="row placeholders">
-                <div class="col-xs-6 col-sm-3 placeholder text-center">
-                    <img src="//placehold.it/200/6666ff/fff" class="center-block img-responsive img-circle" alt="Generic placeholder thumbnail">
-                    <h4>Label</h4>
-                    <span class="text-muted">Something else</span>
+            <div id="donutCharts" class="row" ng-controller="ChartsController">
+                <div id="preAssessmentGrade" class="col-xs-6 col-sm-4 col-md-4">
+                    <p>Pre-Assessment Average Grades</p>
+                    <canvas id="preAssessmentDonut" class="chart chart-doughnut" chart-data="preAssessmentGrades" chart-labels="preAssessmentGradeLabels"></canvas>
+                    <ul class="legend">
+                        <li>
+                            <span style="background-color: #AAC7D5;"></span>
+                            One
+                        </li>
+                        <li>
+                            <span style="background-color: #DCDCDC;"></span>
+                            Two
+                        </li>
+                        <li>
+                            <span style="background-color: #F7464A;"></span>
+                            Three
+                        </li>
+                        <li>
+                            <span style="background-color: #46BFBD;"></span>
+                            Four
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-xs-6 col-sm-3 placeholder text-center">
-                    <img src="//placehold.it/200/66ff66/fff" class="center-block img-responsive img-circle" alt="Generic placeholder thumbnail">
-                    <h4>Label</h4>
-                    <span class="text-muted">Something else</span>
+                <div id="ssPreGrade" class="col-xs-6 col-sm-4 col-md-4">
+                    <p>Soft Skills Pre-Assessment Average Grades</p>
+                    <canvas id="ssPreDonut" class="chart chart-doughnut" chart-data="ssPreAssessmentGrades" chart-labels="ssPreAssessmentGradeLabels"></canvas>
+                    <ul class="legend">
+                        <li>
+                            <span style="background-color: #AAC7D5;"></span>
+                            One
+                        </li>
+                        <li>
+                            <span style="background-color: #DCDCDC;"></span>
+                            Two
+                        </li>
+                        <li>
+                            <span style="background-color: #F7464A;"></span>
+                            Three
+                        </li>
+                        <li>
+                            <span style="background-color: #46BFBD;"></span>
+                            Four
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-xs-6 col-sm-3 placeholder text-center">
-                    <img src="//placehold.it/200/6666ff/fff" class="center-block img-responsive img-circle" alt="Generic placeholder thumbnail">
-                    <h4>Label</h4>
-                    <span class="text-muted">Something else</span>
+                <div id="storyBoardGrade" class="col-xs-6 col-sm-4 col-md-4">
+                    <p>Story Board Average Grades</p>
+                    <canvas id="storyBoardDonut" class="chart chart-doughnut" chart-data="storyBoardGrades" chart-labels="storyBoardGradeLabels"></canvas>
+                    <ul class="legend">
+                        <li>
+                            <span style="background-color: #AAC7D5;"></span>
+                            One
+                        </li>
+                        <li>
+                            <span style="background-color: #DCDCDC;"></span>
+                            Two
+                        </li>
+                        <li>
+                            <span style="background-color: #F7464A;"></span>
+                            Three
+                        </li>
+                        <li>
+                            <span style="background-color: #46BFBD;"></span>
+                            Four
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-xs-6 col-sm-3 placeholder text-center">
-                    <img src="//placehold.it/200/66ff66/fff" class="center-block img-responsive img-circle" alt="Generic placeholder thumbnail">
-                    <h4>Label</h4>
-                    <span class="text-muted">Something else</span>
+                <div id="websiteGrade" class="col-xs-6 col-sm-4 col-md-4">
+                    <p>Website Average Grades</p>
+                    <canvas id="websiteDonut" class="chart chart-doughnut" chart-data="websiteGrades" chart-labels="websiteGradeLabels"></canvas>
+                    <ul class="legend">
+                        <li>
+                            <span style="background-color: #AAC7D5;"></span>
+                            One
+                        </li>
+                        <li>
+                            <span style="background-color: #DCDCDC;"></span>
+                            Two
+                        </li>
+                        <li>
+                            <span style="background-color: #F7464A;"></span>
+                            Three
+                        </li>
+                        <li>
+                            <span style="background-color: #46BFBD;"></span>
+                            Four
+                        </li>
+                    </ul>
+                </div>
+                <div id="ssPostGrade" class="col-xs-6 col-sm-4 col-md-4">
+                    <p>Soft Skills Post-Assessment Average Grades</p>
+                    <canvas id="ssPostDonut" class="chart chart-doughnut" chart-data="ssPostGrades" chart-labels="ssPostGradeLabels"></canvas>
+                    <ul class="legend">
+                        <li>
+                            <span style="background-color: #AAC7D5;"></span>
+                            One
+                        </li>
+                        <li>
+                            <span style="background-color: #DCDCDC;"></span>
+                            Two
+                        </li>
+                        <li>
+                            <span style="background-color: #F7464A;"></span>
+                            Three
+                        </li>
+                        <li>
+                            <span style="background-color: #46BFBD;"></span>
+                            Four
+                        </li>
+                    </ul>
+                </div>
+                <div id="postAssessmentGrade" class="col-xs-6 col-sm-4 col-md-4">
+                    <p>Post-Assessment Average Grades</p>
+                    <canvas id="postAssessmentDonut" class="chart chart-doughnut" chart-data="postAssessmentGrades" chart-labels="postAssessmentGradeLabels"></canvas>
+                    <ul class="legend">
+                        <li>
+                            <span style="background-color: #AAC7D5;"></span>
+                            One
+                        </li>
+                        <li>
+                            <span style="background-color: #DCDCDC;"></span>
+                            Two
+                        </li>
+                        <li>
+                            <span style="background-color: #F7464A;"></span>
+                            Three
+                        </li>
+                        <li>
+                            <span style="background-color: #46BFBD;"></span>
+                            Four
+                        </li>
+                    </ul>
                 </div>
             </div>
 
             <hr>
             <div class="students-info">
                 <h4>Add a Student</h4>
+                <div class="my-animation" ng-show="showAddStudent">
                 <form name="form" ng-submit="sendStudent()" method="post">
                     <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
                     <div class="form-group">
@@ -160,6 +273,10 @@
                     </div>
                 </form>
                     </div>
+<<<<<<< HEAD
+                <button class="btn btn-primary" ng-click="showAddStudent = !showAddStudent"><span ng-show="showAddStudent">Hide Create Student</span><span ng-hide="showAddStudent">Create New Student</span></button>                </div>
+=======
+>>>>>>> 9b0cd3b9aeb5d1fe8885a9db72b6bd1da3628678
 
             <hr>
 
@@ -179,7 +296,8 @@
                     <p class="admin-student-list student-ethnicity"><span class = " info-title">Soft Skills Post:</span> {{adminStudents.softskillspost}}</p>
                     <p class="admin-student-list student-ethnicity"><span class = " info-title">Class Completion:</span> {{adminStudents.classcompletion}}</p>
                     </div>
-                    <button class="btn btn-primary" ng-click="show=!show">More Info</button><button ng-click="showStudent=!showStudent" class="btn btn-primary">Edit</button><button ng-click="removeStudent(adminStudents._id)" class="btn btn-primary">Delete</button>
+
+                    <button class="btn btn-primary" ng-click="show = !show"><span ng-show="show">Less Info</span><span ng-hide="show">More Info</span></button><button ng-click="showStudent=!showStudent" class="btn btn-primary">Edit</button><button ng-click="removeStudent(adminStudents._id)" class="btn btn-primary">Delete</button>
                     <br />
                     <div class="my-animation" ng-show="showStudent">
                         <form name="form" ng-submit="updateStudent(adminStudents._id, adminStudents.firstname, adminStudents.lastname, adminStudents.gradelevel, adminStudents.age, adminStudents.gender, adminStudents.race, adminStudents.ethnicity, adminStudents.softskillspre, adminStudents.softskillspost, adminStudents.classcompletion)" method="put">
