@@ -176,14 +176,30 @@ a:focus, a:hover{
     text-align: left;
 }
 
+.grading-animation {
+    overflow-y: hidden;
+    max-height: 9999px; /* approximate max height */
+    transition-property: all;
+    transition-duration: 0.5s;
+    /*transition-timing-function: cubic-bezier(1, 1, 0.5, 1);*/
+}
+
+.grading-animation.ng-hide {
+    max-height: 0;
+}
+
+.grading-animation.ng-hide-add,
+.grading-animation.ng-hide-remove {
+    -webkit-transition:1s;
+    transition: 1s;
+}
 
 .my-animation {
     overflow-y: hidden;
-    max-height: 500px; /* approximate max height */
-
+    max-height: 9999px; /* approximate max height */
     transition-property: all;
-    transition-duration: .5s;
-    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    transition-duration: 0.5s;
+    /*transition-timing-function: cubic-bezier(1, 1, 0.5, 1);*/
 }
 
 .my-animation.ng-hide {
@@ -192,10 +208,9 @@ a:focus, a:hover{
 
 .my-animation.ng-hide-add,
 .my-animation.ng-hide-remove {
-    -webkit-transition: 0.5s linear all;
-    transition: 0.5s linear all;
+    -webkit-transition:1s;
+    transition: 1s;
 }
-
 
 h4  {
     font-family: 'Montserrat', sans-serif;
@@ -239,14 +254,14 @@ h4  {
 }
 
 /*.btn-primary:active {*/
-     /*background-color: #000;*/
-     /*outline: none;*/
+/*background-color: #000;*/
+/*outline: none;*/
 
- /*}*/
+/*}*/
 
 /*.well .btn-primary:active {*/
-    /*background-color: red;*/
-    /*outline: none;*/
+/*background-color: red;*/
+/*outline: none;*/
 
 /*}*/
 
@@ -280,11 +295,11 @@ p {
 }
 
 /*#wrap{*/
-    /*min-height: 100%;*/
-    /*height: auto !important;*/
-    /*height: 100%;*/
-    /*/!* Negative indent footer by it's height *!/*/
-    /*margin: 0 auto -50px;*/
+/*min-height: 100%;*/
+/*height: auto !important;*/
+/*height: 100%;*/
+/*/!* Negative indent footer by it's height *!/*/
+/*margin: 0 auto -50px;*/
 /*}*/
 
 .slide{
@@ -383,4 +398,3 @@ p {
     height: 100%;
     border-radius: 5px;
 }
-
