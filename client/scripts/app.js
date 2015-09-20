@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-var reveApp = angular.module('reveApp',['ngRoute', 'appControllers', 'ngAnimate']);
-=======
-var reveApp = angular.module('reveApp',['ngRoute', 'chart.js', 'appControllers']);
->>>>>>> e009fc19239d2855900af57bbdd2102dee5ac53c
+
+var reveApp = angular.module('reveApp',['ngRoute', 'chart.js', 'appControllers', 'ngAnimate']);
+
 
 reveApp.directive('sameAs', function () {
     return {

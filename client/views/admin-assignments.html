@@ -96,8 +96,8 @@
                 <h4>Assignment Information</h4>
                 <div class="col-md-12 admin-assignments school well" ng-repeat="adminAssignments in adminAssignmentsData">
                     <p class="admin-assignments-list assignments-name">{{adminAssignments.name}}</p>
-                    <button class="btn btn-primary" ng-click="show=!show">More Info</button><button class="btn btn-primary">Edit</button><button ng-dialog="deleteDialog" ng-dialog-class="ngdialog-theme-default" ng-dialog-show-close="false" ng-click="removeAssignment(adminAssignments._id)" class="btn btn-primary">Delete</button>
-
+                    <button class="btn btn-primary" ng-click="show = !show"><span ng-show="show">Less Info</span><span ng-hide="show">More Info</span></button>
+                    <button class="btn btn-primary">Edit</button><button ng-click="removeSchool(school._id)" class="btn btn-primary">Delete</button>
                 </div>
 
             </div>

@@ -79,6 +79,7 @@
 
             <div class="students-info">
                 <h4>Add a Student</h4>
+                <div class="my-animation" ng-show="showAddStudent">
                 <form name="form" ng-submit="sendStudent()" method="post">
                     <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
                     <div class="form-group">
@@ -160,7 +161,8 @@
 
                     </div>
                 </form>
-            </div>
+                    </div>
+                <button class="btn btn-primary" ng-click="showAddStudent = !showAddStudent"><span ng-show="showAddStudent">Hide Create Student</span><span ng-hide="showAddStudent">Create New Student</span></button>                </div>
 
             <hr>
 
@@ -179,8 +181,8 @@
                     <p class="admin-student-list student-ethnicity"><span class = " info-title">Soft Skills Post:</span> {{adminStudents.softskillspost}}</p>
                     <p class="admin-student-list student-ethnicity"><span class = " info-title">Class Completion:</span> {{adminStudents.classcompletion}}</p>
                     </div>
-                    <button class="btn btn-primary" ng-click="show=!show">More Info</button><button class="btn btn-primary">Edit</button><button ng-click="removeStudent(adminStudents._id)" class="btn btn-primary">Delete</button>
-
+                    <button class="btn btn-primary" ng-click="show = !show"><span ng-show="show">Less Info</span><span ng-hide="show">More Info</span></button>
+                    <button class="btn btn-primary">Edit</button><button ng-click="removeSchool(school._id)" class="btn btn-primary">Delete</button>
             </div>
             </div>
 
