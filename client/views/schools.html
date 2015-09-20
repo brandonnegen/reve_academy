@@ -77,38 +77,38 @@
 
             <hr>
 
-            <!--<h2 class="sub-header">Section title</h2>-->
+
             <div class="assignment-info">
                 <h4>Add a New School</h4>
                 <form name="form" ng-submit="sendSchool()"  method="post">
                     <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
                     <div class="form-group">
-                        <!--<label for="name">School Name</label>-->
+
                         <input ng-model="school.name" type="text" name="name" id="name" class="form-control" placeholder="School Name" required />
                     </div>
                     <div class="form-group">
-                        <!--<label for="address">Address</label>-->
+
                         <input ng-model="school.address" type="text" name="address" id="address" class="form-control" placeholder="Address" required />
                     </div>
                     <div class="form-group">
-                        <!--<label for="district">District</label>-->
+
                         <input ng-model="school.district" type="text" name="district" id="district" class="form-control" placeholder="District" required />
                     </div>
                     <div class="form-group">
-                        <!--<label for="phone">Phone #</label>-->
+
                         <input ng-model="school.phone" type="text" name="phone" id="phone" class="form-control" placeholder="Phone #" required />
                     </div>
                     <div class="form-group">
-                        <!--<label for="email">Email</label>-->
+
                         <input ng-model="school.email" type="text" name="email" id="email" class="form-control" placeholder="School Email" required />
                     </div>
                     <div class="form-group">
-                        <!--<label for="contactperson">Contact Person</label>-->
-                        <input ng-model="school.contactperson" type="text" name="contactperson" id="contactperson" class="form-control" placeholder="Contact Email" required />
+
+                        <input ng-model="school.contactperson" type="text" name="contactperson" id="contactperson" class="form-control" placeholder="Contact Email" />
                     </div>
                     <div class="form-actions">
                         <button type="submit" class="btn btn-primary">Submit</button>
-                        <!--<a href="#/login" class="btn btn-link">Cancel</a>-->
+
                     </div>
                 </form>
             </div>
@@ -117,6 +117,7 @@
 
             <div id="someContainer" class="col-xs-12">
                 <h4>School Information</h4>
+                <div class="alert alert-info" ng-model="editDeleteMessage" ng-if="showEditDeleteMessage">{{editDeleteMessage}}</div>
                 <div class="slide col-md-12 school well addInfo" ng-repeat="school in schoolData">
                     <p class="school-list school-name"><span class = " info-title">Name:</span> {{school.name}}</p>
 
@@ -128,9 +129,41 @@
                         <p class="school-list school-address"><span class = " info-title">Email:</span> {{school.email}}</p>
                         <p class="school-list school-address"><span class = " info-title">Contact Person: </span>{{school.contactperson}}</p>
                     </div>
-                    <button class="btn btn-primary " ng-click="show=!show">More Info</button>
-                    <!--<button class="btn btn-primary">Edit</button><button ng-click="removeSchool(school._id)" class="btn btn-primary">Delete</button>-->
-                    <!--<button type="submit" class="btn btn-primary" ng-click="show=!show">Submit</button>-->
+
+                    <button class="btn btn-primary" ng-click="show=!show">More Info</button><button ng-click="showSchool=!showSchool" class="btn btn-primary">Edit</button><button ng-click="removeSchool(school._id)" class="btn btn-primary">Delete</button>
+                    <br />
+                    <div class="my-animation" ng-show="showSchool">
+                        <form name="form" ng-submit="updateSchool(school._id, school.name, school.address, school.district, school.phone, school.email, school.contactperson)" method="put">
+                            <div class="form-group">
+
+                                <input ng-model="school.name" type="text" name="name" id="name" class="form-control" placeholder="School Name" required />
+                            </div>
+                            <div class="form-group">
+
+                                <input ng-model="school.address" type="text" name="address" id="address" class="form-control" placeholder="Address" required />
+                            </div>
+                            <div class="form-group">
+
+                                <input ng-model="school.district" type="text" name="district" id="district" class="form-control" placeholder="District" required />
+                            </div>
+                            <div class="form-group">
+
+                                <input ng-model="school.phone" type="text" name="phone" id="phone" class="form-control" placeholder="Phone #" required />
+                            </div>
+                            <div class="form-group">
+
+                                <input ng-model="school.email" type="text" name="email" id="email" class="form-control" placeholder="School Email" required />
+                            </div>
+                            <div class="form-group">
+
+                                <input ng-model="school.contactperson" type="text" name="contactperson" id="contactperson" class="form-control" placeholder="Contact Email" />
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" ng-click="showSchool=hide" class="btn btn-primary">Save</button>
+
+                            </div>
+                        </form>
+
                 </div>
             </div>
         </div><!--/row-->

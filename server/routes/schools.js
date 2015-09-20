@@ -25,6 +25,17 @@ router.post("/", function (req, res, next){
     console.log(res)
 });
 
+router.put("/updateschools/:id", function(req, res, next){
+    console.log("Made it to school put! ", req.params.id, req.body);
+    School.findByIdAndUpdate(req.params.id, req.body, function(err, school){
+        return School.find({}).exec(function(err, school){
+            if(err) throw new Error(err);
+            res.send(JSON.stringify(school));
+        });
+    });
+});
+
+
 router.get("/getschools", function(req,res,next){
     return School.find({}).exec(function(err, info){
         if(err) throw new Error(err);
