@@ -310,6 +310,11 @@
                                 <input ng-model="adminStudents.lastname" type="text" name="lastname" id="lastname" class="form-control" placeholder="Last Name" required />
                             </div>
                             <div class="form-group">
+                                <label for="age" class="heading3">Age</label>
+
+                                <input ng-model="adminStudents.age" type="text" name="age" id="age" class="form-control" placeholder="Age" required />
+                            </div>
+                            <div class="form-group">
                                 <label for="gradelevel" class="heading3">Grade Level</label>
                                 <div id='gradelevel'>
                                     <div class='radio form-control'><label><input class='radio-inline' name='gradelevel' type='radio' value=06 ng-model='adminStudents.gradelevel' ng-required='!adminStudents.gradelevel' /><b>6th Grade</b></label></div>
@@ -321,9 +326,7 @@
                                     <div class='radio form-control'><label><input class='radio-inline' name='gradelevel' type='radio' value=12 ng-model='adminStudents.gradelevel' ng-required='!adminStudents.gradelevel' /><b>12th Grade</b></label></div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <input ng-model="adminStudents.age" type="text" name="age" id="age" class="form-control" placeholder="Age" required />
-                            </div>
+
                             <div class="form-group">
                                 <label for="race" class="heading3">Gender</label>
                                 <div id='gender'>
