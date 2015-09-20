@@ -338,12 +338,7 @@ p {
     border: #d14414 solid 1px;
     outline: none;
 }
-.dropColor:hover {
-    background-color: red;
-}
-.colorme {
-    box-shadow: 0 0 10px 100px #1882A8 inset;
-}
+
 
 .form-group p {
     background-color: #d14414;
