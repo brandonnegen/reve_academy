@@ -36,12 +36,8 @@
             <h4>Create a new Class</h4>
             <form name="form" ng-submit="sendClass()" method="post">
                 <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
-
                 <div class="form-group">
-                    <label for="name">Class</label><br />
-                    <select class="dropdown" ng-model="adminClasses.name" id="name" name="name">
-                        <option class="dropColor" ng-repeat="adminClasses in adminClassesData">{{adminClasses.name}}</option>
-                    </select>
+                    <input type="text" ng-model="adminClasses.name" name="name" id="name" class="form-control" placeholder="Class Name" required />
                 </div>
                 <div class="form-group">
                     <label for="startDate">Start Date</label>
@@ -70,6 +66,7 @@
 
             <div id="someContainer" class="col-xs-12">
                 <h4>Class Information</h4>
+                <div class="alert alert-info" ng-model="editDeleteMessage" ng-if="showEditDeleteMessage">{{editDeleteMessage}}</div>
                 <!--Shows the name of the classes first and then the more info will show the date and assignments inside-->
                 <div class="slide col-md-12 admin-classes school well" ng-repeat="adminClasses in adminClassesData | filter:showadminClasses">
                     <p class="admin-classes-list classes-name">{{adminClasses.name}}</p>
@@ -248,7 +245,26 @@
                             </div>
                         </form>
                     </div>
-                    <button class="btn btn-primary"  ng-click="show=!show">More Info</button>
+                    <button class="btn btn-primary" ng-click="show=!show">More Info</button><button ng-click="showClass=!showClass" class="btn btn-primary">Edit</button><button ng-click="removeClass(adminClasses._id)" class="btn btn-primary">Delete</button>
+                    <br />
+                    <div class="my-animation" ng-show="showClass">
+                        <form name="form" ng-submit="updateClass(adminClasses._id, adminClasses.name, adminClasses.startdate, adminClasses.enddate )" method="put">
+                            <div class="form-group">
+                                <input type="text" ng-model="adminClasses.name" name="name" id="name" class="form-control" placeholder="Class Name" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="startDate" class="heading3">Start Date</label>
+                                <input type="date" ng-model="adminClasses.startdate" name="startdate" id="startdate" class="form-control" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="enddate" class="heading3">End Date</label>
+                                <input type="date" ng-model="adminClasses.enddate" name="enddate" id="enddate" class="form-control" required />
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" ng-click="showClass=hide" class="btn btn-primary">Save</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div> <!-- /main -->

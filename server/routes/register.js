@@ -30,6 +30,16 @@ router.delete("/:id", function(req, res, next){
     });
 });
 
+router.put("/updateteachers/:id", function(req, res, next){
+    console.log("Made it to school put! ", req.params.id, req.body);
+    Users.findByIdAndUpdate(req.params.id, req.body, function(err, teacher){
+        return Users.find({}).exec(function(err, teacher){
+            if(err) throw new Error(err);
+            res.send(JSON.stringify(teacher));
+        });
+    });
+});
+
 router.get("/", function (req, res, next){
     res.sendFile(path.resolve(__dirname, '../public/assets/views/register.html'));
 });
