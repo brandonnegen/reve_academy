@@ -501,9 +501,9 @@ reveApp.controller("TeacherClassesController", ["$rootScope", "$scope", "$http",
     $scope.sendGrade = function(studentID, ssPreGrade, ssPostGrade, preAssessmentGrade, storyBoardGrade, websiteGrade, postAssessmentGrade){
         console.log("pre grade: " + $scope.adminStudents.softskillspregrade);
         console.log("ID", studentID);
-        return $http.put('admin-students/poststudents',
+        return $http.put('admin-students/poststudents/' + studentID,
             {
-                //"id": studentID,
+                "id": studentID,
                 "softskillspregrade": ssPreGrade,
                 "softskillspostgrade": ssPostGrade,
                 "preassessmentgrade": preAssessmentGrade,
@@ -675,4 +675,172 @@ reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http"
     };
 
     $scope.getStudents();
+}]);
+
+reveApp.controller("ChartsController", ["$rootScope", "$scope", "$http", "$route", function($rootScope, $scope, $http, $route){
+    $scope.$route = $route;
+    $scope.adminStudents = [];
+    $scope.preAssessmentGradeOne = 0;
+    $scope.preAssessmentGradeTwo = 0;
+    $scope.preAssessmentGradeThree = 0;
+    $scope.preAssessmentGradeFour = 0;
+    $scope.ssPreGradeOne = 0;
+    $scope.ssPreGradeTwo = 0;
+    $scope.ssPreGradeThree = 0;
+    $scope.ssPreGradeFour = 0;
+    $scope.storyBoardGradeOne = 0;
+    $scope.storyBoardGradeTwo = 0;
+    $scope.storyBoardGradeThree = 0;
+    $scope.storyBoardGradeFour = 0;
+    $scope.websiteGradeOne = 0;
+    $scope.websiteGradeTwo = 0;
+    $scope.websiteGradeThree = 0;
+    $scope.websiteGradeFour = 0;
+    $scope.ssPostGradeOne = 0;
+    $scope.ssPostGradeTwo = 0;
+    $scope.ssPostGradeThree = 0;
+    $scope.ssPostGradeFour = 0;
+    $scope.postAssessmentGradeOne = 0;
+    $scope.postAssessmentGradeTwo = 0;
+    $scope.postAssessmentGradeThree = 0;
+    $scope.postAssessmentGradeFour = 0;
+    $http.get('/admin-students/getstudents').then(function(response){
+        $scope.adminStudentsData = response.data;
+        for(var i = 0; i < response.data.length; i++){
+            //Pre-Assessment Grade Data
+            console.log("Pre-Assessment Grade", response.data[i].preassessmentgrade);
+            if(response.data[i].preassessmentgrade == 1){
+                $scope.preAssessmentGradeOne++;
+            } else if(response.data[i].preassessmentgrade == 2){
+                $scope.preAssessmentGradeTwo++;
+            } else if(response.data[i].preassessmentgrade ==3){
+                $scope.preAssessmentGradeThree++;
+            } else if(response.data[i].preassessmentgrade ==4){
+                $scope.preAssessmentGradeFour++;
+            }
+            $scope.preAssessmentGrades = [
+                $scope.preAssessmentGradeOne,
+                $scope.preAssessmentGradeTwo,
+                $scope.preAssessmentGradeThree,
+                $scope.preAssessmentGradeFour
+            ];
+            $scope.preAssessmentGradeLabels = [
+                "One",
+                "Two",
+                "Three",
+                "Four"
+            ];
+            //Soft Skills Pre-Assessment Grade Data
+            console.log("Soft Skills Pre Grade", response.data[i].softskillspregrade);
+            if(response.data[i].softskillspregrade == 1){
+                $scope.ssPreGradeOne++;
+            } else if(response.data[i].softskillspregrade == 2){
+                $scope.ssPreGradeTwo++;
+            } else if(response.data[i].softskillspregrade ==3){
+                $scope.ssPreGradeThree++;
+            } else if(response.data[i].softskillspregrade == 4){
+                $scope.ssPreGradeFour++;
+            }
+            $scope.ssPreAssessmentGrades = [
+                $scope.ssPreGradeOne,
+                $scope.ssPreGradeTwo,
+                $scope.ssPreGradeThree,
+                $scope.ssPreGradeFour
+            ];
+            $scope.ssPreAssessmentGradeLabels = [
+                "One",
+                "Two",
+                "Three",
+                "Four"
+            ];
+            //Story Board Grade Data
+            if(response.data[i].storyboardgrade == 1){
+                $scope.storyBoardGradeOne++;
+            } else if(response.data[i].storyboardgrade == 2){
+                $scope.storyBoardGradeTwo++;
+            } else if(response.data[i].storyboardgrade == 3){
+                $scope.storyBoardGradeThree++;
+            } else if(response.data[i].storyboardgrade == 4){
+                $scope.storyBoardGradeFour++;
+            }
+            $scope.storyBoardGrades = [
+                $scope.storyBoardGradeOne,
+                $scope.storyBoardGradeTwo,
+                $scope.storyBoardGradeThree,
+                $scope.storyBoardGradeFour
+            ];
+            $scope.storyBoardGradeLabels = [
+                "One",
+                "Two",
+                "Three",
+                "Four"
+            ];
+            //Website Grade Data
+            if(response.data[i].websitegrade == 1){
+                $scope.websiteGradeOne++;
+            } else if(response.data[i].websitegrade == 2){
+                $scope.websiteGradeTwo++;
+            } else if(response.data[i].websitegrade == 3){
+                $scope.websiteGradeThree++;
+            } else if(response.data[i].websitegrade == 4){
+                $scope.websiteGradeFour++;
+            }
+            $scope.websiteGrades = [
+                $scope.websiteGradeOne,
+                $scope.websiteGradeTwo,
+                $scope.websiteGradeThree,
+                $scope.websiteGradeFour
+            ];
+            $scope.websiteGradeLabels = [
+                "One",
+                "Two",
+                "Three",
+                "Four"
+            ];
+            //Soft Skills Post Assessment Grade Data
+            if(response.data[i].softskillspostgrade == 1){
+                $scope.ssPostGradeOne++;
+            } else if(response.data[i].softskillspostgrade == 2){
+                $scope.ssPostGradeTwo++;
+            } else if(response.data[i].softskillspostgrade == 3){
+                $scope.ssPostGradeThree++;
+            } else if(response.data[i].softskillspostgrade == 4){
+                $scope.ssPostGradeFour++;
+            }
+            $scope.ssPostGrades = [
+                $scope.ssPostGradeOne,
+                $scope.ssPostGradeTwo,
+                $scope.ssPostGradeThree,
+                $scope.ssPostGradeFour
+            ];
+            $scope.ssPostGradeLabels = [
+                "One",
+                "Two",
+                "Three",
+                "Four"
+            ];
+            //Post-Assessment Grade Data
+            if(response.data[i].postassessmentgrade == 1){
+                $scope.postAssessmentGradeOne++;
+            } else if(response.data[i].postassessmentgrade == 2){
+                $scope.postAssessmentGradeTwo++;
+            } else if(response.data[i].postassessmentgrade == 3){
+                $scope.postAssessmentGradeThree++;
+            } else if(response.data[i].postassessmentgrade == 4){
+                $scope.postAssessmentGradeFour++;
+            }
+            $scope.postAssessmentGrades = [
+                $scope.postAssessmentGradeOne,
+                $scope.postAssessmentGradeTwo,
+                $scope.postAssessmentGradeThree,
+                $scope.postAssessmentGradeFour
+            ];
+            $scope.postAssessmentGradeLabels = [
+                "One",
+                "Two",
+                "Three",
+                "Four"
+            ];
+        }
+    });
 }]);

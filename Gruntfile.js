@@ -33,7 +33,8 @@ module.exports = function(grunt){
                     "views/teachers.html",
                     "views/teacher-classes.html",
                     "views/teacher-students.html",
-                    "views/unauthorized.html"
+                    "views/unauthorized.html",
+                    "views/charts.html"
                 ],
                 dest: "server/public/assets/"
             },
@@ -71,6 +72,24 @@ module.exports = function(grunt){
                 expand: true,
                 cwd: 'node_modules',
                 src: 'jquery/dist/jquery.min.js',
+                dest: 'server/public/vendors'
+            },
+            chart: {
+                expand: true,
+                cwd: 'node_modules',
+                src: 'chart.js/Chart.min.js',
+                dest: 'server/public/vendors'
+            },
+            angularChart: {
+                expand: true,
+                cwd: 'node_modules',
+                src: [
+                    'angular-chart.js/dist/angular-chart.min.js',
+                    'angular-chart.js/dist/angular-chart.min.css',
+                    'angular-chart.js/dist/angular-chart.js.tar.gz',
+                    'angular-chart.js/dist/angular-chart.min.js.map',
+                    'angular-chart.js/dist/angular-chart.min.css.map'
+                ],
                 dest: 'server/public/vendors'
             }
         }

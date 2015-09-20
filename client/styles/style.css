@@ -176,30 +176,14 @@ a:focus, a:hover{
     text-align: left;
 }
 
-.grading-animation {
-    overflow-y: hidden;
-    max-height: 9999px; /* approximate max height */
-    transition-property: all;
-    transition-duration: 0.5s;
-    /*transition-timing-function: cubic-bezier(1, 1, 0.5, 1);*/
-}
-
-.grading-animation.ng-hide {
-    max-height: 0;
-}
-
-.grading-animation.ng-hide-add,
-.grading-animation.ng-hide-remove {
-    -webkit-transition:1s;
-    transition: 1s;
-}
 
 .my-animation {
     overflow-y: hidden;
-    max-height: 9999px; /* approximate max height */
+    max-height: 500px; /* approximate max height */
+
     transition-property: all;
-    transition-duration: 0.5s;
-    /*transition-timing-function: cubic-bezier(1, 1, 0.5, 1);*/
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 }
 
 .my-animation.ng-hide {
@@ -208,9 +192,10 @@ a:focus, a:hover{
 
 .my-animation.ng-hide-add,
 .my-animation.ng-hide-remove {
-    -webkit-transition:1s;
-    transition: 1s;
+    -webkit-transition: 0.5s linear all;
+    transition: 0.5s linear all;
 }
+
 
 h4  {
     font-family: 'Montserrat', sans-serif;
@@ -360,5 +345,42 @@ p {
     color: #707372;
     font-size: 14px;
     font-weight: 400;
+}
+
+/*Chart Stuff*/
+.legend {
+    list-style: none;
+    position: relative;
+    right: 8px;
+    top: 0;
+}
+
+.legend li {
+    display: block;
+    padding-left: 30px;
+    position: relative;
+    margin-bottom: 4px;
+    border-radius: 5px;
+    padding: 2px 8px 2px 28px;
+    font-size: 14px;
+    cursor: default;
+    -webkit-transition: background-color 200ms ease-in-out;
+    -moz-transition: background-color 200ms ease-in-out;
+    -o-transition: background-color 200ms ease-in-out;
+    transition: background-color 200ms ease-in-out;
+}
+
+.legend li:hover {
+    background-color: #fafafa;
+}
+
+.legend li span {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 100%;
+    border-radius: 5px;
 }
 
