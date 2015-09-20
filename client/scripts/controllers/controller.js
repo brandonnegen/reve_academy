@@ -1,8 +1,49 @@
 var reveApp = angular.module('reveApp');
 
 
-reveApp.controller("LoginController", ["$scope", "$http", function($scope, $http){
+reveApp.controller("LoginController", ["$scope", "$http", "$location", 'AuthService', function($scope, $http, $location, AuthService){
     console.log("Login Controller is working!");
+
+    $scope.login = function () {
+
+        // initial values
+        $scope.error = false;
+        $scope.disabled = true;
+        console.log($scope.loginForm.username + $scope.loginForm.password);
+
+        // call login from service
+        AuthService.login($scope.loginForm.username, $scope.loginForm.password)
+            // handle success
+            .then(function () {
+                console.log('success')
+                $location.path('/admin');
+                $scope.disabled = false;
+                $scope.loginForm = {};
+            })
+            // handle error
+            .catch(function () {
+                $scope.error = true;
+                $scope.errorMessage = "Invalid username and/or password";
+                $scope.disabled = false;
+                $scope.loginForm = {};
+            });
+
+    };
+
+    $scope.logout = function () {
+
+        console.log(AuthService.getUserStatus());
+
+        // call logout from service
+        AuthService.logout()
+            .then(function () {
+                $location.path('/login');
+            });
+
+    };
+
+
+
 
 }]);
 
@@ -20,6 +61,14 @@ reveApp.controller("RegisterController", ["$scope", "$http", "$route", function(
         });
     };
     $scope.getSchools();
+    $scope.userRegistrationForm = {};
+    $scope.registerNewUser = function(user){
+        return $http.post('userauth/register', user)
+            .then(function(){
+
+            });
+    };
+
 }]);
 
 reveApp.controller("AdminController", ["$scope", "$http", "$route", function($scope, $http, $route){
@@ -675,6 +724,18 @@ reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http"
     };
 
     $scope.getStudents();
+}]);
+
+reveApp.controller('logoutController', ['$scope', '$location', 'AuthService', function ($scope, $location, AuthService) {
+    $scope.logout = function () {
+        console.log(AuthService.getUserStatus());
+
+        //call logout from service
+        AuthService.logout()
+            .then(function (){
+                $location.path('/login');
+            })
+    }
 }]);
 
 reveApp.controller("ChartsController", ["$rootScope", "$scope", "$http", "$route", function($rootScope, $scope, $http, $route){

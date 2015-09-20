@@ -1,18 +1,36 @@
-<div class="col-md-6 col-md-offset-3 login-page">
-    <h2>Login</h2>
-    <form name="form" action="/" method="post">
+<!--<div class="col-md-6 col-md-offset-3 login-page">-->
+    <!--<h2>Login</h2>-->
+    <!--<form name="form" ng-submit="login()" method="post">-->
+        <!--<div class="form-group">-->
+            <!--<input type="text" name="username" id="username" class="form-control" ng-model="loginForm.username" placeholder="Username" required />-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+            <!--<input type="password" name="password" id="password" class="form-control" ng-model="loginForm.password" placeholder="Password" required />-->
+        <!--</div>-->
+        <!--<div class="form-actions">-->
+            <!--<button type="submit" class="btn btn-primary">Login</button>-->
+            <!--<a href="#/register" class="btn btn-primary">Register</a>-->
+        <!--</div>-->
+    <!--</form>-->
+    <!--<div class = "logo">-->
+        <!--<img src="../assets/images/reveLogoTrans.png">-->
+    <!--</div>-->
+<!--</div>-->
+
+<div class="col-md-4">
+    <h1>Login</h1>
+    <div ng-show="error" class="alert alert-danger"></div>
+    <form class="form" ng-submit="login()">
         <div class="form-group">
-            <input type="text" name="username" id="username" class="form-control" placeholder="Username" required />
+            <label>Username</label>
+            <input type="text" class="form-control" name="username" ng-model="loginForm.username" required>
         </div>
         <div class="form-group">
-            <input type="password" name="password" id="password" class="form-control" placeholder="Password" required />
+            <label>Password</label>
+            <input type="password" class="form-control" name="password" ng-model="loginForm.password" required>
         </div>
-        <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Login</button>
-            <a href="#/register" class="btn btn-primary">Register</a>
+        <div>
+            <button type="submit" class="btn btn-default" ng-disabled="disabled">Login</button>
         </div>
     </form>
-    <div class = "logo">
-        <img src="../assets/images/reveLogoTrans.png">
-    </div>
 </div>
