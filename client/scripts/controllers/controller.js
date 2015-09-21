@@ -165,7 +165,8 @@ reveApp.controller("SchoolController", ["$rootScope", "$scope", "$http", "$route
 
 
     $scope.getSchools();
-    }]);
+
+}]);
 
 reveApp.controller("AdminTeachersController", ["$rootScope", "$scope", "$http", "$route", function($rootScope, $scope, $http, $route){
     $rootScope.$on('hideMessages', function(){
@@ -229,15 +230,13 @@ reveApp.controller("AdminTeachersController", ["$rootScope", "$scope", "$http", 
     };
 
 
-    $scope.updateTeacher = function(teacherID, firstname, lastname, phone, email, school, username, password ){
+    $scope.updateTeacher = function(teacherID, firstname, lastname, phone, email, school ){
         return $http.put('/register/updateteachers/' + teacherID, {
             firstname: firstname,
             lastname: lastname,
             phone: phone,
             email: email,
-            school: school,
-            username: username,
-            password: password
+            school: school
 
 
         })
@@ -433,8 +432,9 @@ reveApp.controller("AdminStudentsController", ["$rootScope", "$scope", "$http", 
         });
     };
 
-    $scope.updateStudent = function(studentID, firstname, lastname, gradelevel, age, gender, race, ethnicity, softskillspre, softskillspost, classcompletion){
+    $scope.updateStudent = function(studentID, studentid, firstname, lastname, gradelevel, age, gender, race, ethnicity, softskillspre, softskillspost, classcompletion){
         return $http.put('/admin-students/updatestudents/' + studentID, {
+            studentid: studentid,
             firstname: firstname,
             lastname: lastname,
             gradelevel: gradelevel,
@@ -457,7 +457,7 @@ reveApp.controller("AdminStudentsController", ["$rootScope", "$scope", "$http", 
 
     $scope.sendStudent = function(){
         return $http.post('/admin-students/poststudents', {
-            id: $scope.adminStudents.id,
+            studentid: $scope.adminStudents.studentid,
             firstname: $scope.adminStudents.firstname,
             lastname: $scope.adminStudents.lastname,
             gradelevel: $scope.adminStudents.gradelevel,
@@ -470,7 +470,7 @@ reveApp.controller("AdminStudentsController", ["$rootScope", "$scope", "$http", 
             classcompletion: $scope.adminStudents.classcompletion
         })
             .success(function(response) {
-                $scope.adminStudents.id = "";
+                $scope.adminStudents.studentid = "";
                 $scope.adminStudents.firstname = "";
                 $scope.adminStudents.lastname = "";
                 $scope.adminStudents.gradelevel = "";
@@ -547,24 +547,24 @@ reveApp.controller("TeacherClassesController", ["$rootScope", "$scope", "$http",
         });
     };
 
-    $scope.sendGrade = function(studentID, ssPreGrade, ssPostGrade, preAssessmentGrade, storyBoardGrade, websiteGrade, postAssessmentGrade){
-        console.log("pre grade: " + $scope.adminStudents.softskillspregrade);
-        console.log("ID", studentID);
-        return $http.put('admin-students/poststudents/' + studentID,
-            {
-                "id": studentID,
-                "softskillspregrade": ssPreGrade,
-                "softskillspostgrade": ssPostGrade,
-                "preassessmentgrade": preAssessmentGrade,
-                "storyboardgrade": storyBoardGrade,
-                "websitegrade": websiteGrade,
-                "postassessmentgrade": postAssessmentGrade
-            }
-        ).success(function() {
-                $scope.getStudents();
-            });
-
-    };
+    //$scope.sendGrade = function(studentID, ssPreGrade, ssPostGrade, preAssessmentGrade, storyBoardGrade, websiteGrade, postAssessmentGrade){
+    //    console.log("pre grade: " + $scope.adminStudents.softskillspregrade);
+    //    console.log("ID", studentID);
+    //    return $http.put('admin-students/poststudents/' + studentID,
+    //        {
+    //            "id": studentID,
+    //            "softskillspregrade": ssPreGrade,
+    //            "softskillspostgrade": ssPostGrade,
+    //            "preassessmentgrade": preAssessmentGrade,
+    //            "storyboardgrade": storyBoardGrade,
+    //            "websitegrade": websiteGrade,
+    //            "postassessmentgrade": postAssessmentGrade
+    //        }
+    //    ).success(function() {
+    //            $scope.getStudents();
+    //        });
+    //
+    //};
 
     $scope.sendClass = function(){
         return $http.post('/admin-classes', {
@@ -652,8 +652,9 @@ reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http"
     $scope.getClasses();
 
     $scope.sendStudent = function(){
+        console.log("What's going on?", $scope.adminStudents.studentid);
         return $http.post('/admin-students/poststudents', {
-            id: $scope.adminStudents.id,
+            studentid: $scope.adminStudents.studentid,
             firstname: $scope.adminStudents.firstname,
             lastname: $scope.adminStudents.lastname,
             gradelevel: $scope.adminStudents.gradelevel,
@@ -666,7 +667,7 @@ reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http"
             classcompletion: $scope.adminStudents.classcompletion
         })
             .success(function(response) {
-                $scope.adminStudents.id = "";
+                $scope.adminStudents.studentid = "";
                 $scope.adminStudents.firstname = "";
                 $scope.adminStudents.lastname = "";
                 $scope.adminStudents.gradelevel = "";
@@ -684,8 +685,9 @@ reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http"
 
     };
 
-    $scope.updateStudent = function(studentID, firstname, lastname, gradelevel, age, gender, race, ethnicity, softskillspre, softskillspost, classcompletion){
+    $scope.updateStudent = function(studentID, studentid, firstname, lastname, gradelevel, age, gender, race, ethnicity, softskillspre, softskillspost, classcompletion){
         return $http.put('/admin-students/updatestudents/' + studentID, {
+            studentid: studentid,
             firstname: firstname,
             lastname: lastname,
             gradelevel: gradelevel,
