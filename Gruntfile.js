@@ -91,6 +91,12 @@ module.exports = function(grunt){
                     'angular-chart.js/dist/angular-chart.min.css.map'
                 ],
                 dest: 'server/public/vendors'
+            },
+            cookies: {
+                expand: true,
+                cwd: 'node_modules',
+                src: 'angular-cookies/angular-cookies.min.js',
+                dest: 'server/public/vendors'
             }
         }
     });

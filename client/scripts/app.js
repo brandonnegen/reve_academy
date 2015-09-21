@@ -1,5 +1,4 @@
-var reveApp = angular.module('reveApp',['ngRoute', 'chart.js', 'appControllers']);
-
+var reveApp = angular.module('reveApp',['ngRoute', 'chart.js', 'ngCookies', 'appControllers']);
 reveApp.directive('sameAs', function () {
     return {
         require: 'ngModel',
@@ -8,7 +7,7 @@ reveApp.directive('sameAs', function () {
 
             scope.$watch(attrs.sameAs, function() {
                 ctrl.$validate();
-            })
+            });
 
             ctrl.$validators.match = function(modelValue, viewValue) {
                 return viewValue === scope.$eval(modelToMatch);
@@ -18,20 +17,32 @@ reveApp.directive('sameAs', function () {
 });
 
 reveApp.factory('AuthService',
-    ['$q', '$timeout', '$http',
-        function ($q, $timeout, $http) {
-
+    ['$q', '$timeout', '$http', '$cookies', '$rootScope',
+        function ($q, $timeout, $http, $cookies, $rootScope) {
+            var currentUser = $cookies.get('userinfo') || {username: '' , role: ''};
+            console.log(currentUser);
             // create user variable
             var user = false;
 
             // return available functions for use in controllers
             return ({
+                //authorize: authorize,
                 isLoggedIn: isLoggedIn,
                 getUserStatus: getUserStatus,
                 login: login,
                 logout: logout,
-                user: user
+                user: user,
+                userinfo: currentUser
+
+
             });
+
+            //function authorize() {
+            //        if (role === undefined)
+            //            role = $rootScope.userinfo.role;
+            //        console.log(role);
+            //        return role
+            //}
 
             function isLoggedIn() {
                 if(user) {
@@ -55,9 +66,11 @@ reveApp.factory('AuthService',
                     // handle success
                     .success(function (data, status) {
                         if(status === 200 && data.status){
-                            console.log('data');
+                            //authorize();
                             user = true;
                             deferred.resolve();
+
+
                         } else {
                             user = false;
                             deferred.reject();
@@ -72,6 +85,7 @@ reveApp.factory('AuthService',
 
                 // return promise object
                 return deferred.promise;
+
 
             }
 

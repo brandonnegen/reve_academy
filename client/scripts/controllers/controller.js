@@ -14,8 +14,8 @@ reveApp.controller("LoginController", ["$scope", "$http", "$location", 'AuthServ
         // call login from service
         AuthService.login($scope.loginForm.username, $scope.loginForm.password)
             // handle success
-            .then(function () {
-                console.log('success')
+            .then(function (res) {
+                console.log('success');
                 $location.path('/admin');
                 $scope.disabled = false;
                 $scope.loginForm = {};
