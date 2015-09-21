@@ -28,23 +28,23 @@ reveApp.factory('AuthService',
 
             // return available functions for use in controllers
             return ({
-                //authorize: authorize,
+                authorize: authorize,
                 isLoggedIn: isLoggedIn,
                 getUserStatus: getUserStatus,
                 login: login,
                 logout: logout,
                 user: user,
-                userinfo: currentUser
+
 
 
             });
 
-            //function authorize() {
-            //        if (role === undefined)
-            //            role = $rootScope.userinfo.role;
-            //        console.log(role);
-            //        return role
-            //}
+            function authorize() {
+                    if (role === undefined)
+                        role = $rootScope.user.role;
+                    console.log(role);
+                    return role
+            }
 
             function isLoggedIn() {
                 if(user) {
@@ -56,6 +56,10 @@ reveApp.factory('AuthService',
 
             function getUserStatus() {
                 return user;
+            }
+
+            function userInfo() {
+                return userInfo;
             }
 
             function login(username, password) {

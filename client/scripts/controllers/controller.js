@@ -27,7 +27,7 @@ reveApp.controller("LoginController", ["$scope", "$http", "$location", 'AuthServ
                 $scope.disabled = false;
                 $scope.loginForm = {};
             });
-
+        console.log(AuthService.authorize());
     };
 
     $scope.logout = function () {

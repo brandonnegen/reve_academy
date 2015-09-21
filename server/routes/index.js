@@ -51,7 +51,8 @@ router.get('/*',function(req,res,next){
    console.log('router hit');
     var file = req.params[0] || '/assets/views/index.html';
     res.sendFile(path.join(__dirname, '../public',file));
-    var role ; username = '';
+    var role = '';
+    username = '';
     if (req.user) {
         role = req.user.role;
         username = req.user.username;
