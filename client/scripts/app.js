@@ -55,7 +55,7 @@ reveApp.factory('AuthService',
                     // handle success
                     .success(function (data, status) {
                         if(status === 200 && data.status){
-                            console.log('success');
+                            console.log('data');
                             user = true;
                             deferred.resolve();
                         } else {
@@ -101,7 +101,7 @@ reveApp.factory('AuthService',
 
 reveApp.run(['$rootScope', '$location', '$route', 'AuthService', function ($rootScope, $location, $route, AuthService) {
     $rootScope.$on('$routeChangeStart', function (event, next, current) {
-        if (AuthService.isLoggedIn() === false) {
+        if (next.access.restricted === true && AuthService.isLoggedIn() === false) {
             $location.path('/login');
         }
     });
@@ -113,66 +113,81 @@ reveApp.config(['$routeProvider', function($routeProvider, $scope) {
     $routeProvider.
         when('/admin', {
             controller: 'AdminController',
+            access: {restricted: true},
             templateUrl: 'assets/views/admin.html',
-            activetab: 'admin'
+            activetab: 'admin',
+            access: {restricted: true}
         }).
         when('/teachers', {
             controller: 'TeacherController',
             templateUrl: 'assets/views/teachers.html',
-            activetab: 'teachers'
+            activetab: 'teachers',
+            access: {restricted: true}
         }).
         when('/login', {
             controller: 'LoginController',
             templateUrl: 'assets/views/login.html',
-            activetab: 'login'
+            activetab: 'login',
+            access: {restricted: false}
         }).
         when('/register', {
             controller: 'RegisterController',
             templateUrl: 'assets/views/register.html',
-            activetab: 'register'
+            activetab: 'register',
+            access: {restricted: false}
         }).
         when('/schools', {
             controller: 'SchoolController',
             templateUrl: 'assets/views/schools.html',
-            activetab: 'schools'
+            activetab: 'schools',
+            access: {restricted: true}
         }).
         when('/admin-teachers', {
             controller: 'AdminTeachersController',
             templateUrl: 'assets/views/admin-teachers.html',
-            activetab: 'admin-teachers'
+            activetab: 'admin-teachers',
+            access: {restricted: true}
         }).
         when('/admin-classes', {
             controller: 'AdminClassesController',
             templateUrl: 'assets/views/admin-classes.html',
-            activetab: 'admin-classes'
+            activetab: 'admin-classes',
+            access: {restricted: true}
         }).
         when('/admin-assignments', {
             controller: 'AdminAssignmentsController',
             templateUrl: 'assets/views/admin-assignments.html',
-            activetab: 'admin-assignments'
+            activetab: 'admin-assignments',
+            access: {restricted: true}
         }).
         when('/admin-students', {
             controller: 'AdminStudentsController',
             templateUrl: 'assets/views/admin-students.html',
-            activetab: 'admin-students'
+            activetab: 'admin-students',
+            access: {restricted: true}
         }).
         when('/teacher-classes', {
             controller: 'TeacherClassesController',
             templateUrl: 'assets/views/teacher-classes.html',
-            activetab: 'teacher-classes'
+            activetab: 'teacher-classes',
+            access: {restricted: true}
         }).
         when('/teacher-students', {
             controller: 'TeacherStudentsController',
             templateUrl: 'assets/views/teacher-students.html',
-            activetab: 'teacher-students'
+            activetab: 'teacher-students',
+            access: {restricted: true}
         }).
         when('/unauthorized', {
-            templateUrl: 'assets/views/unauthorized.html'
+            templateUrl: 'assets/views/unauthorized.html',
+            access: {restricted: false}
+
         }).
         when('/charts', {
             controller: 'ChartsController',
             templateUrl: 'assets/views/charts.html',
-            activetab: 'charts'
+            activetab: 'charts',
+            access: {restricted: true}
         }).
         otherwise({redirectTo: '/login'});
 

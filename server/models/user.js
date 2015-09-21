@@ -14,7 +14,8 @@ var UserSchema = new Schema({
     //student: [],
     //class: [],
     //school: [],
-    lastlogin: {type: Date, default: Date.now()}
+    lastlogin: {type: Date, default: Date.now()},
+    role: {type: String, default: 'Teacher'}
 
 });
 
