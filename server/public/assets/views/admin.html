@@ -1,12 +1,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid header-top">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+
             <a class="navbar-brand" href="http://reveacademy.org/"><img src="../assets/images/academylogo_white.png"/></a>
         </div>
         <div class="navbar-collapse collapse top-nav">
@@ -16,37 +11,40 @@
                 <!--<li><a href="#">Profile</a></li>-->
                 <!--<li><a href="#">Help</a></li>-->
             <!--</ul>-->
-            <form class="search-bar navbar-form navbar-right">
-                <input type="text" class="form-control" placeholder="Search...">
-            </form>
+
         </div>
     </div>
 </nav>
 
 <div class="container-fluid admin-content">
 
-    <div class="row row-offcanvas row-offcanvas-left">
+    <!--<div class="row row-offcanvas row-offcanvas-left">-->
 
         <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
-
-            <ul class="nav nav-sidebar">
-                <li ng-class="{active: $route.current.activetab == 'admin'}"><a href="#/admin">Overview</a></li>
-                <li ng-class="{active: $route.current.activetab == 'schools'}"><a href="#/schools">Schools</a></li>
-                <li ng-class="{active: $route.current.activetab == 'admin-teachers'}"><a href="#/admin-teachers">Teachers</a></li>
-                <li ng-class="{active: $route.current.activetab == 'admin-classes'}"><a href="#/admin-classes">Classes</a></li>
-                <li ng-class="{active: $route.current.activetab == 'admin-assignments'}"><a href="#/admin-assignments">Assignments</a></li>
-                <li ng-class="{active: $route.current.activetab == 'admin-students'}"><a href="#/admin-students">Students</a></li>
-            </ul>
-
-
-        </div><!--/span-->
-
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-collapse collapse top-nav">
+                <ul class="nav nav-sidebar">
+                    <li ng-class="{active: $route.current.activetab == 'admin'}"><a href="#/admin">Overview</a></li>
+                    <li ng-class="{active: $route.current.activetab == 'schools'}"><a href="#/schools">Schools</a></li>
+                    <li ng-class="{active: $route.current.activetab == 'admin-teachers'}"><a href="#/admin-teachers">Teachers</a></li>
+                    <li ng-class="{active: $route.current.activetab == 'admin-classes'}"><a href="#/admin-classes">Classes</a></li>
+                    <li ng-class="{active: $route.current.activetab == 'admin-assignments'}"><a href="#/admin-assignments">Assignments</a></li>
+                    <li ng-class="{active: $route.current.activetab == 'admin-students'}"><a href="#/admin-students">Students</a></li>
+                </ul>
+                <!--toggle sidebar button-->
+                <p class="visible-xs">
+                    <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+                </p>
+            </div><!--/span-->
+        </div>
         <div class="col-sm-9 col-md-10 main">
 
-            <!--toggle sidebar button-->
-            <p class="visible-xs">
-                <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
-            </p>
+
 
             <h1 class="page-header">
                 Dashboard
@@ -184,6 +182,10 @@
                             Four
                         </li>
                     </ul>
+                </div>
+                <div id="demographicInfo" class="col-xs-6 col-sm-6 col-md-6">
+                    <p>Demographic Data</p>
+                    <canvas id="demographicBarChart" class="chart chart-bar" chart-data="demographicData" chart-labels="demographicDataLabels"></canvas>
                 </div>
             </div>
 

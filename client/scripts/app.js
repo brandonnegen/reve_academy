@@ -8,7 +8,7 @@ reveApp.directive('sameAs', function () {
 
             scope.$watch(attrs.sameAs, function() {
                 ctrl.$validate();
-            })
+            });
 
             ctrl.$validators.match = function(modelValue, viewValue) {
                 return viewValue === scope.$eval(modelToMatch);
