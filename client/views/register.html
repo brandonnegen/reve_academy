@@ -12,13 +12,13 @@
         </div>
         <div class="form-group" ng-class="{ 'has-error' : regform.password.$error.pattern && !regform.password.$pristine }">
             <input type="password" name="password" id="password" class="form-control" placeholder="Password" ng-model="password" ng-pattern="/^(?=.{6,20}$)(?=.*\d)(?=.*[a-zA-Z]).*$/" required />
-            <p ng-show="regform.password.$error.pattern && !regform.password.$pristine && regform.password.$touched" class="help-block">Password must have both a letter and a number, and must be between 6-20 characters.</p>
+            <p ng-show="regform.password.$error.pattern && !regform.password.$pristine" class="help-block">Password must have both a letter and a number, and must be between 6-20 characters.</p>
         </div>
 
         <div class="form-group"  ng-class="{ 'has-error' : (regform.passwordRepeated.$error.pattern ||regform.passwordRepeated.$invalid) && !regform.passwordRepeated.$pristine } ">
             <input type="password" name="passwordRepeated" id="passwordRepeated" class="form-control" placeholder="Repeat Password" ng-model="passwordRepeated" same-as="password" ng-pattern="/^(?=.{6,20}$)(?=.*\d)(?=.*[a-zA-Z]).*$/" required />
-            <p ng-show="regform.passwordRepeated.$error.pattern && !regform.passwordRepeated.$pristine && regform.passwordRepeated.$touched" class="help-block">Password must have both a letter and a number, and must be between 6-20 characters.</p>
-            <p ng-show="regform.passwordRepeated.$error.match && !regform.passwordRepeated.$pristine && regform.passwordRepeated.$touched" class="help-block">Must match initial password</p>
+            <p ng-show="regform.passwordRepeated.$error.pattern && !regform.passwordRepeated.$pristine" class="help-block">Password must have both a letter and a number, and must be between 6-20 characters.</p>
+            <p ng-show="regform.passwordRepeated.$error.match && !regform.passwordRepeated.$pristine" class="help-block">Must match initial password</p>
         </div>
 
         <div class="form-group">

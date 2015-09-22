@@ -328,7 +328,7 @@ p {
     width: 460px;
     padding-left: 0;
     margin-top: 80px;
-    margin-left: 90px;
+    /*margin-left: 90px;*/
 }
 
 /* REGISTER PAGE */
@@ -400,4 +400,8 @@ p {
     width: 20px;
     height: 100%;
     border-radius: 5px;
+}
+
+p.help-block {
+    background-color: white;
 }
