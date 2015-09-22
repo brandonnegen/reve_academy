@@ -498,24 +498,33 @@ reveApp.controller("TeacherClassesController", ["$rootScope", "$scope", "$http",
         });
     };
 
-    //$scope.sendGrade = function(studentID, ssPreGrade, ssPostGrade, preAssessmentGrade, storyBoardGrade, websiteGrade, postAssessmentGrade){
-    //    console.log("pre grade: " + $scope.adminStudents.softskillspregrade);
-    //    console.log("ID", studentID);
-    //    return $http.put('admin-students/poststudents/' + studentID,
-    //        {
-    //            "id": studentID,
-    //            "softskillspregrade": ssPreGrade,
-    //            "softskillspostgrade": ssPostGrade,
-    //            "preassessmentgrade": preAssessmentGrade,
-    //            "storyboardgrade": storyBoardGrade,
-    //            "websitegrade": websiteGrade,
-    //            "postassessmentgrade": postAssessmentGrade
-    //        }
-    //    ).success(function() {
-    //            $scope.getStudents();
-    //        });
-    //
-    //};
+    $scope.sendGrade = function(studentID, ssPreGrade, ssPostGrade, preAssessmentGrade, storyBoardGrade, websiteGrade, postAssessmentGrade){
+        console.log("pre grade: " + $scope.adminStudents.softskillspregrade);
+        console.log("ID", studentID);
+        return $http.put('admin-students/gradestudents',
+            {
+                id: studentID,
+                softskillspregrade: ssPreGrade,
+                softskillspostgrade: ssPostGrade,
+                preassessmentgrade: preAssessmentGrade,
+                storyboardgrade: storyBoardGrade,
+                websitegrade: websiteGrade,
+                postassessmentgrade: postAssessmentGrade
+            }
+        //{
+        //    id: studentID,
+        //    softskillspregrade: $scope.adminStudents.softskillspregrade,
+        //    softskillspostgrade: $scope.adminStudents.softskillspostgrade,
+        //    preassessmentgrade: $scope.adminStudents.preassessmentgrade,
+        //    storyboardgrade: $scope.adminStudents.storyboardgrade,
+        //    websitegrade: $scope.adminStudents.websitegrade,
+        //    postassessmentgrade: $scope.adminStudents.postassessmentgrade
+        //}
+        ).success(function() {
+                $scope.getStudents();
+            });
+
+    };
 
     $scope.sendClass = function(){
         return $http.post('/admin-classes', {
