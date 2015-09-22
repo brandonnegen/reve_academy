@@ -473,6 +473,7 @@ reveApp.controller("TeacherClassesController", ["$rootScope", "$scope", "$http",
     $scope.adminClasses = [];
     $scope.adminAssignments = [];
     $scope.adminStudents = [];
+    $scope.studentGrades = [];
     $scope.getClasses = function(){
         console.log("Get request made");
         //GET
@@ -501,15 +502,10 @@ reveApp.controller("TeacherClassesController", ["$rootScope", "$scope", "$http",
     $scope.sendGrade = function(studentID, ssPreGrade, ssPostGrade, preAssessmentGrade, storyBoardGrade, websiteGrade, postAssessmentGrade){
         console.log("pre grade: " + $scope.adminStudents.softskillspregrade);
         console.log("ID", studentID);
-        return $http.put('admin-students/gradestudents',
-            {
-                id: studentID,
-                softskillspregrade: ssPreGrade,
-                softskillspostgrade: ssPostGrade,
-                preassessmentgrade: preAssessmentGrade,
-                storyboardgrade: storyBoardGrade,
-                websitegrade: websiteGrade,
-                postassessmentgrade: postAssessmentGrade
+        console.log("scope", $scope);
+
+        $http.put('admin-students/gradestudents', {
+                data: $scope.adminStudentsData
             }
         //{
         //    id: studentID,
