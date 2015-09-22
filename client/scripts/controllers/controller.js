@@ -226,9 +226,11 @@ reveApp.controller("AdminTeachersController", ["$rootScope", "$scope", "$http", 
             $scope.$apply(function(){
                 $scope.showSuccessMessage = false;
                 $scope.showEditDeleteMessage = false;
+
             });
 
         });
+
 
         console.log("Admin-Classes Controller is working!");
         $scope.$route = $route;
@@ -260,7 +262,7 @@ reveApp.controller("AdminTeachersController", ["$rootScope", "$scope", "$http", 
 
 
         $scope.updateClass = function(classID, name, startdate, enddate){
-            return $http.put('/admin-classes/updateclasses' + classID, {
+            return $http.put('/admin-classes/updateclasses/' + classID, {
                 name: name,
                 startdate: startdate,
                 enddate: enddate
