@@ -706,11 +706,25 @@ reveApp.controller("ChartsController", ["$rootScope", "$scope", "$http", "$route
     $scope.postAssessmentGradeTwo = 0;
     $scope.postAssessmentGradeThree = 0;
     $scope.postAssessmentGradeFour = 0;
+    $scope.americanIndianOrAlaskaNative = 0;
+    $scope.asian = 0;
+    $scope.blackOrAfricanAmerican = 0;
+    $scope.nativeHawaiianOrOtherPacificIslander = 0;
+    $scope.white = 0;
+    $scope.twoOrMoreRaces = 0;
+    $scope.hispanic = 0;
+    $scope.notHispanicOrLatino = 0;
+    $scope.americanIndianOrAlaskaNativeCompletion = 0;
+    $scope.asianCompletion = 0;
+    $scope.blackOrAfricanAmericanCompletion = 0;
+    $scope.nativeHawaiianOrOtherPacificIslanderCompletion = 0;
+    $scope.whiteCompletion = 0;
+    $scope.twoOrMoreRacesCompletion = 0;
+    $scope.hispanicCompletion = 0;
     $http.get('/admin-students/getstudents').then(function(response){
         $scope.adminStudentsData = response.data;
         for(var i = 0; i < response.data.length; i++){
             //Pre-Assessment Grade Data
-            console.log("Pre-Assessment Grade", response.data[i].preassessmentgrade);
             if(response.data[i].preassessmentgrade == 1){
                 $scope.preAssessmentGradeOne++;
             } else if(response.data[i].preassessmentgrade == 2){
@@ -733,7 +747,6 @@ reveApp.controller("ChartsController", ["$rootScope", "$scope", "$http", "$route
                 "Four"
             ];
             //Soft Skills Pre-Assessment Grade Data
-            console.log("Soft Skills Pre Grade", response.data[i].softskillspregrade);
             if(response.data[i].softskillspregrade == 1){
                 $scope.ssPreGradeOne++;
             } else if(response.data[i].softskillspregrade == 2){
@@ -842,6 +855,76 @@ reveApp.controller("ChartsController", ["$rootScope", "$scope", "$http", "$route
                 "Two",
                 "Three",
                 "Four"
+            ];
+            //Demographic Chart Data And Demographic Course Completion Data
+            if(response.data[i].race == "American Indian or Alaska Native"){
+                $scope.americanIndianOrAlaskaNative++;
+            } else if(response.data[i].race == "Asian"){
+                $scope.asian++;
+            } else if(response.data[i].race == "Black or African American"){
+                $scope.blackOrAfricanAmerican++;
+            } else if(response.data[i].race == "Native Hawaiian or Other Pacific Islander"){
+                $scope.nativeHawaiianOrOtherPacificIslander++;
+            } else if(response.data[i].race == "White"){
+                $scope.white++;
+            } else if(response.data[i].race == "Two or more races"){
+                $scope.twoOrMoreRaces++;
+            } else if(response.data[i].ethnicity == "Hispanic"){
+                $scope.hispanic++;
+            } else if(response.data[i].ethnicity == "Not Hispanic or Latino"){
+                $scope.notHispanicOrLatino++;
+            }
+            if(response.data[i].race == "American Indian or Alaska Native" && response.data[i].classcompletion == "Yes"){
+                $scope.americanIndianOrAlaskaNativeCompletion++;
+            } else if(response.data[i].race == "Asian" && response.data[i].classcompletion == "Yes"){
+                $scope.asianCompletion++;
+            } else if(response.data[i].race == "Black or African American" && response.data[i].classcompletion == "Yes"){
+                $scope.blackOrAfricanAmericanCompletion++;
+            } else if(response.data[i].race == "Native Hawaiian or Other Pacific Islander" && response.data[i].classcompletion == "Yes"){
+                $scope.nativeHawaiianOrOtherPacificIslanderCompletion++;
+            } else if(response.data[i].race == "White" && response.data[i].classcompletion == "Yes"){
+                $scope.whiteCompletion++;
+            } else if(response.data[i].race == "Two or more races" && response.data[i].classcompletion == "Yes"){
+                $scope.twoOrMoreRacesCompletion++;
+            } else if(response.data[i].ethnicity == "Hispanic" && response.data[i].classcompletion == "Yes"){
+                $scope.hispanicCompletion++;
+            } else if(response.data[i].ethnicity == "Not Hispanic or Latino" && response.data[i].classcompletion == "Yes"){
+                $scope.notHispanicOrLatinoCompletion++;
+            }
+            $scope.demographicData = [
+                [
+                    $scope.americanIndianOrAlaskaNative,
+                    $scope.asian,
+                    $scope.blackOrAfricanAmerican,
+                    $scope.nativeHawaiianOrOtherPacificIslander,
+                    $scope.white,
+                    $scope.twoOrMoreRaces,
+                    $scope.hispanic
+                ],
+                [
+                    $scope.americanIndianOrAlaskaNativeCompletion,
+                    $scope.asianCompletion,
+                    $scope.blackOrAfricanAmericanCompletion,
+                    $scope.nativeHawaiianOrOtherPacificIslanderCompletion,
+                    $scope.whiteCompletion,
+                    $scope.twoOrMoreRacesCompletion,
+                    $scope.hispanicCompletion
+                ]
+
+            ];
+            $scope.series = [
+                "Series A",
+                "Series B"
+            ];
+            console.log("Demo Data", $scope.demographicData);
+            $scope.demographicDataLabels = [
+                "American Indian or Alaska Native",
+                "Asian",
+                "Black or African American",
+                "Native Hawaiian or Other Pacific Islander",
+                "White",
+                "Two or more races",
+                "Hispanic"
             ];
         }
     });
