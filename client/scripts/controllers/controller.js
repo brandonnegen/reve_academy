@@ -526,7 +526,7 @@ reveApp.controller("TeacherClassesController", ["$rootScope", "$scope", "$http",
     };
 
     $scope.updateClass = function(classID, name, startdate, enddate){
-        return $http.put('/admin-classes/updateclasses' + classID, {
+        return $http.put('/admin-classes/updateclasses/' + classID, {
             name: name,
             startdate: startdate,
             enddate: enddate
