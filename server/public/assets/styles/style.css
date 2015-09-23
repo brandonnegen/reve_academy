@@ -155,11 +155,13 @@ a:focus, a:hover{
 .top-nav {
     margin-top: 25px;
     background-color: #d14414;
+    border: red;
 
 }
 
 .header-top{
     background-color: #d14414;
+
 }
 
 .nav-sidebar .active a:hover {
@@ -364,7 +366,7 @@ p {
     list-style: none;
     position: relative;
     right: 8px;
-    top: 0;
+    top: 20px;
 }
 
 .legend li {
@@ -401,4 +403,12 @@ p.help-block {
 }
 
 .chart-bar {
+}
+
+#donutCharts {
+    padding: 20px;
+}
+canvas{
+    width: 100% !important;
+    height: auto !important;
 }
