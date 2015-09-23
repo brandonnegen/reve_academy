@@ -3,8 +3,8 @@ var mongoose = require('mongoose'),
 
 var ClassSchema = new Schema({
     name: {type: String, required: true},
-    startdate: {type: Date, required: true},
-    enddate: {type: Date, required: true}
+    startdate: {type: String, required: true},
+    enddate: {type: String, required: true}
     //removing until we can test functionality
     //student: [],
     //assignment: [],

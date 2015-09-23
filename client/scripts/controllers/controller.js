@@ -226,9 +226,11 @@ reveApp.controller("AdminTeachersController", ["$rootScope", "$scope", "$http", 
             $scope.$apply(function(){
                 $scope.showSuccessMessage = false;
                 $scope.showEditDeleteMessage = false;
+
             });
 
         });
+
 
         console.log("Admin-Classes Controller is working!");
         $scope.$route = $route;
@@ -260,7 +262,7 @@ reveApp.controller("AdminTeachersController", ["$rootScope", "$scope", "$http", 
 
 
         $scope.updateClass = function(classID, name, startdate, enddate){
-            return $http.put('/admin-classes/updateclasses' + classID, {
+            return $http.put('/admin-classes/updateclasses/' + classID, {
                 name: name,
                 startdate: startdate,
                 enddate: enddate
@@ -473,6 +475,7 @@ reveApp.controller("TeacherClassesController", ["$rootScope", "$scope", "$http",
     $scope.adminClasses = [];
     $scope.adminAssignments = [];
     $scope.adminStudents = [];
+    $scope.studentGrades = [];
     $scope.getClasses = function(){
         console.log("Get request made");
         //GET
@@ -498,29 +501,8 @@ reveApp.controller("TeacherClassesController", ["$rootScope", "$scope", "$http",
         });
     };
 
-    $scope.sendGrade = function(studentID, ssPreGrade, ssPostGrade, preAssessmentGrade, storyBoardGrade, websiteGrade, postAssessmentGrade){
-        console.log("pre grade: " + $scope.adminStudents.softskillspregrade);
-        console.log("ID", studentID);
-        return $http.put('admin-students/gradestudents',
-            {
-                id: studentID,
-                softskillspregrade: ssPreGrade,
-                softskillspostgrade: ssPostGrade,
-                preassessmentgrade: preAssessmentGrade,
-                storyboardgrade: storyBoardGrade,
-                websitegrade: websiteGrade,
-                postassessmentgrade: postAssessmentGrade
-            }
-        //{
-        //    id: studentID,
-        //    softskillspregrade: $scope.adminStudents.softskillspregrade,
-        //    softskillspostgrade: $scope.adminStudents.softskillspostgrade,
-        //    preassessmentgrade: $scope.adminStudents.preassessmentgrade,
-        //    storyboardgrade: $scope.adminStudents.storyboardgrade,
-        //    websitegrade: $scope.adminStudents.websitegrade,
-        //    postassessmentgrade: $scope.adminStudents.postassessmentgrade
-        //}
-        ).success(function() {
+    $scope.sendGrade = function(){
+        $http.put('admin-students/gradestudents', $scope.adminStudentsData).success(function() {
                 $scope.getStudents();
             });
 
