@@ -48,21 +48,21 @@ router.get('/logout', function(req, res) {
 //});
 
 router.get('/*',function(req,res,next){
-   console.log('router hit');
+   console.log('router get hit');
+
     var file = req.params[0] || '/assets/views/index.html';
     res.sendFile(path.join(__dirname, '../public',file));
     var role = '';
     username = '';
     if (req.user) {
         role = req.user.role;
-        username = req.user.username;
-        console.log(role, username)
+        //console.log(role)
     }
 
     res.cookie('userinfo', JSON.stringify({
-        'username': username,
-        'role': role
+        role: role
     }));
+    console.log(role)
 });
 
 module.exports = router;

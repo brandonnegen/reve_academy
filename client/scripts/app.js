@@ -21,30 +21,30 @@ reveApp.directive('sameAs', function () {
 reveApp.factory('AuthService',
     ['$q', '$timeout', '$http', '$cookies', '$rootScope',
         function ($q, $timeout, $http, $cookies, $rootScope) {
-            var currentUser = $cookies.get('userinfo') || {username: '' , role: ''};
-            console.log(currentUser);
+             $rootScope.currentUser = $cookies.getObject('userinfo');
+            var role = $rootScope.currentUser.role;
+            console.log(role);
+
+
             // create user variable
             var user = false;
 
             // return available functions for use in controllers
             return ({
-                authorize: authorize,
                 isLoggedIn: isLoggedIn,
                 getUserStatus: getUserStatus,
                 login: login,
                 logout: logout,
                 user: user,
+                getCurrentUser: getCurrentUser
 
 
 
             });
-
-            function authorize() {
-                    if (role === undefined)
-                        role = $rootScope.user.role;
-                    console.log(role);
-                    return role
+            function getCurrentUser() {
+                return role
             }
+
 
             function isLoggedIn() {
                 if(user) {
@@ -58,9 +58,6 @@ reveApp.factory('AuthService',
                 return user;
             }
 
-            function userInfo() {
-                return userInfo;
-            }
 
             function login(username, password) {
 
@@ -123,8 +120,16 @@ reveApp.run(['$rootScope', '$location', '$route', 'AuthService', function ($root
     $rootScope.$on('$routeChangeStart', function (event, next, current) {
         if (next.access.restricted === true && AuthService.isLoggedIn() === false) {
             $location.path('/login');
+            console.log('ah ah ah, you didnt say the magic word');
         }
+        //else if (next.access.restricted === false && AuthService.getCurrentUser === 'Admin') {
+        //    $location.path('/admin');
+        //}
+        //else if (AuthService.isLoggedIn() === true && AuthService.getCurrentUser === 'Teacher') {
+        //    $location.path('/teachers');
+        //};
     });
+
 }]);
 var appControllers = angular.module('appControllers', []);
 
@@ -135,8 +140,7 @@ reveApp.config(['$routeProvider', function($routeProvider, $scope) {
             controller: 'AdminController',
             access: {restricted: true},
             templateUrl: 'assets/views/admin.html',
-            activetab: 'admin',
-            access: {restricted: true}
+            activetab: 'admin'
         }).
         when('/teachers', {
             controller: 'TeacherController',

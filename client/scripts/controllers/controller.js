@@ -1,8 +1,9 @@
 var reveApp = angular.module('reveApp');
 
 
-reveApp.controller("LoginController", ["$scope", "$http", "$location", 'AuthService', function($scope, $http, $location, AuthService){
+reveApp.controller("LoginController", ["$scope", "$http", "$location", 'AuthService', '$rootScope', function($scope, $http, $location, AuthService, $rootScope){
     console.log("Login Controller is working!");
+    console.log('initial login', AuthService.getCurrentUser());
 
     $scope.login = function () {
 
@@ -15,10 +16,12 @@ reveApp.controller("LoginController", ["$scope", "$http", "$location", 'AuthServ
         AuthService.login($scope.loginForm.username, $scope.loginForm.password)
             // handle success
             .then(function (res) {
-                console.log('success');
                 $location.path('/admin');
+                console.log('login controller role:', AuthService.getCurrentUser());
+
                 $scope.disabled = false;
                 $scope.loginForm = {};
+
             })
             // handle error
             .catch(function () {
@@ -27,7 +30,7 @@ reveApp.controller("LoginController", ["$scope", "$http", "$location", 'AuthServ
                 $scope.disabled = false;
                 $scope.loginForm = {};
             });
-        console.log(AuthService.authorize());
+
     };
 
     $scope.logout = function () {
@@ -37,6 +40,7 @@ reveApp.controller("LoginController", ["$scope", "$http", "$location", 'AuthServ
         // call logout from service
         AuthService.logout()
             .then(function () {
+                $cookies.remove('userinfo');
                 $location.path('/login');
             });
 
@@ -71,7 +75,7 @@ reveApp.controller("RegisterController", ["$scope", "$http", "$route", function(
 
 }]);
 
-reveApp.controller("AdminController", ["$scope", "$http", "$route", function($scope, $http, $route){
+reveApp.controller("AdminController", ["$scope", "$http", "$route", 'AuthService', function($scope, $http, $route, AuthService){
     console.log("Admin Controller is working!");
     $scope.$route = $route;
 
