@@ -45,10 +45,9 @@
                 Dashboard
             </h1>
             <div class="col-xs-12">
-
+                <h4>Please select the Data you would like to view: </h4>
                 <div class="col-xs-6">
-
-                    <h4>Please select the Data you would like to view: </h4><select name="type" ng-init = "payment.type='preAss'" ng-model="payment.type" required ng-change="changeme()" >
+                    <select name="type" ng-init = "payment.type='preAss'" ng-model="payment.type" required ng-change="changeme()" >
                         <option ng-option value="preAss">Pre-Assessment Grades</option>
                         <option ng-option value="preSoft">Pre Soft Skill Grades</option>
                         <option ng-option value="story">Story Board Average</option>
