@@ -689,6 +689,12 @@ reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http"
 }]);
 
 reveApp.controller("ChartsController", ["$rootScope", "$scope", "$http", "$route", function($rootScope, $scope, $http, $route){
+
+    $scope.changeme = function() {
+        $scope.select.option = "preAss";
+        console.log('here');
+    };
+
     $scope.$route = $route;
     $scope.adminStudents = [];
     $scope.preAssessmentGradeOne = 0;

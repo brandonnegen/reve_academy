@@ -295,17 +295,6 @@ p {
     font-weight: 400;
 }
 
-/*#wrap{*/
-/*min-height: 100%;*/
-/*height: auto !important;*/
-/*height: 100%;*/
-/*/!* Negative indent footer by it's height *!/*/
-/*margin: 0 auto -50px;*/
-/*}*/
-
-/*.slide{*/
-    /*width: 100%;*/
-/*}*/
 
 #someContainer {
     padding: 0;
@@ -409,4 +398,7 @@ p {
 
 p.help-block {
     background-color: white;
+}
+
+.chart-bar {
 }
