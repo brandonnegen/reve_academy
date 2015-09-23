@@ -526,7 +526,7 @@ reveApp.controller("TeacherClassesController", ["$rootScope", "$scope", "$http",
     };
 
     $scope.updateClass = function(classID, name, startdate, enddate){
-        return $http.put('/admin-classes/updateclasses' + classID, {
+        return $http.put('/admin-classes/updateclasses/' + classID, {
             name: name,
             startdate: startdate,
             enddate: enddate
@@ -671,6 +671,12 @@ reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http"
 }]);
 
 reveApp.controller("ChartsController", ["$rootScope", "$scope", "$http", "$route", function($rootScope, $scope, $http, $route){
+
+    $scope.changeme = function() {
+        $scope.select.option = "preAss";
+        console.log('here');
+    };
+
     $scope.$route = $route;
     $scope.adminStudents = [];
     $scope.preAssessmentGradeOne = 0;
