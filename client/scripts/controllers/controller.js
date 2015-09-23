@@ -75,6 +75,11 @@ reveApp.controller("SchoolController", ["$rootScope", "$scope", "$http", "$route
                     $scope.successMessage = "You saved it!";
                     $scope.showSuccessMessage = true;
                     $scope.getSchools();
+                    setTimeout(function() {
+                        $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+                            $scope.showSuccessMessage = false;
+                        });
+                    }, 3000);
                 });
 
             };
@@ -93,6 +98,11 @@ reveApp.controller("SchoolController", ["$rootScope", "$scope", "$http", "$route
                 $scope.editDeleteMessage = "You updated it!";
                 $scope.showEditDeleteMessage = true;
                 $scope.getSchools();
+                setTimeout(function() {
+                    $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+                        $scope.showEditDeleteMessage = false;
+                    });
+                }, 3000);
             });
 
     };
@@ -107,6 +117,11 @@ reveApp.controller("SchoolController", ["$rootScope", "$scope", "$http", "$route
                     $scope.editDeleteMessage = "You deleted it!";
                     $scope.showEditDeleteMessage = true;
                     $scope.getSchools();
+                    setTimeout(function() {
+                        $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+                            $scope.showEditDeleteMessage = false;
+                        });
+                    }, 3000);
                 })
                 .error(function (data) {
                     console.log('Error: ' + data);
@@ -176,6 +191,11 @@ reveApp.controller("AdminTeachersController", ["$rootScope", "$scope", "$http", 
                 $scope.successMessage = "You saved it!";
                 $scope.showSuccessMessage = true;
                 $scope.getTeachers();
+                setTimeout(function() {
+                    $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+                        $scope.showSuccessMessage = false;
+                    });
+                }, 3000);
             });
 
     };
@@ -195,6 +215,11 @@ reveApp.controller("AdminTeachersController", ["$rootScope", "$scope", "$http", 
                 $scope.editDeleteMessage = "You updated it!";
                 $scope.showEditDeleteMessage = true;
                 $scope.getTeachers();
+                setTimeout(function() {
+                    $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+                        $scope.showEditDeleteMessage = false;
+                    });
+                }, 3000);
             });
 
     };
@@ -208,6 +233,11 @@ reveApp.controller("AdminTeachersController", ["$rootScope", "$scope", "$http", 
                     $scope.editDeleteMessage = "You deleted it!";
                     $scope.showEditDeleteMessage = true;
                     $scope.getTeachers();
+                    setTimeout(function() {
+                        $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+                            $scope.showEditDeleteMessage = false;
+                        });
+                    }, 3000);
                 })
                 .error(function (data) {
                     console.log('Error: ' + data);
@@ -256,8 +286,12 @@ reveApp.controller("AdminTeachersController", ["$rootScope", "$scope", "$http", 
                     $scope.successMessage = "You saved it!";
                     $scope.showSuccessMessage = true;
                     $scope.getClasses();
+                    setTimeout(function() {
+                        $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+                            $scope.showSuccessMessage = false;
+                        });
+                    }, 3000);
                 });
-
         };
 
 
@@ -272,6 +306,12 @@ reveApp.controller("AdminTeachersController", ["$rootScope", "$scope", "$http", 
                     $scope.editDeleteMessage = "You updated it!";
                     $scope.showEditDeleteMessage = true;
                     $scope.getClasses();
+                    setTimeout(function() {
+                        $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+                            $scope.showEditDeleteMessage = false;
+                        });
+                    }, 3000);
+
                 });
 
         };
@@ -285,6 +325,11 @@ reveApp.controller("AdminTeachersController", ["$rootScope", "$scope", "$http", 
                         $scope.editDeleteMessage = "You deleted it!";
                         $scope.showeditDeleteMessage = true;
                         $scope.getClasses();
+                        setTimeout(function() {
+                            $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+                                $scope.showEditDeleteMessage = false;
+                            });
+                        }, 3000);
                     })
                     .error(function (data) {
                         console.log('Error: ' + data);
@@ -327,6 +372,11 @@ reveApp.controller("AdminAssignmentsController", ["$rootScope", "$scope", "$http
                 $scope.successMessage = "You saved it!";
                 $scope.showSuccessMessage = true;
                 $scope.getAssignments();
+                setTimeout(function() {
+                    $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+                        $scope.showEditDeleteMessage = false;
+                    });
+                }, 3000);
             });
 
     };
@@ -339,6 +389,11 @@ reveApp.controller("AdminAssignmentsController", ["$rootScope", "$scope", "$http
                 $scope.editDeleteMessage = "You updated it!";
                 $scope.showEditDeleteMessage = true;
                 $scope.getAssignments();
+                setTimeout(function() {
+                    $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+                        $scope.showEditDeleteMessage = false;
+                    });
+                }, 3000);
             });
 
     };
@@ -352,6 +407,11 @@ reveApp.controller("AdminAssignmentsController", ["$rootScope", "$scope", "$http
                     $scope.editDeleteMessage = "You deleted it!";
                     $scope.showEditDeleteMessage = true;
                     $scope.getAssignments();
+                    setTimeout(function() {
+                        $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+                            $scope.showEditDeleteMessage = false;
+                        });
+                    }, 3000);
                 })
                 .error(function (data) {
                     console.log('Error: ' + data);
@@ -404,6 +464,11 @@ reveApp.controller("AdminStudentsController", ["$rootScope", "$scope", "$http", 
                 $scope.editDeleteMessage = "You updated it!";
                 $scope.showEditDeleteMessage = true;
                 $scope.getStudents();
+                setTimeout(function() {
+                    $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+                        $scope.showEditDeleteMessage = false;
+                    });
+                }, 3000);
             });
 
     };
@@ -437,6 +502,11 @@ reveApp.controller("AdminStudentsController", ["$rootScope", "$scope", "$http", 
                 $scope.successMessage = "You saved it!";
                 $scope.showSuccessMessage = true;
                 $scope.getStudents();
+                setTimeout(function() {
+                    $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+                        $scope.showSuccessMessage = false;
+                    });
+                }, 3000);
             });
 
     };
@@ -450,6 +520,11 @@ reveApp.controller("AdminStudentsController", ["$rootScope", "$scope", "$http", 
                     $scope.editDeleteMessage = "You deleted it!";
                     $scope.showEditDeleteMessage = true;
                     $scope.getStudents();
+                    setTimeout(function() {
+                        $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+                            $scope.showEditDeleteMessage = false;
+                        });
+                    }, 3000);
                 })
                 .error(function (data) {
                     console.log('Error: ' + data);
@@ -532,6 +607,11 @@ reveApp.controller("TeacherClassesController", ["$rootScope", "$scope", "$http",
                 $scope.successMessage = "You saved it!";
                 $scope.showSuccessMessage = true;
                 $scope.getClasses();
+                setTimeout(function() {
+                    $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+                        $scope.showSuccessMessage = false;
+                    });
+                }, 3000);
             });
 
     };
@@ -547,6 +627,11 @@ reveApp.controller("TeacherClassesController", ["$rootScope", "$scope", "$http",
                 $scope.editDeleteMessage = "You updated it!";
                 $scope.showEditDeleteMessage = true;
                 $scope.getClasses();
+                setTimeout(function() {
+                    $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+                        $scope.showEditDeleteMessage = false;
+                    });
+                }, 3000);
             });
 
     };
@@ -560,6 +645,11 @@ reveApp.controller("TeacherClassesController", ["$rootScope", "$scope", "$http",
                     $scope.editDeleteMessage = "You deleted it!";
                     $scope.showeditDeleteMessage = true;
                     $scope.getClasses();
+                    setTimeout(function() {
+                        $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+                            $scope.showEditDeleteMessage = false;
+                        });
+                    }, 3000);
                 })
                 .error(function (data) {
                     console.log('Error: ' + data);
@@ -634,6 +724,11 @@ reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http"
                 $scope.successMessage = "You saved it!";
                 $scope.showSuccessMessage = true;
                 $scope.getStudents();
+                setTimeout(function() {
+                    $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+                        $scope.showSuccessMessage = false;
+                    });
+                }, 5000);
             });
 
     };
@@ -657,6 +752,11 @@ reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http"
                 $scope.editMessage = "You updated it!";
                 $scope.showEditMessage = true;
                 $scope.getStudents();
+                setTimeout(function() {
+                    $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+                        $scope.showEditDeleteMessage = false;
+                    });
+                }, 5000);
             });
 
     };
@@ -671,6 +771,11 @@ reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http"
                     $scope.deleteMessage = "You deleted it!";
                     $scope.showDeleteMessage = true;
                     $scope.getStudents();
+                    setTimeout(function() {
+                        $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+                            $scope.showEditDeleteMessage = false;
+                        });
+                    }, 3000);
                 })
                 .error(function (data) {
                     console.log('Error: ' + data);
