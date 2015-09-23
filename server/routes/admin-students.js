@@ -12,9 +12,9 @@ router.get("/getstudents", function(req,res,next){
     });
 });
 
-router.put("/poststudents/:id", function(req, res, next){
+router.put("/gradestudents", function(req, res, next){
     console.log("Trying to update in the route");
-    Students.findByIdAndUpdate(req.params.id, req.body, {multi:true}, function(err, info){
+    Students.findByIdAndUpdate(req.params.id, req.body, {multi:true}, {upsert:true}, function(err, info){
             console.log("ID", req.params.id);
             console.log("BODY", req.body);
             if(err) throw new Error(err);

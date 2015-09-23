@@ -10,16 +10,13 @@
             <a class="navbar-brand" href="http://reveacademy.org/"><img src="../assets/images/academylogo_white.png"/></a>
         </div>
         <div class="navbar-collapse collapse top-nav">
-            <form class=" search-bar navbar-form navbar-right">
-                <input type="text" class="form-control" placeholder="Search...">
-            </form>
+
         </div>
     </div>
 </nav>
 
 <div class="container-fluid teacher-classes-content">
 
-    <div class="row row-offcanvas row-offcanvas-left">
 
         <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
 
@@ -119,48 +116,50 @@
                                 <div class="my-animation" ng-show="showStudent">
                                     <div class="slide col-md-12 admin-classes well" ng-repeat="adminStudents in adminStudentsData | filter:showadminClasses">
                                         <p class="admin-students-list">{{adminStudents.firstname}} {{adminStudents.lastname}}</p>
-                                        <!--<form name="form" ng-submit="sendGrade(adminStudents._id, adminStudents.preassessmentgrade)" method="post">-->
                                         <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
                                         <div class="form-group">
                                             <label for="preassessmentgrade">Pre-Assessment</label>
-                                            <input ng-model="adminStudents.preassessmentgrade" type="text" name="preassessmentgrade" id="preassessmentgrade" class="form-control" placeholder="Pre-Assessment Grade"/>
+                                            <input ng-model="adminStudents.preassessmentgrade" type="text" name="preassessmentgrade" id="preassessmentgrade" class="form-control" placeholder="Pre-Assessment Grade" value="3"/>
                                         </div>
-                                        <!--<div class="form-actions">-->
-                                        <!--<button type="submit" class="btn btn-primary">Submit</button>-->
-                                        <!--</div>-->
-                                        <!--</form>-->
                                     </div>
-                                </div>
-                                <button class="btn btn-primary" ng-click="showStudent = !showStudent"><span ng-show="showStudent">Hide Students</span><span ng-hide="showStudent">See Students</span></button>
+                                    <div class = "row col-md-12 submit-button">
+                                        <button type="submit" class="btn btn-primary">Submit Pre-Assessment Grades</button>
+                                    </div>
+                                </form>
                             </div>
-                            <div class="col-md-12 admin-classes well">
-                                <p class="admin-classes-list">Soft Skills Pre-Assessment</p>
-                                <div class="my-animation" ng-show="showStudentSoft">
-                                    <div class="slide col-md-12 admin-classes well" ng-repeat="adminStudents in adminStudentsData | filter:showadminClasses">
-                                        <p class="admin-students-list">{{adminStudents.firstname}} {{adminStudents.lastname}}</p>
+
+                            <button class="btn btn-primary" ng-click="showStudent = !showStudent"><span ng-show="showStudent">Hide Students</span><span ng-hide="showStudent">See Students</span></button>
+                        </div>
+                        <div class="col-md-12 admin-classes well">
+                            <p class="admin-classes-list">Soft Skills Pre-Assessment</p>
+                            <div class="my-animation" ng-show="showStudentSoft">
+                                <form name="form" ng-submit="sendGrade(adminStudents._id, adminStudents.softskillspregrade)" method="post">
+                                    <div class="col-md-4 admin-classes well" ng-repeat="adminStudents in adminStudentsData | filter:showadminClasses">
                                         <!--<form name="form" ng-submit="sendGrade(adminStudents._id, adminStudents.softskillspregrade)" method="post">-->
-                                        <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
-                                        <div class="form-group">
-                                            <label for="softskillspregade">Soft Skills Pre-Assessment</label>
-                                            <input ng-model="adminStudents.softskillspregrade" type="text" name="softskillspregade" id="softskillspregade" class="form-control" placeholder="Soft Skills Pre-Assessment Grade"/>
-                                        </div>
-                                        <!--<div class="form-actions">-->
-                                        <!--<button type="submit" class="btn btn-primary">Submit</button>-->
-                                        <!--</div>-->
-                                        <!--</form>-->
-                                    </div>
-                                </div>
-
-                                <button class="btn btn-primary" ng-click="showStudentSoft = !showStudentSoft"><span ng-show="showStudentSoft">Hide Students</span><span ng-hide="showStudentSoft">See Students</span></button>
-
-
-                            </div>
-                            <div class="col-md-12 admin-classes well">
-                                <p class="admin-classes-list">Story Board</p>
-                                <div class="my-animation" ng-show="showStoryBoard">
-                                    <div class="slide col-md-12 admin-classes well" ng-repeat="adminStudents in adminStudentsData | filter:showadminClasses">
                                         <p class="admin-students-list">{{adminStudents.firstname}} {{adminStudents.lastname}}</p>
-                                        <!--<form name="form" ng-submit="sendGrade(adminStudents._id, adminStudents.storyboardgrade)" method="post">-->
+                                        <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
+                                            <div class="form-group col-md3">
+                                                <label for="softskillspregade">Soft Skills Pre-Assessment</label>
+                                                <input ng-model="adminStudents.softskillspregrade" type="text" name="softskillspregade" id="softskillspregade" class="form-control" placeholder="Soft Skills Pre-Assessment Grade"/>
+                                            </div>
+                                    </div>
+                                                <!--<div class="form-actions">-->
+                                                    <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+                                                <!--</div>-->
+                                        <!--</form>-->
+                                    <div class = "row col-md-12 submit-button">
+                                        <button type="submit" class="btn btn-primary">Submit Soft Skills Pre-Assessment Grades</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <button class="btn btn-primary" ng-click="showStudentSoft = !showStudentSoft"><span ng-show="showStudentSoft">Hide Students</span><span ng-hide="showStudentSoft">See Students</span></button>
+                        </div>
+                        <div class="col-md-12 admin-classes well">
+                            <p class="admin-classes-list">Story Board</p>
+                            <div class="my-animation" ng-show="showStoryBoard">
+                                <form name="form" ng-submit="sendGrade(adminStudents._id, adminStudents.storyboardgrade)" method="post">
+                                    <div class="col-md-4 admin-classes well" ng-repeat="adminStudents in adminStudentsData | filter:showadminClasses">
+                                        <p class="admin-students-list">{{adminStudents.firstname}} {{adminStudents.lastname}}</p>
                                         <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
                                         <div class="form-group">
                                             <label for="storyboardgrade">Story Board</label>
@@ -171,20 +170,24 @@
                                         <!--</div>-->
                                         <!--</form>-->
                                     </div>
-                                </div>
-
-                                <button class="btn btn-primary" ng-click="showStoryBoard = !showStoryBoard"><span ng-show="showStoryBoard">Hide Students</span><span ng-hide="showStoryBoard">See Students</span></button>
-
-
+                                    <div class = "row col-md-12 submit-button">
+                                        <button type="submit" class="btn btn-primary">Submit Story Board Grades</button>
+                                    </div>
+                                </form>
                             </div>
-                            <div class="col-md-12 admin-classes well">
-                                <p class="admin-classes-list">Website</p>
-                                <div class="my-animation" ng-show="showWebsite">
-                                    <div class="slide col-md-12 admin-classes well" ng-repeat="adminStudents in adminStudentsData | filter:showadminClasses">
+
+                            <button class="btn btn-primary" ng-click="showStoryBoard = !showStoryBoard"><span ng-show="showStoryBoard">Hide Students</span><span ng-hide="showStoryBoard">See Students</span></button>
+
+
+                        </div>
+                        <div class="col-md-12 admin-classes well">
+                            <p class="admin-classes-list">Website</p>
+                            <div class="my-animation" ng-show="showWebsite">
+                                <form name="form" ng-submit="sendGrade(adminStudents._id, adminStudents.websitegrade)" method="post">
+                                    <div class="col-md-4 admin-classes well" ng-repeat="adminStudents in adminStudentsData | filter:showadminClasses">
                                         <p class="admin-students-list">{{adminStudents.firstname}} {{adminStudents.lastname}}</p>
-                                        <!--<form name="form" ng-submit="sendGrade(adminStudents._id, adminStudents.websitegrade)" method="post">-->
                                         <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
-                                        <div class="form-group">
+                                        <div class="form-group col-md3">
                                             <label for="websitegrade">Website</label>
                                             <input ng-model="adminStudents.websitegrade" type="text" name="websitegrade" id="websitegrade" class="form-control" placeholder="Website Grade"/>
                                         </div>
@@ -193,19 +196,23 @@
                                         <!--</div>-->
                                         <!--</form>-->
                                     </div>
-                                </div>
-
-                                <button class="btn btn-primary" ng-click="showWebsite = !showWebsite"><span ng-show="showWebsite">Hide Students</span><span ng-hide="showWebsite">See Students</span></button>
-
+                                    <div class = "row col-md-12 submit-button">
+                                        <button type="submit" class="btn btn-primary">Submit Website Grades</button>
+                                    </div>
+                                </form>
                             </div>
-                            <div class="col-md-12 admin-classes well">
-                                <p class="admin-classes-list">Soft Skills Post-Assessment</p>
-                                <div class="my-animation" ng-show="showSoftPost">
-                                    <div class="slide col-md-12 admin-classes well" ng-repeat="adminStudents in adminStudentsData | filter:showadminClasses">
+
+                            <button class="btn btn-primary" ng-click="showWebsite = !showWebsite"><span ng-show="showWebsite">Hide Students</span><span ng-hide="showWebsite">See Students</span></button>
+
+                        </div>
+                        <div class="col-md-12 admin-classes well">
+                            <p class="admin-classes-list">Soft Skills Post-Assessment</p>
+                            <div class="my-animation" ng-show="showSoftPost">
+                                <form name="form" ng-submit="sendGrade(adminStudents._id, adminStudents.softskillspostgrade)" method="post">
+                                    <div class="col-md-4 admin-classes well" ng-repeat="adminStudents in adminStudentsData | filter:showadminClasses">
                                         <p class="admin-students-list">{{adminStudents.firstname}} {{adminStudents.lastname}}</p>
-                                        <!--<form name="form" ng-submit="sendGrade(adminStudents._id, adminStudents.softskillspostgrade)" method="post">-->
                                         <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
-                                        <div class="form-group">
+                                        <div class="form-group col-md3">
                                             <label for="softskillspostgrade">Soft Skills Post-Assessment</label>
                                             <input ng-model="adminStudents.softskillspostgrade" type="text" name="softskillspostgrade" id="softskillspostgrade" class="form-control" placeholder="Soft Skills Post-Assessment Grade"/>
                                         </div>
@@ -214,17 +221,20 @@
                                         <!--</div>-->
                                         <!--</form>-->
                                     </div>
-                                </div>
-
-                                <button class="btn btn-primary" ng-click="showSoftPost = !showSoftPost"><span ng-show="showSoftPost">Hide Students</span><span ng-hide="showSoftPost">See Students</span></button>
+                                    <div class = "row col-md-12 submit-button">
+                                        <button type="submit" class="btn btn-primary">Submit Soft Skills Post-Assessment Grades</button>
+                                    </div>
+                                </form>
                             </div>
-                            <div class="col-md-12 admin-classes well">
-                                <p class="admin-classes-list">Post-Assessment Grade</p>
 
-                                <div class="my-animation" ng-show="showPostAss">
-                                    <div class="slide col-md-12 admin-classes well" ng-repeat="adminStudents in adminStudentsData | filter:showadminClasses">
+                            <button class="btn btn-primary" ng-click="showSoftPost = !showSoftPost"><span ng-show="showSoftPost">Hide Students</span><span ng-hide="showSoftPost">See Students</span></button>
+                        </div>
+                        <div class="col-md-12 admin-classes well">
+                            <p class="admin-classes-list">Post-Assessment Grade</p>
+                            <div class="my-animation" ng-show="showPostAss">
+                                <form name="form" ng-submit="sendGrade(adminStudents._id, adminStudents.postassessmentgrade)" method="post">
+                                    <div class="col-md-4 admin-classes well" ng-repeat="adminStudents in adminStudentsData | filter:showadminClasses">
                                         <p class="admin-students-list">{{adminStudents.firstname}} {{adminStudents.lastname}}</p>
-                                        <!--<form name="form" ng-submit="sendGrade(adminStudents._id, adminStudents.postassessmentgrade)" method="post">-->
                                         <div class="alert alert-info" ng-model="successMessage" ng-if="showSuccessMessage">{{successMessage}}</div>
                                         <div class="form-group">
                                             <label for="postassessmentgrade">Post-Assessment</label>
@@ -235,26 +245,30 @@
                                         <!--</div>-->
                                         <!--</form>-->
                                     </div>
-                                </div>
-                                <button class="btn btn-primary" ng-click="showPostAss = !showPostAss"><span ng-show="showPostAss">Hide Students</span><span ng-hide="showPostAss">See Students</span></button>
-
-                            </div>
-                            <div class="col-md-12 admin-classes well">
-                                <p class="admin-classes-list">Overall</p>
-
-                                <div class="my-animation" ng-show="showOverall">
-                                    <div class="slide col-md-12 admin-classes well" ng-repeat="adminStudents in adminStudentsData | filter:showadminClasses">
-                                        <p class="admin-students-list">{{adminStudents.firstname}} {{adminStudents.lastname}}</p>
-                                        <p class="admin-classes-list">Here is where a progess bar would be!</p>
+                                    <div class = "row col-md-12 submit-button">
+                                        <button type="submit" class="btn btn-primary">Submit Post-Assessment Grades</button>
                                     </div>
-
-                                </div>
-                                <button class="btn btn-primary" ng-click="showOverall = !showOverall"><span ng-show="showOverall">Hide Students</span><span ng-hide="showOverall">See Students</span></button>
+                                </form>
                             </div>
-                            <!--<div class="form-actions">-->
-                                <!--<button type="submit" class="btn btn-primary">Submit</button>-->
-                            <!--</div>-->
-                        </form>
+                            <button class="btn btn-primary" ng-click="showPostAss = !showPostAss"><span ng-show="showPostAss">Hide Students</span><span ng-hide="showPostAss">See Students</span></button>
+
+                        </div>
+                        <div class="col-md-12 admin-classes well">
+                            <p class="admin-classes-list">Overall</p>
+
+                            <div class="my-animation" ng-show="showOverall">
+                                <div class="col-md-4 admin-classes well" ng-repeat="adminStudents in adminStudentsData | filter:showadminClasses">
+                                    <p class="admin-students-list">{{adminStudents.firstname}} {{adminStudents.lastname}}</p>
+                                    <p class="admin-classes-list">Here is where a progess bar would be!</p>
+                                </div>
+
+                            </div>
+                            <button class="btn btn-primary" ng-click="showOverall = !showOverall"><span ng-show="showOverall">Hide Students</span><span ng-hide="showOverall">See Students</span></button>
+                        </div>
+                        <!--<div class="form-actions">-->
+                            <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+                        <!--</div>-->
+                        <!--</form>-->
                     </div>
                     <button class="btn btn-primary" ng-click="show = !show"><span ng-show="show">Less Info</span><span ng-hide="show">More Info</span></button><button ng-click="showClass=!showClass" class="btn btn-primary">Edit</button><button ng-click="removeClass(adminClasses._id)" class="btn btn-primary">Delete</button>
                     <br />
@@ -281,7 +295,6 @@
             </div>
         </div> <!-- /main -->
     </div><!--/row-->
-</div><!--/.container-->
 
 <footer>
     <p class="pull-right">©2015 Reve Academy</p>
