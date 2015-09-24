@@ -76,7 +76,7 @@ passport.use('local', new localStrategy({
 }));
 
 app.use('/register', register);
-app.use('/user', users);
+app.use('/users', users);
 app.use('/schools', schools);
 app.use('/admin-assignments', adminAssignments);
 app.use('/admin-classes', adminClasses);

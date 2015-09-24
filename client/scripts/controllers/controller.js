@@ -794,6 +794,7 @@ reveApp.controller("ChartsController", ["$rootScope", "$scope", "$http", "$route
 
     $scope.$route = $route;
     $scope.adminStudents = [];
+    $scope.adminClasses = [];
     $scope.preAssessmentGradeOne = 0;
     $scope.preAssessmentGradeTwo = 0;
     $scope.preAssessmentGradeThree = 0;
@@ -1073,7 +1074,6 @@ reveApp.controller("ChartsController", ["$rootScope", "$scope", "$http", "$route
                 "Series A",
                 "Series B"
             ];
-            console.log("Demo Data", $scope.demographicData);
             $scope.demographicDataLabels = [
                 "American Indian or Alaska Native",
                 "Asian",
