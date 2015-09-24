@@ -235,6 +235,12 @@
                                         <div class='radio form-control'><label><input class='radio-inline' name='classcompletion' type='radio' value="No" ng-model='adminStudents.classcompletion' /><b>No</b></label></div>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="classes">Classes</label><br />
+                                    <select id="classes" name="classes">
+                                        <option value="{{adminClasses.name}}" ng-repeat="adminClasses in adminClassesData">{{adminClasses.name}}</option>
+                                    </select>
+                                </div>
                                 <div class="form-actions">
                                     <button type="submit" ng-click="showStudent=hide" class="btn btn-primary">Save</button>
 
