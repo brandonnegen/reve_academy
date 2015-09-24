@@ -11,10 +11,8 @@ reveApp.controller("RegisterController", ["$scope", "$http", "$route", function(
     $scope.$route = $route;
     $scope.school = {};
     $scope.getSchools = function(){
-        console.log("Get request made");
         //GET
         $http.get('/schools/getschools').then(function(response){
-            console.log(response.data);
             $scope.schoolData = response.data;
 
         });
@@ -47,10 +45,8 @@ reveApp.controller("SchoolController", ["$rootScope", "$scope", "$http", "$route
     $scope.$route = $route;
     $scope.school = {};
     $scope.getSchools = function(){
-        console.log("Get request made");
         //GET
         $http.get('/schools/getschools').then(function(response){
-            console.log(response.data);
             $scope.schoolData = response.data;
 
         });
@@ -113,7 +109,6 @@ reveApp.controller("SchoolController", ["$rootScope", "$scope", "$http", "$route
             $http.delete('/schools/' + schoolID)
                 .success(function (data) {
                     $scope.schoolData = data;
-                    console.log(data);
                     $scope.editDeleteMessage = "You deleted it!";
                     $scope.showEditDeleteMessage = true;
                     $scope.getSchools();
@@ -147,19 +142,15 @@ reveApp.controller("AdminTeachersController", ["$rootScope", "$scope", "$http", 
     $scope.$route = $route;
     $scope.adminTeachers = {};
     $scope.getTeachers = function(){
-        console.log("Get request made");
         //GET
         $http.get('/register/getteachers').then(function(response){
-            console.log(response.data);
             $scope.adminTeachersData = response.data;
 
         });
     };
     $scope.getSchools = function(){
-        console.log("Get request made");
         //GET
         $http.get('/schools/getschools').then(function(response){
-            console.log(response.data);
             $scope.schoolData = response.data;
 
         });
@@ -229,7 +220,6 @@ reveApp.controller("AdminTeachersController", ["$rootScope", "$scope", "$http", 
             $http.delete('/register/' + teacherID)
                 .success(function (data) {
                     $scope.adminTeachersData = data;
-                    console.log(data);
                     $scope.editDeleteMessage = "You deleted it!";
                     $scope.showEditDeleteMessage = true;
                     $scope.getTeachers();
@@ -266,10 +256,8 @@ reveApp.controller("AdminTeachersController", ["$rootScope", "$scope", "$http", 
         $scope.$route = $route;
         $scope.adminClasses = {};
         $scope.getClasses = function(){
-            console.log("Get request made");
             //GET
             $http.get('/admin-classes/getclasses').then(function(response){
-                console.log(response.data);
                 $scope.adminClassesData = response.data;
         });
     };
@@ -321,7 +309,6 @@ reveApp.controller("AdminTeachersController", ["$rootScope", "$scope", "$http", 
                 $http.delete('/admin-classes/' + classID)
                     .success(function (data) {
                         $scope.adminClassesData = data;
-                        console.log(data);
                         $scope.editDeleteMessage = "You deleted it!";
                         $scope.showeditDeleteMessage = true;
                         $scope.getClasses();
@@ -354,10 +341,8 @@ reveApp.controller("AdminAssignmentsController", ["$rootScope", "$scope", "$http
     $scope.$route = $route;
     $scope.adminAssignments = {};
     $scope.getAssignments = function(){
-        console.log("Get request made");
         //GET
         $http.get('/admin-assignments/getassignments').then(function(response){
-            console.log(response.data);
             $scope.adminAssignmentsData = response.data;
 
         });
@@ -403,7 +388,6 @@ reveApp.controller("AdminAssignmentsController", ["$rootScope", "$scope", "$http
             $http.delete('/admin-assignments/' + assignmentID)
                 .success(function (data) {
                     $scope.adminAssignmentsData = data;
-                    console.log(data);
                     $scope.editDeleteMessage = "You deleted it!";
                     $scope.showEditDeleteMessage = true;
                     $scope.getAssignments();
@@ -436,20 +420,16 @@ reveApp.controller("AdminStudentsController", ["$rootScope", "$scope", "$http", 
     $scope.adminStudents = {};
     $scope.adminClassesData = {};
     $scope.getClasses = function(){
-        console.log("Get request made");
         //GET
         $http.get('/admin-classes/getclasses').then(function(response){
-            console.log("get classes request", response.data);
             $scope.adminClassesData = response.data;
         });
     };
     $scope.getClasses();
 
     $scope.getStudents = function(){
-        console.log("Get request made");
         //GET
         $http.get('/admin-students/getstudents').then(function(response){
-            console.log(response.data);
             $scope.adminStudentsData = response.data;
 
         });
@@ -526,7 +506,6 @@ reveApp.controller("AdminStudentsController", ["$rootScope", "$scope", "$http", 
             $http.delete('/admin-students/' + studentID)
                 .success(function (data) {
                     $scope.adminStudentsData = data;
-                    console.log(data);
                     $scope.editDeleteMessage = "You deleted it!";
                     $scope.showEditDeleteMessage = true;
                     $scope.getStudents();
@@ -562,24 +541,19 @@ reveApp.controller("TeacherClassesController", ["$rootScope", "$scope", "$http",
     $scope.adminStudents = [];
     $scope.studentGrades = [];
     $scope.getClasses = function(){
-        console.log("Get request made");
         //GET
         $http.get('/admin-classes/getclasses').then(function(response){
-            console.log(response.data);
             $scope.adminClassesData = response.data;
         });
     };
     $scope.getAssignments = function(){
-        console.log("Get request made");
         //GET
         $http.get('/admin-assignments/getassignments').then(function(response){
-            console.log(response.data);
             $scope.adminAssignmentsData = response.data;
 
         });
     };
     $scope.getStudents = function(){
-        console.log("Get request made");
         //GET
         $http.get('/admin-students/getstudents').then(function(response){
             $scope.adminStudentsData = response.data;
@@ -640,7 +614,6 @@ reveApp.controller("TeacherClassesController", ["$rootScope", "$scope", "$http",
             $http.delete('/admin-classes/' + classID)
                 .success(function (data) {
                     $scope.adminClassesData = data;
-                    console.log(data);
                     $scope.editDeleteMessage = "You deleted it!";
                     $scope.showeditDeleteMessage = true;
                     $scope.getClasses();
@@ -676,25 +649,20 @@ reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http"
     $scope.adminStudents = [];
     $scope.adminClasses = {};
     $scope.getStudents = function(){
-        console.log("Get request made");
         //GET
         $http.get('/admin-students/getstudents').then(function(response){
-            console.log("Get students request", response.data);
             $scope.adminStudentsData = response.data;
         });
     };
     $scope.getClasses = function(){
-        console.log("Get request made");
         //GET
         $http.get('/admin-classes/getclasses').then(function(response){
-            console.log("get classes request", response.data);
             $scope.adminClassesData = response.data;
         });
     };
     $scope.getClasses();
 
     $scope.sendStudent = function(){
-        console.log("What's going on?", $scope.adminStudents.studentid);
         return $http.post('/admin-students/poststudents', {
             studentid: $scope.adminStudents.studentid,
             firstname: $scope.adminStudents.firstname,
@@ -766,7 +734,6 @@ reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http"
             $http.delete('/admin-students/' + studentID)
                 .success(function (data) {
                     $scope.adminStudentsData = data;
-                    console.log(data);
                     $scope.deleteMessage = "You deleted it!";
                     $scope.showDeleteMessage = true;
                     $scope.getStudents();
@@ -789,7 +756,6 @@ reveApp.controller("ChartsController", ["$rootScope", "$scope", "$http", "$route
 
     $scope.changeme = function() {
         $scope.select.option = "preAss";
-        console.log('here');
     };
 
     $scope.$route = $route;

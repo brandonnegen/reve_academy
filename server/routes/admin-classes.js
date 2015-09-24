@@ -14,8 +14,6 @@ router.get("/getclasses", function(req,res,next){
 });
 
 router.post("/", function (req, res, next){
-    console.log("Made it to class post! ", req.body);
-    console.log(req.body.startdate);
     var classes = new Classes({name: req.body.name, startdate: req.body.startdate, enddate: req.body.enddate});
     classes.save(function(err){
         if(err) console.log('error: ', err);
@@ -24,7 +22,6 @@ router.post("/", function (req, res, next){
 });
 
 router.put("/updateclasses/:id", function(req, res, next){
-    console.log("Made it to class put! ", req.params.id, req.body);
     Classes.findByIdAndUpdate(req.params.id, req.body, function(err, Class){
         return Classes.find({}).exec(function(err, Class){
             if(err) throw new Error(err);
@@ -34,7 +31,6 @@ router.put("/updateclasses/:id", function(req, res, next){
 });
 
 router.delete("/:id", function(req, res, next){
-    console.log("Server " + req.params.id + req.body);
     Classes.findByIdAndRemove(req.params.id, req.body, function(err, Class){
         return Classes.find({}).exec(function(err, Class){
             if(err) throw new Error(err);
