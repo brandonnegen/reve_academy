@@ -6,7 +6,6 @@ var path = require('path');
 var School = require('../models/school');
 
 router.delete("/:id", function(req, res, next){
-    console.log("Server " + req.params.id + req.body);
     School.findByIdAndRemove(req.params.id, req.body, function(err, school){
         return School.find({}).exec(function(err, school){
             if(err) throw new Error(err);
@@ -16,7 +15,6 @@ router.delete("/:id", function(req, res, next){
 });
 
 router.post("/", function (req, res, next){
-    console.log("Made it to school post! ", req.body);
     var school = new School({name: req.body.name, address: req.body.address, district: req.body.district, phone: req.body.phone, email: req.body.email, contactperson: req.body.contactperson});
     school.save(function(err){
         if(err) console.log('error: ', err);
@@ -26,7 +24,6 @@ router.post("/", function (req, res, next){
 });
 
 router.put("/updateschools/:id", function(req, res, next){
-    console.log("Made it to school put! ", req.params.id, req.body);
     School.findByIdAndUpdate(req.params.id, req.body, function(err, school){
         return School.find({}).exec(function(err, school){
             if(err) throw new Error(err);

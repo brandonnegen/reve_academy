@@ -12,7 +12,6 @@ router.get("/getteachers", function(req,res,next){
 });
 
 router.post("/postteachers", function (req, res, next){
-    console.log(req.body);
     var teacher = new Users({username: req.body.username, password: req.body.password, firstname: req.body.firstname, lastname: req.body.lastname, phone: req.body.phone, email: req.body.email, school: req.body.school});
     teacher.save(function(err){
         if(err) console.log('error: ', err);
@@ -21,7 +20,6 @@ router.post("/postteachers", function (req, res, next){
 });
 
 router.delete("/:id", function(req, res, next){
-    console.log("Server " + req.params.id + req.body);
     Users.findByIdAndRemove(req.params.id, req.body, function(err, user){
         return Users.find({}).exec(function(err, user){
             if(err) throw new Error(err);
@@ -31,7 +29,6 @@ router.delete("/:id", function(req, res, next){
 });
 
 router.put("/updateteachers/:id", function(req, res, next){
-    console.log("Made it to school put! ", req.params.id, req.body);
     Users.findByIdAndUpdate(req.params.id, req.body, function(err, teacher){
         return Users.find({}).exec(function(err, teacher){
             if(err) throw new Error(err);
