@@ -48,7 +48,7 @@
                 <div class="col-md-12 admin-assignments school well" ng-repeat="adminAssignments in adminAssignmentsData">
                     <p class="admin-assignments-list assignments-name">{{adminAssignments.name}}</p>
 
-                    <button class="btn btn-primary" ng-click="show = !show"><span ng-show="show">Less Info</span><span ng-hide="show">More Info</span></button><button class="btn btn-primary" ng-click="showAssignment=!showAssignment">Edit</button><button ng-click="removeAssignment(adminAssignments._id)" class="btn btn-primary">Delete</button>
+                    <button class="btn btn-primary" ng-click="showAssignment=!showAssignment">Edit</button><button ng-click="removeAssignment(adminAssignments._id)" class="btn btn-primary">Delete</button>
                     <br />
                     <div class="my-animation" ng-show="showAssignment">
                         <form name="form" ng-submit="updateAssignment(adminAssignments._id, adminAssignments.name)" method="put">
