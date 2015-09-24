@@ -366,7 +366,7 @@ p {
     list-style: none;
     position: relative;
     right: 8px;
-    top: 20px;
+
 }
 
 .legend li {
@@ -405,10 +405,8 @@ p.help-block {
 .chart-bar {
 }
 
-#donutCharts {
-    padding: 20px;
-}
 canvas{
     width: 100% !important;
     height: auto !important;
+    padding: 10px;
 }
