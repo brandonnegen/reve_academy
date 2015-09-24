@@ -24,7 +24,7 @@
                     <li ng-class="{active: $route.current.activetab == 'admin-students'}"><a href="#/admin-students">Students</a></li>
                 </ul>
 
-            </div><!--/span-->
+        </div><!--END -->
         <div class="col-xs-9 col-sm-9 col-md-10 col-lg-10 main">
 
 
@@ -33,205 +33,251 @@
                 Dashboard
             </h4>
 
-
-            <div id="barChart" class="row" ng-controller="ChartsController">
-                <div id="demographicInfo" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <p>Demographic Data</p>
-                    <canvas id="demographicBarChart" class="chart chart-bar" chart-data="demographicData" chart-labels="demographicDataLabels"></canvas>
+            <div class = "row">
+                <div id="barChart" ng-controller="ChartsController">
+                    <div id="demographicInfo" class ="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <p>Demographic Data</p>
+                        <canvas id="demographicBarChart" class="chart chart-bar" chart-data="demographicData" chart-labels="demographicDataLabels"></canvas>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <h4>Please select Assignment: </h4>
-                    <select name="type" ng-init = "payment.type='preAss'" ng-model="payment.type" required ng-change="changeme()" >
-                        <option ng-option value="preAss">Pre-Assessment Grades</option>
-                        <option ng-option value="preSoft">Pre Soft Skill Grades</option>
-                        <option ng-option value="story">Story Board Average</option>
-                        <option ng-option value="webGrades">Website Average</option>
-                        <option ng-option value="ssPost">Post Soft Skills</option>
-                        <option ng-option value="postAss">Post-Assessment Grades</option>
-                    </select>
-            </div>
-
-            <div class="col-xs-12" id="preAss" ng-if="payment.type == 'preAss'">
-                <div >
-                    <div id="donutCharts" class="row" ng-controller="ChartsController">
-                        <div id="preAssessmentGrade" class="col-xs-12 col-sm-8 col-md-4">
-                            <!--<p>Pre-Assessment Average Grades</p>-->
-                            <canvas id="preAssessmentDonut" class="chart chart-doughnut" chart-data="preAssessmentGrades" chart-labels="preAssessmentGradeLabels"></canvas>
-                            <ul class="legend">
+            </div> <!--END ROW WITH BAR CHART -->
+            <hr/>
+            <div class = "row">
+                <div class="col-md-6">
+                    <div id = "pieChart" ng-controller="ChartsController">
+                        <div id = "genderInfo">
+                            <p>Gender Comparison</p>
+                            <canvas id="pie" class="chart chart-pie" chart-data="genderRelation" chart-labels="genderLabels"></canvas><ul class="legend">
+                            <ul class = "legend">
                                 <li>
                                     <span style="background-color: #AAC7D5;"></span>
-                                    One
+                                    Male
                                 </li>
                                 <li>
                                     <span style="background-color: #DCDCDC;"></span>
-                                    Two
+                                    Female
+                                </li>
+                            </ul>
+                        </div> <!-- END DIV GENDER INFO -->
+                    </div> <!-- END div id piechart and CONTROLLER -->
+                </div> <!-- END CLASS PIECHART -->
+
+                <div class = "col-md-6 donutChartsClass">
+                    <div id="donutCharts" ng-controller="ChartsController">
+                        <div id ="averageGrades">
+                            <p>Please select Assignment: </p>
+                            <select name="type" ng-init = "payment.type='preAss'" ng-model="payment.type" required ng-change="changeme()" >
+                            <option ng-option value="preAss">Pre-Assessment Grades</option>
+                            <option ng-option value="preSoft">Pre Soft Skill Grades</option>
+                            <option ng-option value="story">Story Board Average</option>
+                            <option ng-option value="webGrades">Website Average</option>
+                            <option ng-option value="ssPost">Post Soft Skills</option>
+                            <option ng-option value="postAss">Post-Assessment Grades</option>
+                            </select>
+
+                            <!-- START ASSESSMENT PRE GRADE -->
+                            <div id="preAss" ng-if="payment.type == 'preAss'">
+                                <div>
+                                    <div id="preAssessmentGrade">
+                                        <!--<p>Pre-Assessment Average Grades</p>-->
+                                        <canvas id="preAssessmentDonut" class="chart chart-doughnut" chart-data="preAssessmentGrades" chart-labels="preAssessmentGradeLabels" chart-colours="preAssessmentColors"></canvas>
+                                        <ul class="legend">
+                                            <li>
+                                                <span style="background-color: #3e8f3e;"></span>
+                                                One
+                                            </li>
+                                            <li>
+                                                <span style="background-color: #DCDCDC;"></span>
+                                                Two
+                                            </li>
+                                            <li>
+                                                <span style="background-color: #F7464A;"></span>
+                                                Three
+                                            </li>
+                                            <li>
+                                                <span style="background-color: #46BFBD;"></span>
+                                                Four
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- START ASSESSMENT PRE GRADE -->
+
+                            <!-- END SOFT SKILLS PRE GRADE -->
+                            <div id="preSoft" ng-if="payment.type == 'preSoft'">
+                                <div >
+                                    <div id="ssPreGrade">
+                                        <!--<p>Soft Skills Pre-Assessment Average Grades</p>-->
+                                        <canvas id="ssPreDonut" class="chart chart-doughnut" chart-data="ssPreAssessmentGrades" chart-labels="ssPreAssessmentGradeLabels" chart-colours="preAssessmentColors"></canvas>
+                                        <ul class="legend">
+                                            <li>
+                                                <span style="background-color: #AAC7D5;"></span>
+                                                One
+                                            </li>
+                                            <li>
+                                                <span style="background-color: #DCDCDC;"></span>
+                                                Two
+                                            </li>
+                                            <li>
+                                                <span style="background-color: #F7464A;"></span>
+                                                Three
+                                            </li>
+                                            <li>
+                                                <span style="background-color: #46BFBD;"></span>
+                                                Four
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END SOFT SKILLS PRE GRADE -->
+
+                            <!-- START STORYBOARD GRADE -->
+                            <div id="story" ng-if="payment.type == 'story'">
+                                <div>
+                                    <div id="storyBoardGrade">
+                                        <!--<p>Story Board Average Grades</p>-->
+                                        <canvas id="storyBoardDonut" class="chart chart-doughnut" chart-data="storyBoardGrades" chart-labels="storyBoardGradeLabels"></canvas>
+                                        <ul class="legend">
+                                            <li>
+                                                <span style="background-color: #AAC7D5;"></span>
+                                                One
+                                            </li>
+                                            <li>
+                                                <span style="background-color: #DCDCDC;"></span>
+                                                Two
+                                            </li>
+                                            <li>
+                                                <span style="background-color: #F7464A;"></span>
+                                                Three
+                                            </li>
+                                            <li>
+                                                <span style="background-color: #46BFBD;"></span>
+                                                Four
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- START WEBSITE GRADE -->
+                            <div id="webGrades" ng-if="payment.type == 'webGrades'">
+                                <div >
+                                   <div id="websiteGrade">
+                                        <!--<p>Website Average Grades</p>-->
+                                        <canvas id="websiteDonut" class="chart chart-doughnut" chart-data="websiteGrades" chart-labels="websiteGradeLabels"></canvas>
+                                        <ul class="legend">
+                                            <li>
+                                                <span style="background-color: #AAC7D5;"></span>
+                                                One
+                                            </li>
+                                            <li>
+                                                <span style="background-color: #DCDCDC;"></span>
+                                                Two
+                                            </li>
+                                            <li>
+                                                <span style="background-color: #F7464A;"></span>
+                                                Three
+                                            </li>
+                                            <li>
+                                                <span style="background-color: #46BFBD;"></span>
+                                                Four
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END WEBSITE GRADE -->
+
+                            <!-- START SOFT SKILLS POST -->
+                            <div id ="ssPost" ng-if="payment.type == 'ssPost'">
+                                <div >
+                                    <div id="ssPostGrade">
+                                        <!--<p>Soft Skills Post-Assessment Average Grades</p>-->
+                                        <canvas id="ssPostDonut" class="chart chart-doughnut" chart-data="ssPostGrades" chart-labels="ssPostGradeLabels"></canvas>
+                                        <ul class="legend">
+                                            <li>
+                                                <span style="background-color: #AAC7D5;"></span>
+                                                One
+                                            </li>
+                                            <li>
+                                                <span style="background-color: #DCDCDC;"></span>
+                                                Two
+                                            </li>
+                                            <li>
+                                                <span style="background-color: #F7464A;"></span>
+                                                Three
+                                            </li>
+                                            <li>
+                                                <span style="background-color: #46BFBD;"></span>
+                                                Four
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END SOFT SKILLS POST -->
+
+                            <!-- START POST ASSESSMENT DONUT -->
+                            <div id="postAss" ng-if="payment.type == 'postAss'">
+                                <div >
+                                    <div id="postAssessmentGrade">
+                                        <!--<p>Post-Assessment Average Grades</p>-->
+                                        <canvas id="postAssessmentDonut" class="chart chart-doughnut" chart-data="postAssessmentGrades" chart-labels="postAssessmentGradeLabels"></canvas>
+                                        <ul class="legend">
+                                            <li>
+                                                <span style="background-color: #AAC7D5;"></span>
+                                                One
+                                            </li>
+                                            <li>
+                                                <span style="background-color: #DCDCDC;"></span>
+                                                Two
+                                            </li>
+                                            <li>
+                                                <span style="background-color: #F7464A;"></span>
+                                                Three
+                                            </li>
+                                            <li>
+                                                <span style="background-color: #46BFBD;"></span>
+                                                Four
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END POST ASSESSMENT DONUT -->
+                        </div> <!-- END DIV AVERAGE GRADES -->
+                    </div> <!-- END DONUT CHARTS CONTROLLERS -->
+                </div> <!-- END CLASS donutChartsClass -->
+            </div> <!-- END ROW WITH DONUT CHARTS AND PIE CHARTS -->
+
+            <!-- GENDER AND DEMOGRAPHIC DATA -->
+            <div class = "row">
+                <div class = "col-md-12">
+                    <div id = "radarChart" ng-controller="ChartsController">
+                        <div id = "genderAndDemo">
+                            <p>Demographic and Gender Information:</p>
+                            <canvas id="radar" class="chart chart-radar" chart-data="demographicAndGenderData" chart-labels="demographicAndGenderDataLabels"></canvas>
+                            <ul class="legend">
+                                <li>
+                                    <span style="background-color: #AAC7D5;"></span>
+                                    Male
                                 </li>
                                 <li>
-                                    <span style="background-color: #F7464A;"></span>
-                                    Three
-                                </li>
-                                <li>
-                                    <span style="background-color: #46BFBD;"></span>
-                                    Four
+                                    <span style="background-color: #DCDCDC;"></span>
+                                    Female
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-xs-12" id="preSoft" ng-if="payment.type == 'preSoft'">
-                <div >
-                    <div id="donutCharts" class="row" ng-controller="ChartsController">
-                        <div id="ssPreGrade" class="col-xs-6 col-sm-4 col-md-4">
-                            <p>Soft Skills Pre-Assessment Average Grades</p>
-                            <canvas id="ssPreDonut" class="chart chart-doughnut" chart-data="ssPreAssessmentGrades" chart-labels="ssPreAssessmentGradeLabels"></canvas>
-                            <ul class="legend">
-                                <li>
-                                    <span style="background-color: #AAC7D5;"></span>
-                                    One
-                                </li>
-                                <li>
-                                    <span style="background-color: #DCDCDC;"></span>
-                                    Two
-                                </li>
-                                <li>
-                                    <span style="background-color: #F7464A;"></span>
-                                    Three
-                                </li>
-                                <li>
-                                    <span style="background-color: #46BFBD;"></span>
-                                    Four
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xs-12" id="story" ng-if="payment.type == 'story'">
-                <div >
-                    <div id="donutCharts" class="row" ng-controller="ChartsController">
-                        <div id="storyBoardGrade" class="col-xs-6 col-sm-4 col-md-4">
-                            <p>Story Board Average Grades</p>
-                            <canvas id="storyBoardDonut" class="chart chart-doughnut" chart-data="storyBoardGrades" chart-labels="storyBoardGradeLabels"></canvas>
-                            <ul class="legend">
-                                <li>
-                                    <span style="background-color: #AAC7D5;"></span>
-                                    One
-                                </li>
-                                <li>
-                                    <span style="background-color: #DCDCDC;"></span>
-                                    Two
-                                </li>
-                                <li>
-                                    <span style="background-color: #F7464A;"></span>
-                                    Three
-                                </li>
-                                <li>
-                                    <span style="background-color: #46BFBD;"></span>
-                                    Four
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xs-12" id="webGrades" ng-if="payment.type == 'webGrades'">
-                <div >
-                    <div id="donutCharts" class="row" ng-controller="ChartsController">
-                        <div id="websiteGrade" class="col-xs-6 col-sm-4 col-md-4">
-                            <p>Website Average Grades</p>
-                            <canvas id="websiteDonut" class="chart chart-doughnut" chart-data="websiteGrades" chart-labels="websiteGradeLabels"></canvas>
-                            <ul class="legend">
-                                <li>
-                                    <span style="background-color: #AAC7D5;"></span>
-                                    One
-                                </li>
-                                <li>
-                                    <span style="background-color: #DCDCDC;"></span>
-                                    Two
-                                </li>
-                                <li>
-                                    <span style="background-color: #F7464A;"></span>
-                                    Three
-                                </li>
-                                <li>
-                                    <span style="background-color: #46BFBD;"></span>
-                                    Four
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xs-12" id="ssPost" ng-if="payment.type == 'ssPost'">
-                <div >
-                    <div id="donutCharts" class="row" ng-controller="ChartsController">
-                        <div id="ssPostGrade" class="col-xs-6 col-sm-4 col-md-4">
-                            <p>Soft Skills Post-Assessment Average Grades</p>
-                            <canvas id="ssPostDonut" class="chart chart-doughnut" chart-data="ssPostGrades" chart-labels="ssPostGradeLabels"></canvas>
-                            <ul class="legend">
-                                <li>
-                                    <span style="background-color: #AAC7D5;"></span>
-                                    One
-                                </li>
-                                <li>
-                                    <span style="background-color: #DCDCDC;"></span>
-                                    Two
-                                </li>
-                                <li>
-                                    <span style="background-color: #F7464A;"></span>
-                                    Three
-                                </li>
-                                <li>
-                                    <span style="background-color: #46BFBD;"></span>
-                                    Four
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xs-12" id="postAss" ng-if="payment.type == 'postAss'">
-                <div >
-                    <div id="donutCharts" class="row" ng-controller="ChartsController">
-                        <div id="postAssessmentGrade" class="col-xs-6 col-sm-4 col-md-4">
-                            <p>Post-Assessment Average Grades</p>
-                            <canvas id="postAssessmentDonut" class="chart chart-doughnut" chart-data="postAssessmentGrades" chart-labels="postAssessmentGradeLabels"></canvas>
-                            <ul class="legend">
-                                <li>
-                                    <span style="background-color: #AAC7D5;"></span>
-                                    One
-                                </li>
-                                <li>
-                                    <span style="background-color: #DCDCDC;"></span>
-                                    Two
-                                </li>
-                                <li>
-                                    <span style="background-color: #F7464A;"></span>
-                                    Three
-                                </li>
-                                <li>
-                                    <span style="background-color: #46BFBD;"></span>
-                                    Four
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- END GENDER AND DEMOGRAPHIC -->
 
 
-
-
-
-        </div>
-    </div><!--/row-->
+        </div>  <!-- END ROW MAIN GRID SYSTEM -->
+    </div> <!-- END TOTAL PAGE ROW -->
 </div><!--/.container-->
 
 <footer>
