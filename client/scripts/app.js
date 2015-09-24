@@ -28,9 +28,9 @@ reveApp.config(['$routeProvider', function($routeProvider, $scope) {
             activetab: 'admin'
         }).
         when('/teachers', {
-            controller: 'TeacherController',
-            templateUrl: 'assets/views/teachers.html',
-            activetab: 'teachers'
+            controller: 'TeacherClassesController',
+            templateUrl: 'assets/views/teacher-classes.html',
+            activetab: 'teacher-classes'
         }).
         when('/login', {
             controller: 'LoginController',
@@ -79,11 +79,6 @@ reveApp.config(['$routeProvider', function($routeProvider, $scope) {
         }).
         when('/unauthorized', {
             templateUrl: 'assets/views/unauthorized.html'
-        }).
-        when('/charts', {
-            controller: 'ChartsController',
-            templateUrl: 'assets/views/charts.html',
-            activetab: 'charts'
         }).
         otherwise({redirectTo: '/login'});
 
