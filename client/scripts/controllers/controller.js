@@ -823,6 +823,8 @@ reveApp.controller("ChartsController", ["$rootScope", "$scope", "$http", "$route
     $scope.whiteCompletion = 0;
     $scope.twoOrMoreRacesCompletion = 0;
     $scope.hispanicCompletion = 0;
+    $scope.genderMale = 0;
+    $scope.genderFemale = 0;
     $http.get('/admin-students/getstudents').then(function(response){
         $scope.adminStudentsData = response.data;
         for(var i = 0; i < response.data.length; i++){
@@ -848,6 +850,32 @@ reveApp.controller("ChartsController", ["$rootScope", "$scope", "$http", "$route
                 "Three",
                 "Four"
             ];
+            //$scope.preAssessmentGrades = [
+            //        {
+            //            value: $scope.preAssessmentGradeOne,
+            //            color:'#F7464A'
+            //        },
+            //        {
+            //            value: $scope.preAssessmentGradeTwo,
+            //            color: '#46BFBD'
+            //        },
+            //        {
+            //            value: $scope.preAssessmentGradeThree,
+            //            color: '#FDB45C'
+            //        },
+            //        {
+            //            value: $scope.preAssessmentGradeFour,
+            //            color: '#FDB45C'
+            //        }
+            //
+            //    ];
+            //$scope.preAssessmentGradeLabels = [
+            //    "One",
+            //    "Two",
+            //    "Three",
+            //    "Four"
+            //];
+
             //Soft Skills Pre-Assessment Grade Data
             if(response.data[i].softskillspregrade == 1){
                 $scope.ssPreGradeOne++;
@@ -1027,6 +1055,26 @@ reveApp.controller("ChartsController", ["$rootScope", "$scope", "$http", "$route
                 "White",
                 "Two or more races",
                 "Hispanic"
+            ];
+
+            // Gender Comparison Data
+            if(response.data[i].gender == "Male") {
+                $scope.genderMale++;
+            }else if(response.data[i].gender == "Female") {
+                $scope.genderFemale++;
+            }
+            $scope.genderRelation = [
+                $scope.genderMale,
+                $scope.genderFemale
+            ];
+            $scope.series = [
+                "Series A",
+                "Series B"
+            ];
+
+            $scope.genderLabels = [
+                "Male",
+                "Female"
             ];
         }
     });
