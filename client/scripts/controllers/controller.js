@@ -434,6 +434,16 @@ reveApp.controller("AdminStudentsController", ["$rootScope", "$scope", "$http", 
     console.log("Admin-Students Controller is working!");
     $scope.$route = $route;
     $scope.adminStudents = {};
+    $scope.adminClassesData = {};
+    $scope.getClasses = function(){
+        console.log("Get request made");
+        //GET
+        $http.get('/admin-classes/getclasses').then(function(response){
+            console.log("get classes request", response.data);
+            $scope.adminClassesData = response.data;
+        });
+    };
+    $scope.getClasses();
 
     $scope.getStudents = function(){
         console.log("Get request made");
