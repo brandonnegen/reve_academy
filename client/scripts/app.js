@@ -160,9 +160,9 @@ reveApp.config(['$routeProvider', function($routeProvider, $scope) {
         }).
         when('/teachers', {
 
-            controller: 'TeacherController',
-            templateUrl: 'assets/views/teachers.html',
-            activetab: 'teachers',
+            controller: 'TeacherClassesController',
+            templateUrl: 'assets/views/teacher-classes.html',
+            activetab: 'teacher-classes',
             access: {restricted: true},
             security: true
 
