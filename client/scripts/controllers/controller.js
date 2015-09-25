@@ -25,7 +25,7 @@ reveApp.controller("LoginController", ["$scope", "$http", "$location", 'AuthServ
                     $location.path('/admin');
                 }
                 else {
-                    $location.path('/teachers');
+                    $location.path('/login');
                 }
 
                 $scope.disabled = false;

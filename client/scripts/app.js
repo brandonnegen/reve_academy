@@ -186,7 +186,7 @@ reveApp.config(['$routeProvider', function($routeProvider, $scope) {
             templateUrl: 'assets/views/schools.html',
             activetab: 'schools',
             access: {restricted: true},
-            security: true
+            security: 'Admin'
         }).
         when('/admin-teachers', {
             controller: 'AdminTeachersController',
