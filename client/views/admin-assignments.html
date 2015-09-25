@@ -1,33 +1,19 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<!--The top nav bar-->
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid header-top">
         <div class="navbar-header">
-            <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">-->
-                <!--<span class="sr-only">Toggle navigation</span>-->
-                <!--<span class="icon-bar"></span>-->
-                <!--<span class="icon-bar"></span>-->
-                <!--<span class="icon-bar"></span>-->
-            <!--</button>-->
             <a class="navbar-brand" href="http://reveacademy.org/"><img src="../assets/images/academylogo_white.png"/></a>
         </div>
-        <div class="navbar-collapse collapse top-nav">
-            <!--<ul class="nav navbar-nav navbar-right">-->
-                <!--<li><a href="#/admin">Dashboard</a></li>-->
-                <!--<li><a href="#">Settings</a></li>-->
-                <!--<li><a href="#">Profile</a></li>-->
-                <!--<li><a href="#">Help</a></li>-->
-            <!--</ul>-->
-            <form class=" search-bar navbar-form navbar-right">
-                <input type="text" class="form-control" placeholder="Search...">
-            </form>
-        </div>
     </div>
-</nav>
+</div>
 
-<div class="container-fluid admin-assignments-content">
+<!--The Side Bar-->
+<div class="container-fluid admin-content">
 
-    <div class="row row-offcanvas row-offcanvas-left">
+    <div class="row">
 
-        <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
+        <div class="col-xs-3 col-sm-3 col-md-2 col-lg-2" id="sidebar" role="navigation">
 
             <ul class="nav nav-sidebar">
                 <li ng-class="{active: $route.current.activetab == 'admin'}"><a href="#/admin">Overview</a></li>
@@ -38,156 +24,8 @@
                 <li ng-class="{active: $route.current.activetab == 'admin-students'}"><a href="#/admin-students">Students</a></li>
             </ul>
 
-
         </div><!--/span-->
-
-        <div class="col-sm-9 col-md-10 main">
-
-            <!--toggle sidebar button-->
-            <p class="visible-xs">
-                <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
-            </p>
-
-            <h1 class="page-header">
-                Dashboard
-            </h1>
-
-            <div id="donutCharts" class="row" ng-controller="ChartsController">
-                <div id="preAssessmentGrade" class="col-xs-6 col-sm-4 col-md-4">
-                    <p>Pre-Assessment Average Grades</p>
-                    <canvas id="preAssessmentDonut" class="chart chart-doughnut" chart-data="preAssessmentGrades" chart-labels="preAssessmentGradeLabels"></canvas>
-                    <ul class="legend">
-                        <li>
-                            <span style="background-color: #AAC7D5;"></span>
-                            One
-                        </li>
-                        <li>
-                            <span style="background-color: #DCDCDC;"></span>
-                            Two
-                        </li>
-                        <li>
-                            <span style="background-color: #F7464A;"></span>
-                            Three
-                        </li>
-                        <li>
-                            <span style="background-color: #46BFBD;"></span>
-                            Four
-                        </li>
-                    </ul>
-                </div>
-                <div id="ssPreGrade" class="col-xs-6 col-sm-4 col-md-4">
-                    <p>Soft Skills Pre-Assessment Average Grades</p>
-                    <canvas id="ssPreDonut" class="chart chart-doughnut" chart-data="ssPreAssessmentGrades" chart-labels="ssPreAssessmentGradeLabels"></canvas>
-                    <ul class="legend">
-                        <li>
-                            <span style="background-color: #AAC7D5;"></span>
-                            One
-                        </li>
-                        <li>
-                            <span style="background-color: #DCDCDC;"></span>
-                            Two
-                        </li>
-                        <li>
-                            <span style="background-color: #F7464A;"></span>
-                            Three
-                        </li>
-                        <li>
-                            <span style="background-color: #46BFBD;"></span>
-                            Four
-                        </li>
-                    </ul>
-                </div>
-                <div id="storyBoardGrade" class="col-xs-6 col-sm-4 col-md-4">
-                    <p>Story Board Average Grades</p>
-                    <canvas id="storyBoardDonut" class="chart chart-doughnut" chart-data="storyBoardGrades" chart-labels="storyBoardGradeLabels"></canvas>
-                    <ul class="legend">
-                        <li>
-                            <span style="background-color: #AAC7D5;"></span>
-                            One
-                        </li>
-                        <li>
-                            <span style="background-color: #DCDCDC;"></span>
-                            Two
-                        </li>
-                        <li>
-                            <span style="background-color: #F7464A;"></span>
-                            Three
-                        </li>
-                        <li>
-                            <span style="background-color: #46BFBD;"></span>
-                            Four
-                        </li>
-                    </ul>
-                </div>
-                <div id="websiteGrade" class="col-xs-6 col-sm-4 col-md-4">
-                    <p>Website Average Grades</p>
-                    <canvas id="websiteDonut" class="chart chart-doughnut" chart-data="websiteGrades" chart-labels="websiteGradeLabels"></canvas>
-                    <ul class="legend">
-                        <li>
-                            <span style="background-color: #AAC7D5;"></span>
-                            One
-                        </li>
-                        <li>
-                            <span style="background-color: #DCDCDC;"></span>
-                            Two
-                        </li>
-                        <li>
-                            <span style="background-color: #F7464A;"></span>
-                            Three
-                        </li>
-                        <li>
-                            <span style="background-color: #46BFBD;"></span>
-                            Four
-                        </li>
-                    </ul>
-                </div>
-                <div id="ssPostGrade" class="col-xs-6 col-sm-4 col-md-4">
-                    <p>Soft Skills Post-Assessment Average Grades</p>
-                    <canvas id="ssPostDonut" class="chart chart-doughnut" chart-data="ssPostGrades" chart-labels="ssPostGradeLabels"></canvas>
-                    <ul class="legend">
-                        <li>
-                            <span style="background-color: #AAC7D5;"></span>
-                            One
-                        </li>
-                        <li>
-                            <span style="background-color: #DCDCDC;"></span>
-                            Two
-                        </li>
-                        <li>
-                            <span style="background-color: #F7464A;"></span>
-                            Three
-                        </li>
-                        <li>
-                            <span style="background-color: #46BFBD;"></span>
-                            Four
-                        </li>
-                    </ul>
-                </div>
-                <div id="postAssessmentGrade" class="col-xs-6 col-sm-4 col-md-4">
-                    <p>Post-Assessment Average Grades</p>
-                    <canvas id="postAssessmentDonut" class="chart chart-doughnut" chart-data="postAssessmentGrades" chart-labels="postAssessmentGradeLabels"></canvas>
-                    <ul class="legend">
-                        <li>
-                            <span style="background-color: #AAC7D5;"></span>
-                            One
-                        </li>
-                        <li>
-                            <span style="background-color: #DCDCDC;"></span>
-                            Two
-                        </li>
-                        <li>
-                            <span style="background-color: #F7464A;"></span>
-                            Three
-                        </li>
-                        <li>
-                            <span style="background-color: #46BFBD;"></span>
-                            Four
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <hr>
+        <div class="col-xs-9 col-sm-9 col-md-10 col-lg-10 main">
 
             <div class="assignment-info">
                 <h4>Add Assignment</h4>
@@ -210,7 +48,7 @@
                 <div class="col-md-12 admin-assignments school well" ng-repeat="adminAssignments in adminAssignmentsData">
                     <p class="admin-assignments-list assignments-name">{{adminAssignments.name}}</p>
 
-                    <button class="btn btn-primary" ng-click="show = !show"><span ng-show="show">Less Info</span><span ng-hide="show">More Info</span></button><button class="btn btn-primary" ng-click="showAssignment=!showAssignment">Edit</button><button ng-click="removeAssignment(adminAssignments._id)" class="btn btn-primary">Delete</button>
+                    <button class="btn btn-primary" ng-click="showAssignment=!showAssignment">Edit</button><button ng-click="removeAssignment(adminAssignments._id)" class="btn btn-primary">Delete</button>
                     <br />
                     <div class="my-animation" ng-show="showAssignment">
                         <form name="form" ng-submit="updateAssignment(adminAssignments._id, adminAssignments.name)" method="put">
