@@ -1,6 +1,9 @@
 
 var reveApp = angular.module('reveApp',['ngRoute', 'chart.js', 'appControllers', 'ngCookies','ngAnimate']);
 
+
+
+
 reveApp.directive('sameAs', function () {
     return {
         require: 'ngModel',
@@ -21,22 +24,23 @@ reveApp.directive('sameAs', function () {
 reveApp.factory('AuthService',
     ['$q', '$timeout', '$http', '$cookies', '$rootScope',
         function ($q, $timeout, $http, $cookies, $rootScope) {
-             $rootScope.currentUser = $cookies.getObject('userinfo');
-            var role = $rootScope.currentUser.role;
-            console.log(role);
+            var role ;
 
+            //console.log("AS login role: " + role);
 
             // create user variable
             var user = false;
 
             // return available functions for use in controllers
             return ({
+                authorize: authorize,
                 isLoggedIn: isLoggedIn,
                 getUserStatus: getUserStatus,
                 login: login,
                 logout: logout,
                 user: user,
-                getCurrentUser: getCurrentUser
+                getCurrentUser: getCurrentUser,
+                getCookie: getCookie
 
 
 
@@ -44,7 +48,11 @@ reveApp.factory('AuthService',
             function getCurrentUser() {
                 return role
             }
+            function getCookie() {
+                var coolcookie = $cookies.getObject('userinfo');
+                console.log('here is the log', coolcookie);
 
+            }
 
             function isLoggedIn() {
                 if(user) {
@@ -52,6 +60,11 @@ reveApp.factory('AuthService',
                 } else {
                     return false;
                 }
+            }
+
+            function authorize(securityFlag) {
+                return !securityFlag || (user !== null && (securityFlag == true) || role.indexOf(securityFlag) !== -1)
+
             }
 
             function getUserStatus() {
@@ -69,7 +82,8 @@ reveApp.factory('AuthService',
                     // handle success
                     .success(function (data, status) {
                         if(status === 200 && data.status){
-                            //authorize();
+                            $rootScope.currentUser = $cookies.getObject('userinfo');
+                            role = $rootScope.currentUser.role;
                             user = true;
                             deferred.resolve();
 
@@ -102,7 +116,9 @@ reveApp.factory('AuthService',
                     // handle success
                     .success(function (data) {
                         user = false;
+                        $cookies.remove('userinfo');
                         deferred.resolve();
+
                     })
                     // handle error
                     .error(function (data) {
@@ -118,16 +134,17 @@ reveApp.factory('AuthService',
 
 reveApp.run(['$rootScope', '$location', '$route', 'AuthService', function ($rootScope, $location, $route, AuthService) {
     $rootScope.$on('$routeChangeStart', function (event, next, current) {
-        if (next.access.restricted === true && AuthService.isLoggedIn() === false) {
-            $location.path('/login');
-            console.log('ah ah ah, you didnt say the magic word');
+        //if (next.access.restricted === true && AuthService.isLoggedIn() === false) {
+        //    $location.path('/login');
+        if (!AuthService.authorize(next.security)) {
+            if (AuthService.isLoggedIn()) {
+                $location.path('/unauthorized');
+            } else {
+                $location.path('/login');
+                console.log('ah ah ah, you didnt say the magic word');
+            }
+
         }
-        //else if (next.access.restricted === false && AuthService.getCurrentUser === 'Admin') {
-        //    $location.path('/admin');
-        //}
-        //else if (AuthService.isLoggedIn() === true && AuthService.getCurrentUser === 'Teacher') {
-        //    $location.path('/teachers');
-        //};
     });
 
 }]);
@@ -139,6 +156,7 @@ reveApp.config(['$routeProvider', function($routeProvider, $scope) {
         when('/admin', {
             controller: 'AdminController',
             access: {restricted: true},
+            security: 'Admin',
             templateUrl: 'assets/views/admin.html',
             activetab: 'admin'
         }).
@@ -146,61 +164,71 @@ reveApp.config(['$routeProvider', function($routeProvider, $scope) {
             controller: 'TeacherController',
             templateUrl: 'assets/views/teachers.html',
             activetab: 'teachers',
-            access: {restricted: true}
+            access: {restricted: true},
+            security: true
         }).
         when('/login', {
             controller: 'LoginController',
             templateUrl: 'assets/views/login.html',
             activetab: 'login',
-            access: {restricted: false}
+            access: {restricted: false},
+            security: false
         }).
         when('/register', {
             controller: 'RegisterController',
             templateUrl: 'assets/views/register.html',
             activetab: 'register',
-            access: {restricted: false}
+            access: {restricted: false},
+            security: false
         }).
         when('/schools', {
             controller: 'SchoolController',
             templateUrl: 'assets/views/schools.html',
             activetab: 'schools',
-            access: {restricted: true}
+            access: {restricted: true},
+            security: true
         }).
         when('/admin-teachers', {
             controller: 'AdminTeachersController',
             templateUrl: 'assets/views/admin-teachers.html',
             activetab: 'admin-teachers',
-            access: {restricted: true}
+            access: {restricted: true},
+            security: 'Admin'
         }).
         when('/admin-classes', {
             controller: 'AdminClassesController',
             templateUrl: 'assets/views/admin-classes.html',
             activetab: 'admin-classes',
-            access: {restricted: true}
+            access: {restricted: true},
+            security: 'Admin'
         }).
         when('/admin-assignments', {
             controller: 'AdminAssignmentsController',
             templateUrl: 'assets/views/admin-assignments.html',
             activetab: 'admin-assignments',
-            access: {restricted: true}
+            access: {restricted: true},
+            security: 'Admin'
         }).
         when('/admin-students', {
             controller: 'AdminStudentsController',
             templateUrl: 'assets/views/admin-students.html',
             activetab: 'admin-students',
-            access: {restricted: true}
+            access: {restricted: true},
+            security: 'Admin'
         }).
         when('/teacher-classes', {
             controller: 'TeacherClassesController',
             templateUrl: 'assets/views/teacher-classes.html',
             activetab: 'teacher-classes',
-            access: {restricted: true}
+            access: {restricted: true},
+            security: true
         }).
         when('/teacher-students', {
             controller: 'TeacherStudentsController',
             templateUrl: 'assets/views/teacher-students.html',
             activetab: 'teacher-students',
-            access: {restricted: true}
+            access: {restricted: true},
+            security: true
         }).
         when('/unauthorized', {
             templateUrl: 'assets/views/unauthorized.html',

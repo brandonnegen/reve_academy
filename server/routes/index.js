@@ -21,7 +21,16 @@ router.post('/login', function(req, res, next) {
             if (err) {
                 return res.status(500).json({err: 'Could not log in user'});
             }
+            var role = '';
+                role = req.user.role;
+                res.cookie('userinfo', JSON.stringify({
+                    role: role
+
+                }));
+                console.log(role);
             res.status(200).json({status: 'Login successful!'});
+
+
         });
     })(req, res, next);
 });
@@ -49,20 +58,10 @@ router.get('/logout', function(req, res) {
 
 router.get('/*',function(req,res,next){
    console.log('router get hit');
-
     var file = req.params[0] || '/assets/views/index.html';
     res.sendFile(path.join(__dirname, '../public',file));
-    var role = '';
-    username = '';
-    if (req.user) {
-        role = req.user.role;
-        //console.log(role)
-    }
 
-    res.cookie('userinfo', JSON.stringify({
-        role: role
-    }));
-    console.log(role)
+
 });
 
 module.exports = router;

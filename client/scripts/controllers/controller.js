@@ -1,23 +1,32 @@
 var reveApp = angular.module('reveApp');
 
 
-reveApp.controller("LoginController", ["$scope", "$http", "$location", 'AuthService', '$rootScope', function($scope, $http, $location, AuthService, $rootScope){
+reveApp.controller("LoginController", ["$scope", "$http", "$location", 'AuthService', '$rootScope', '$timeout', function($scope, $http, $location, AuthService, $timeout, $rootScope, immediateCookiesInterceptor){
+
     console.log("Login Controller is working!");
-    console.log('initial login', AuthService.getCurrentUser());
+
 
     $scope.login = function () {
 
         // initial values
         $scope.error = false;
         $scope.disabled = true;
-        console.log($scope.loginForm.username + $scope.loginForm.password);
 
         // call login from service
         AuthService.login($scope.loginForm.username, $scope.loginForm.password)
             // handle success
             .then(function (res) {
-                $location.path('/admin');
-                console.log('login controller role:', AuthService.getCurrentUser());
+                AuthService.getCurrentUser();
+                console.log('initial login', AuthService.getCurrentUser());
+                if (AuthService.getCurrentUser() == 'Teacher'){
+                    $location.path('/teachers')
+                }
+                else if (AuthService.getCurrentUser() == 'Admin') {
+                    $location.path('/admin');
+                }
+                else {
+                    $location.path('/teachers');
+                }
 
                 $scope.disabled = false;
                 $scope.loginForm = {};
@@ -34,9 +43,6 @@ reveApp.controller("LoginController", ["$scope", "$http", "$location", 'AuthServ
     };
 
     $scope.logout = function () {
-
-        console.log(AuthService.getUserStatus());
-
         // call logout from service
         AuthService.logout()
             .then(function () {
