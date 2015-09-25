@@ -135,7 +135,9 @@ a:focus, a:hover{
     border: 1px solid #818181;
     border-radius: 0px;
     text-align: left;
-    width: 100%;
+    /*width: 100%;*/
+    display: block;
+
 }
 
 .login-page, .register-page{
@@ -169,10 +171,6 @@ a:focus, a:hover{
     background-color: #d14414;
 }
 
-
-.school {
-    display: block;
-}
 
 .school-list {
     text-align: left;
