@@ -134,8 +134,6 @@ reveApp.factory('AuthService',
 
 reveApp.run(['$rootScope', '$location', '$route', 'AuthService', function ($rootScope, $location, $route, AuthService) {
     $rootScope.$on('$routeChangeStart', function (event, next, current) {
-        //if (next.access.restricted === true && AuthService.isLoggedIn() === false) {
-        //    $location.path('/login');
         if (!AuthService.authorize(next.security)) {
             if (AuthService.isLoggedIn()) {
                 $location.path('/unauthorized');
