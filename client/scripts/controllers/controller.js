@@ -622,6 +622,14 @@ reveApp.controller("TeacherClassesController", ["$rootScope", "$scope", "$http",
     $scope.sendGrade = function(){
         $http.put('admin-students/gradestudents', $scope.adminStudentsData).success(function() {
                 $scope.getStudents();
+            $scope.successMessage = "You saved it!";
+            $scope.showSuccessMessage = true;
+            $scope.getClasses();
+            setTimeout(function() {
+                $(".alert").fadeTo(1500, 0).slideUp(500, function(){
+                    $scope.showSuccessMessage = false;
+                });
+            }, 3000);
             });
 
     };
