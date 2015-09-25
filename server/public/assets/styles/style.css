@@ -244,6 +244,16 @@ h4  {
     margin-bottom: 15px;
 }
 
+.btn-primary1 {
+    background-color: #d14414;
+    border: black 1px solid;
+    margin-right: 10px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    color: white;
+
+}
+
 .well .button-primary {
     background-color: red;
     border: none;
@@ -252,6 +262,13 @@ h4  {
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
     background-color: #000;
     outline: none;
+}
+
+.btn-primary1:hover, .btn-primary1:focus, .btn-primary1:active {
+    background-color: #000;
+    /*border: #d14414 1px solid;*/
+    outline: #d14414;
+    color: white;
 }
 
 /*.btn-primary:active {*/

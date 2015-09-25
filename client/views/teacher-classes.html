@@ -1,10 +1,17 @@
+<!--The top nav bar-->
+
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid header-top">
         <div class="navbar-header">
             <a class="navbar-brand" href="http://reveacademy.org/"><img src="../assets/images/academylogo_white.png"/></a>
-        </div> <!-- END DIV NAVBAR-HEADER -->
-    </div> <!-- END DIV CONTAINER -->
-</div>  <!-- END NAV DIV -->
+        </div>
+        <div class="search-bar navbar-form navbar-right">
+            <div ng-controller="logoutController">
+                <a ng-click='logout()' class="btn btn-primary1">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <div class="container-fluid teacher-classes-content">
