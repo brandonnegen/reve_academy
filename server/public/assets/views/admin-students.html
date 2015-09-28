@@ -114,7 +114,7 @@
                     </div>
                     <div class="form-group">
                         <label for="classes">Classes</label><br />
-                        <select id="classes" name="classes">
+                        <select id="classes" name="classes" ng-model="adminStudents.classes" >
                             <option value="{{adminClasses.name}}" ng-repeat="adminClasses in adminClassesData">{{adminClasses.name}}</option>
                         </select>
                     </div>
@@ -130,9 +130,16 @@
             <hr>
 
             <div id="someContainer" class="col-xs-12">
+                <div class="form-group">
+                    <label for="name">Classes</label><br />
+                    <select id="name" name="name" ng-model="showadminClasses">
+                        <option value="" selected>All</option>
+                        <option value="{{adminClasses.name}}" ng-repeat="adminClasses in adminClassesData">{{adminClasses.name}}</option>
+                    </select>
+                </div>
                 <div class="alert alert-info" ng-model="editDeleteMessage" ng-if="showEditDeleteMessage">{{editDeleteMessage}}</div>
                 <h4>Student Information</h4>
-                <div class="slide col-md-12 admin-student school well" ng-repeat="adminStudents in adminStudentsData">
+                <div class="slide col-md-12 admin-student school well" ng-repeat="adminStudents in adminStudentsData | filter:showadminClasses">
                     <p class="admin-student-list student-name"><span class = " info-title">Student ID #: </span>{{adminStudents.studentid}}</p>
                     <p class="admin-student-list student-name"><span class = " info-title">Full Name:</span> {{adminStudents.firstname}} {{adminStudents.lastname}}</p>
                     <div  class="my-animation" ng-show="show">
