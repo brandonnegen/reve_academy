@@ -88,21 +88,21 @@
                     </div>
                     </div>
                     <div class="form-group">
-                        <label for="softskillspre" class="heading3">Soft Skills Pre</label>
-                        <div id="softskillspre">
-                        <div class='radio form-control'><label><input class='radio-inline' name='softskillspre' type='radio' value=1 ng-model='adminStudents.softskillspre' /><b>1</b></label></div>
-                        <div class='radio form-control'><label><input class='radio-inline' name='softskillspre' type='radio' value=2 ng-model='adminStudents.softskillspre' /><b>2</b></label></div>
-                        <div class='radio form-control'><label><input class='radio-inline' name='softskillspre' type='radio' value=3 ng-model='adminStudents.softskillspre' /><b>3</b></label></div>
-                        <div class='radio form-control'><label><input class='radio-inline' name='softskillspre' type='radio' value=4 ng-model='adminStudents.softskillspre'  /><b>4</b></label></div>
+                        <label for="softskillspregrade" class="heading3">Soft Skills Pre</label>
+                        <div id="softskillspregrade">
+                        <div class='radio form-control'><label><input class='radio-inline' name='softskillspregrade' type='radio' value=1 ng-model='adminStudents.softskillspregrade' /><b>1</b></label></div>
+                        <div class='radio form-control'><label><input class='radio-inline' name='softskillspregrade' type='radio' value=2 ng-model='adminStudents.softskillspregrade' /><b>2</b></label></div>
+                        <div class='radio form-control'><label><input class='radio-inline' name='softskillspregrade' type='radio' value=3 ng-model='adminStudents.softskillspregrade' /><b>3</b></label></div>
+                        <div class='radio form-control'><label><input class='radio-inline' name='softskillspregrade' type='radio' value=4 ng-model='adminStudents.softskillspregrade'  /><b>4</b></label></div>
                     </div>
                     </div>
                     <div class="form-group">
-                        <label for="softskillspost" class="heading3">Soft Skills Post</label>
-                        <div id="softskillspost">
-                        <div class='radio form-control'><label><input class='radio-inline' name='softskillspost' type='radio' value=1 ng-model='adminStudents.softskillspost' /><b>1</b></label></div>
-                        <div class='radio form-control'><label><input class='radio-inline' name='softskillspost' type='radio' value=2 ng-model='adminStudents.softskillspost'  /><b>2</b></label></div>
-                        <div class='radio form-control'><label><input class='radio-inline' name='softskillspost' type='radio' value=3 ng-model='adminStudents.softskillspost' /><b>3</b></label></div>
-                        <div class='radio form-control'><label><input class='radio-inline' name='softskillspost' type='radio' value=4 ng-model='adminStudents.softskillspost' /><b>4</b></label></div>
+                        <label for="softskillspostgrade" class="heading3">Soft Skills Post</label>
+                        <div id="softskillspostgrade">
+                        <div class='radio form-control'><label><input class='radio-inline' name='softskillspostgrade' type='radio' value=1 ng-model='adminStudents.softskillspostgrade' /><b>1</b></label></div>
+                        <div class='radio form-control'><label><input class='radio-inline' name='softskillspostgrade' type='radio' value=2 ng-model='adminStudents.softskillspostgrade'  /><b>2</b></label></div>
+                        <div class='radio form-control'><label><input class='radio-inline' name='softskillspostgrade' type='radio' value=3 ng-model='adminStudents.softskillspostgrade' /><b>3</b></label></div>
+                        <div class='radio form-control'><label><input class='radio-inline' name='softskillspostgrade' type='radio' value=4 ng-model='adminStudents.softskillspostgrade' /><b>4</b></label></div>
                     </div>
                     </div>
                     <div class="form-group">
@@ -141,15 +141,15 @@
                     <p class="admin-student-list student-gender"><span class = " info-title">Gender: </span>{{adminStudents.gender}}</p>
                     <p class="admin-student-list student-race"><span class = " info-title">Race:</span> {{adminStudents.race}}</p>
                     <p class="admin-student-list student-ethnicity"><span class = " info-title">Ethnicity: </span>{{adminStudents.ethnicity}}</p>
-                    <p class="admin-student-list student-ethnicity"><span class = " info-title">Soft Skills Pre:</span> {{adminStudents.softskillspre}}</p>
-                    <p class="admin-student-list student-ethnicity"><span class = " info-title">Soft Skills Post:</span> {{adminStudents.softskillspost}}</p>
+                    <p class="admin-student-list student-ethnicity"><span class = " info-title">Soft Skills Pre:</span> {{adminStudents.softskillspregrade}}</p>
+                    <p class="admin-student-list student-ethnicity"><span class = " info-title">Soft Skills Post:</span> {{adminStudents.softskillspostgrade}}</p>
                     <p class="admin-student-list student-ethnicity"><span class = " info-title">Class Completion:</span> {{adminStudents.classcompletion}}</p>
                     </div>
 
                     <button class="btn btn-primary" ng-click="show = !show"><span ng-show="show">Less Info</span><span ng-hide="show">More Info</span></button><button ng-click="showStudent=!showStudent" class="btn btn-primary">Edit</button><button ng-click="removeStudent(adminStudents._id)" class="btn btn-primary">Delete</button>
                     <br />
                     <div class="my-animation" ng-show="showStudent">
-                        <form name="form" ng-submit="updateStudent(adminStudents._id, adminStudents.studentid, adminStudents.firstname, adminStudents.lastname, adminStudents.gradelevel, adminStudents.age, adminStudents.gender, adminStudents.race, adminStudents.ethnicity, adminStudents.softskillspre, adminStudents.softskillspost, adminStudents.classcompletion)" method="put">
+                        <form name="form" ng-submit="updateStudent(adminStudents._id, adminStudents.studentid, adminStudents.firstname, adminStudents.lastname, adminStudents.gradelevel, adminStudents.age, adminStudents.gender, adminStudents.race, adminStudents.ethnicity, adminStudents.softskillspregrade, adminStudents.softskillspostgrade, adminStudents.classcompletion)" method="put">
                             <div class="form-group">
                                 <input ng-model="adminStudents.studentid" type="text" name="studentid" id="studentid" class="form-control" placeholder="Student ID #" required />
                             </div>
@@ -203,21 +203,21 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="softskillspre" class="heading3">Soft Skills Pre</label>
-                                <div id="softskillspre">
-                                    <div class='radio form-control'><label><input class='radio-inline' name='softskillspre' type='radio' value=1 ng-model='adminStudents.softskillspre' /><b>1</b></label></div>
-                                    <div class='radio form-control'><label><input class='radio-inline' name='softskillspre' type='radio' value=2 ng-model='adminStudents.softskillspre' /><b>2</b></label></div>
-                                    <div class='radio form-control'><label><input class='radio-inline' name='softskillspre' type='radio' value=3 ng-model='adminStudents.softskillspre' /><b>3</b></label></div>
-                                    <div class='radio form-control'><label><input class='radio-inline' name='softskillspre' type='radio' value=4 ng-model='adminStudents.softskillspre'  /><b>4</b></label></div>
+                                <label for="softskillspregrade" class="heading3">Soft Skills Pre</label>
+                                <div id="softskillspregrade">
+                                    <div class='radio form-control'><label><input class='radio-inline' name='softskillspregrade' type='radio' value=1 ng-model='adminStudents.softskillspregrade' /><b>1</b></label></div>
+                                    <div class='radio form-control'><label><input class='radio-inline' name='softskillspregrade' type='radio' value=2 ng-model='adminStudents.softskillspregrade' /><b>2</b></label></div>
+                                    <div class='radio form-control'><label><input class='radio-inline' name='softskillspregrade' type='radio' value=3 ng-model='adminStudents.softskillspregrade' /><b>3</b></label></div>
+                                    <div class='radio form-control'><label><input class='radio-inline' name='softskillspregrade' type='radio' value=4 ng-model='adminStudents.softskillspregrade'  /><b>4</b></label></div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="softskillspost" class="heading3">Soft Skills Post</label>
-                                <div id="softskillspost">
-                                    <div class='radio form-control'><label><input class='radio-inline' name='softskillspost' type='radio' value=1 ng-model='adminStudents.softskillspost' /><b>1</b></label></div>
-                                    <div class='radio form-control'><label><input class='radio-inline' name='softskillspost' type='radio' value=2 ng-model='adminStudents.softskillspost'  /><b>2</b></label></div>
-                                    <div class='radio form-control'><label><input class='radio-inline' name='softskillspost' type='radio' value=3 ng-model='adminStudents.softskillspost' /><b>3</b></label></div>
-                                    <div class='radio form-control'><label><input class='radio-inline' name='softskillspost' type='radio' value=4 ng-model='adminStudents.softskillspost' /><b>4</b></label></div>
+                                <label for="softskillspostgrade" class="heading3">Soft Skills Post</label>
+                                <div id="softskillspostgrade">
+                                    <div class='radio form-control'><label><input class='radio-inline' name='softskillspostgrade' type='radio' value=1 ng-model='adminStudents.softskillspostgrade' /><b>1</b></label></div>
+                                    <div class='radio form-control'><label><input class='radio-inline' name='softskillspostgrade' type='radio' value=2 ng-model='adminStudents.softskillspostgrade'  /><b>2</b></label></div>
+                                    <div class='radio form-control'><label><input class='radio-inline' name='softskillspostgrade' type='radio' value=3 ng-model='adminStudents.softskillspostgrade' /><b>3</b></label></div>
+                                    <div class='radio form-control'><label><input class='radio-inline' name='softskillspostgrade' type='radio' value=4 ng-model='adminStudents.softskillspostgrade' /><b>4</b></label></div>
                                 </div>
                             </div>
                             <div class="form-group">

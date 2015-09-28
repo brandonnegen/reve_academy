@@ -17,11 +17,11 @@ var StudentSchema = new Schema({
     storyboardgrade: {type: Number},
     websitegrade: {type: Number},
     postassessmentgrade: {type: Number},
-    softskillsprecompletion: {type: String},
+    softskillspregradecompletion: {type: String},
     preassessmentcompletion: {type: String},
     storyboardcompletion: {type: String},
     websitecompletion: {type: String},
-    softskillspostcompletion: {type: String},
+    softskillspostgradecompletion: {type: String},
     postassessmentcompletion: {type: String},
     classcompletion: {type: String}
     //school: [],
