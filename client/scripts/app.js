@@ -24,7 +24,7 @@ reveApp.directive('sameAs', function () {
 reveApp.factory('AuthService',
     ['$q', '$timeout', '$http', '$cookies', '$rootScope',
         function ($q, $timeout, $http, $cookies, $rootScope) {
-            var role ;
+            var role = undefined;
 
             //console.log("AS login role: " + role);
 
@@ -117,6 +117,7 @@ reveApp.factory('AuthService',
                     .success(function (data) {
                         user = false;
                         $cookies.remove('userinfo');
+                        $rootScope.currentUser = undefined;
                         deferred.resolve();
 
                     })
