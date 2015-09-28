@@ -12,13 +12,13 @@ router.get("/getstudents", function(req,res,next){
 });
 
 router.put("/gradestudents", function(req, res, next){
-    Students.findByIdAndUpdate(req.params.id, req.body, {multi:true}, {upsert:true}, function(err, info){
-            console.log("ID", req.params.id);
-            console.log("BODY", req.body);
-            if(err) throw new Error(err);
-            res.send("YES");
-        }
-    );
+    for(i = 0; i < req.body.length; i++){
+        console.log("IDs and whatnot", req.body[i]._id);
+        Students.findByIdAndUpdate(req.body[i]._id, req.body[i], function(err, post){
+            if(err) console.log("ERR: ", err);
+        });
+    }
+    res.send("Grade Post Finished");
 });
 
 router.put("/updatestudents/:id", function(req, res, next){
