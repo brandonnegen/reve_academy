@@ -40,6 +40,7 @@ router.post("/poststudents", function (req, res, next){
         ethnicity: req.body.ethnicity,
         gradelevel: req.body.gradelevel,
         age: req.body.age,
+        classes: req.body.classes,
         softskillspregrade: req.body.softskillspregrade,
         preassessmentgrade: req.body.preassessmentgrade,
         storyboardgrade: req.body.storyboardgrade,

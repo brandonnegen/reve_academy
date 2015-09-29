@@ -478,7 +478,7 @@ reveApp.controller("AdminStudentsController", ["$rootScope", "$scope", "$http", 
     console.log("Admin-Students Controller is working!");
     $scope.$route = $route;
     $scope.adminStudents = {};
-    $scope.adminClassesData = {};
+    $scope.adminClasses = {};
     $scope.getClasses = function(){
         //GET
         $http.get('/admin-classes/getclasses').then(function(response){
@@ -495,7 +495,7 @@ reveApp.controller("AdminStudentsController", ["$rootScope", "$scope", "$http", 
         });
     };
 
-    $scope.updateStudent = function(studentID, studentid, firstname, lastname, gradelevel, age, gender, race, ethnicity, softskillspregrade, softskillspostgrade, classcompletion){
+    $scope.updateStudent = function(studentID, studentid, firstname, lastname, gradelevel, age, gender, race, ethnicity, softskillspregrade, softskillspostgrade, classcompletion, classes){
         return $http.put('/admin-students/updatestudents/' + studentID, {
             studentid: studentid,
             firstname: firstname,
@@ -507,7 +507,8 @@ reveApp.controller("AdminStudentsController", ["$rootScope", "$scope", "$http", 
             ethnicity: ethnicity,
             softskillspregrade: softskillspregrade,
             softskillspostgrade: softskillspostgrade,
-            classcompletion: classcompletion
+            classcompletion: classcompletion,
+            classes: classes
 
         })
             .success(function() {
@@ -535,7 +536,8 @@ reveApp.controller("AdminStudentsController", ["$rootScope", "$scope", "$http", 
             ethnicity: $scope.adminStudents.ethnicity,
             softskillspregrade: $scope.adminStudents.softskillspregrade,
             softskillspostgrade: $scope.adminStudents.softskillspostgrade,
-            classcompletion: $scope.adminStudents.classcompletion
+            classcompletion: $scope.adminStudents.classcompletion,
+            classes: $scope.adminStudents.classes
         })
             .success(function(response) {
                 $scope.adminStudents.studentid = "";
@@ -549,6 +551,7 @@ reveApp.controller("AdminStudentsController", ["$rootScope", "$scope", "$http", 
                 $scope.adminStudents.softskillspregrade = "";
                 $scope.adminStudents.softskillspostgrade = "";
                 $scope.adminStudents.classcompletion = "";
+                $scope.adminStudents.classes = "";
                 $scope.successMessage = "You saved it!";
                 $scope.showSuccessMessage = true;
                 $scope.getStudents();
@@ -715,7 +718,7 @@ reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http"
     console.log("Teacher-Students Controller is working!");
     $scope.$route = $route;
     $scope.adminStudents = [];
-    $scope.adminClasses = {};
+    $scope.adminClassesData = {};
     $scope.getStudents = function(){
         //GET
         $http.get('/admin-students/getstudents').then(function(response){
@@ -742,7 +745,8 @@ reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http"
             ethnicity: $scope.adminStudents.ethnicity,
             softskillspregrade: $scope.adminStudents.softskillspregrade,
             softskillspostgrade: $scope.adminStudents.softskillspostgrade,
-            classcompletion: $scope.adminStudents.classcompletion
+            classcompletion: $scope.adminStudents.classcompletion,
+            classes: $scope.adminStudents.classes
         })
             .success(function(response) {
                 $scope.adminStudents.studentid = "";
@@ -756,6 +760,7 @@ reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http"
                 $scope.adminStudents.softskillspregrade = "";
                 $scope.adminStudents.softskillspostgrade = "";
                 $scope.adminStudents.classcompletion = "";
+                $scope.adminStudents.classes = "";
                 $scope.successMessage = "You saved it!";
                 $scope.showSuccessMessage = true;
                 $scope.getStudents();
@@ -768,7 +773,7 @@ reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http"
 
     };
 
-    $scope.updateStudent = function(studentID, studentid, firstname, lastname, gradelevel, age, gender, race, ethnicity, softskillspregrade, softskillspostgrade, classcompletion){
+    $scope.updateStudent = function(studentID, studentid, firstname, lastname, gradelevel, age, gender, race, ethnicity, softskillspregrade, softskillspostgrade, classcompletion, classes){
         return $http.put('/admin-students/updatestudents/' + studentID, {
             studentid: studentid,
             firstname: firstname,
@@ -780,7 +785,8 @@ reveApp.controller("TeacherStudentsController", ["$rootScope", "$scope", "$http"
             ethnicity: ethnicity,
             softskillspregrade: softskillspregrade,
             softskillspostgrade: softskillspostgrade,
-            classcompletion: classcompletion
+            classcompletion: classcompletion,
+            classes: classes
 
         })
             .success(function() {

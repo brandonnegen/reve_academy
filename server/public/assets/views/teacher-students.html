@@ -111,7 +111,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="classes">Classes</label><br />
-                                <select id="classes" name="classes">
+                                <select id="classes" name="classes" ng-model="adminStudents.classes">
                                     <option value="{{adminClasses.name}}" ng-repeat="adminClasses in adminClassesData">{{adminClasses.name}}</option>
                                 </select>
                             </div>
@@ -153,7 +153,7 @@
                         <button class="btn btn-primary" ng-click="show = !show"><span ng-show="show">Less Info</span><span ng-hide="show">More Info</span></button><button ng-click="showStudent=!showStudent" class="btn btn-primary">Edit</button><button ng-click="removeStudent(adminStudents._id)" class="btn btn-primary">Delete</button>
                         <br />
                         <div class="my-animation" ng-show="showStudent">
-                            <form name="form" ng-submit="updateStudent(adminStudents._id, adminStudents.studentid, adminStudents.firstname, adminStudents.lastname, adminStudents.gradelevel, adminStudents.age, adminStudents.gender, adminStudents.race, adminStudents.ethnicity, adminStudents.softskillspregrade, adminStudents.softskillspostgrade, adminStudents.classcompletion)" method="post">
+                            <form name="form" ng-submit="updateStudent(adminStudents._id, adminStudents.studentid, adminStudents.firstname, adminStudents.lastname, adminStudents.gradelevel, adminStudents.age, adminStudents.gender, adminStudents.race, adminStudents.ethnicity, adminStudents.softskillspregrade, adminStudents.softskillspostgrade, adminStudents.classcompletion, adminStudents.classes)" method="post">
                                 <div class="form-group">
                                     <input ng-model="adminStudents.studentid" type="text" name="studentid" id="studentid" class="form-control" placeholder="Student ID #" required />
                                 </div>
